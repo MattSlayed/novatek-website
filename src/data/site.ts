@@ -26,7 +26,7 @@ export const company = {
   tagline: 'Intelligent Solutions',
   domain: 'novatek.co.za',
   email: 'info@novatek.co.za',
-  phone: '+27 (0) 11 000 0000',
+  phone: '+27 82 680 5571',
   region: 'South Africa',
   timezone: 'Africa/Johannesburg',
   mission:
