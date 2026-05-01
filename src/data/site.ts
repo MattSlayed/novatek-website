@@ -186,22 +186,22 @@ export const values = [
   {
     title: 'Precision',
     description:
-      'Every solution is measured and validated against defined outcomes. No theatre, no vapour.',
+      'Every solution is measured against the outcome you actually need. We work to numbers, not promises.',
   },
   {
     title: 'Partnership',
     description:
-      'We integrate with your team, not replace it. The Human Confirmation Gate is permanent, not a temporary scaffold.',
+      'We integrate with your team, never replace it. Every AI decision goes through a person before anything happens.',
   },
   {
     title: 'Innovation',
     description:
-      'AI-first, but architecture-disciplined. We separate Defensible from Aspirational — and only build what stays standing.',
+      'AI-first, but only where it earns its place. We don\'t ship features that won\'t survive a year.',
   },
   {
     title: 'Integrity',
     description:
-      'BBBEE Level 1, POPIA-native, transparent governance. Every inference carries a citation chain.',
+      'BBBEE Level 1. POPIA compliant. Every answer we give traces back to its source.',
   },
 ] as const
 
