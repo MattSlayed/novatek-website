@@ -2,6 +2,7 @@ import { Hero } from '@/sections/Hero'
 import { Marquee } from '@/sections/Marquee'
 import { About } from '@/sections/About'
 import { Services } from '@/sections/Services'
+import { Integrations } from '@/sections/Integrations'
 import { BusinessBrain } from '@/sections/BusinessBrain'
 import { CaseStudies } from '@/sections/CaseStudies'
 import { Team } from '@/sections/Team'
@@ -16,6 +17,7 @@ export function Home() {
       <Marquee />
       <About />
       <Services />
+      <Integrations />
       <BusinessBrain />
       <CaseStudies />
       <Team />

@@ -10,7 +10,7 @@ export function CaseStudies() {
     <Section id="cases" tone="subtle">
       <Container size="wide">
         <SectionHeader
-          eyebrow="04 / Proven outcomes"
+          eyebrow="05 / Proven outcomes"
           title="Anonymised, but"
           italic="real."
           description="Every case study is a live engagement under NDA. Numbers are direct measurements; client names are withheld. Sectors are accurate."

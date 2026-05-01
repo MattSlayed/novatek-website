@@ -36,7 +36,7 @@ export function BusinessBrain() {
         >
           <div className="lg:col-span-7 flex flex-col gap-6">
             <motion.span variants={fadeUp} className="eyebrow text-cobalt-400">
-              03 / Flagship platform
+              04 / Flagship platform
             </motion.span>
             <motion.h2
               variants={fadeUp}

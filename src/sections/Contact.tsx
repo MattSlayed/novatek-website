@@ -36,7 +36,7 @@ export function Contact() {
         >
           <div className="lg:col-span-5 flex flex-col gap-6">
             <motion.span variants={fadeUp} className="eyebrow">
-              07 / Contact
+              08 / Contact
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-h1 text-navy-500 tracking-tight">
               Let's build something{' '}

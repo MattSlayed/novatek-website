@@ -17,6 +17,13 @@ import {
   MapPin,
   Trash2,
   KeyRound,
+  Mail,
+  Cloud,
+  Calculator,
+  Users,
+  BarChart3,
+  FileSpreadsheet,
+  Plug,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -380,3 +387,65 @@ export const tickerKeywords = [
   'BBBEE Level 1',
   'BusinessBrain',
 ] as const
+
+export type IntegrationCategory = {
+  num: string
+  title: string
+  examples: string
+  icon: LucideIcon
+}
+
+export const integrations: IntegrationCategory[] = [
+  {
+    num: '01',
+    title: 'Microsoft 365',
+    examples: 'Outlook · Teams · SharePoint · OneDrive · Power Platform',
+    icon: Mail,
+  },
+  {
+    num: '02',
+    title: 'AWS cloud',
+    examples: 'S3 · RDS · Lambda · Bedrock (af-south-1)',
+    icon: Cloud,
+  },
+  {
+    num: '03',
+    title: 'ERP & finance',
+    examples: 'SAP · Sage · Pastel · Xero · custom GL systems',
+    icon: Calculator,
+  },
+  {
+    num: '04',
+    title: 'CRM & sales',
+    examples: 'Salesforce · HubSpot · Zoho · Pipedrive',
+    icon: Users,
+  },
+  {
+    num: '05',
+    title: 'Databases',
+    examples: 'Postgres · MS SQL · MySQL · Oracle · pgvector',
+    icon: Database,
+  },
+  {
+    num: '06',
+    title: 'BI & reporting',
+    examples: 'Power BI · Tableau · custom dashboards',
+    icon: BarChart3,
+  },
+  {
+    num: '07',
+    title: 'Spreadsheets & files',
+    examples: 'Excel · CSV · scanned PDFs · email exports',
+    icon: FileSpreadsheet,
+  },
+  {
+    num: '08',
+    title: 'Legacy & custom',
+    examples: 'On-prem systems · internal APIs · decades-old line-of-business apps',
+    icon: Plug,
+  },
+]
+
+export const integrationsQuote =
+  '"Your source systems stay the source of truth. We build a layer on top — one that reads them, learns from them, and proposes. Never replaces."'
+

@@ -12,7 +12,7 @@ export function Compliance() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeader
-              eyebrow="06 / Governance"
+              eyebrow="07 / Governance"
               title="Compliance and"
               italic="data sovereignty."
               description="POPIA-native by construction, not by retrofit. BBBEE Level 1 verified. Data residency in af-south-1, with mTLS across every service boundary."
