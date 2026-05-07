@@ -39,10 +39,7 @@ export function CtaStrip() {
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
-            <LinkButton href="#contact" variant="inverse" size="lg" withArrow>
-              Let's talk
-            </LinkButton>
-            <LinkButton href="/businessbrain" variant="ghost" size="lg" className="!border-white/20 !text-white hover:!border-white hover:!text-white">
+            <LinkButton href="/businessbrain" variant="ghost" size="lg" withArrow className="!border-white/20 !text-white hover:!border-white hover:!text-white">
               Read the BusinessBrain brief
             </LinkButton>
           </div>

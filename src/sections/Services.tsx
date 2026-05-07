@@ -6,7 +6,7 @@ import { services } from '@/data/site'
 
 export function Services() {
   return (
-    <Section id="services" tone="canvas">
+    <Section id="services" tone="canvas" className="pt-[clamp(2rem,1rem+3vw,4rem)]">
       <Container size="wide">
         <SectionHeader
           eyebrow="02 / What we do"
