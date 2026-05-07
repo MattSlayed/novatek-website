@@ -100,13 +100,6 @@ export function BusinessBrain() {
                 </li>
               ))}
             </ol>
-            <div className="text-xs text-white/40 mt-1 flex items-center gap-2">
-              <span
-                className="inline-block h-2 w-2 rounded-full bg-amber"
-                aria-hidden="true"
-              />
-              Amber edges denote provenance-carrying flows.
-            </div>
           </motion.div>
         </motion.div>
 

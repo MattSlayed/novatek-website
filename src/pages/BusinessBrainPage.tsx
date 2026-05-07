@@ -176,13 +176,6 @@ export function BusinessBrainPage() {
                 seam to authoritative sources. Reads traverse freely. Writes always pass through
                 the human confirmation gate.
               </motion.p>
-              <motion.div
-                variants={fadeUp}
-                className="mt-6 flex items-center gap-2 text-xs text-white/60 font-mono"
-              >
-                <span className="inline-block h-2 w-2 rounded-full bg-amber" aria-hidden="true" />
-                Amber edges denote provenance-carrying flows.
-              </motion.div>
             </div>
 
             <motion.ol
