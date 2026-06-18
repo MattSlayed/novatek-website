@@ -46,7 +46,7 @@
     font-weight: 600;
   }
 
-  /* Focus rings — never remove, only restyle */
+  /* Focus rings - never remove, only restyle */
   :focus-visible {
     outline: 2px solid theme('colors.cobalt.600');
     outline-offset: 2px;
@@ -77,7 +77,7 @@
     pointer-events: none;
   }
 
-  /* Eyebrow micro label — used above section titles */
+  /* Eyebrow micro label - used above section titles */
   .eyebrow {
     @apply text-micro font-mono uppercase font-medium text-cobalt-600;
   }
@@ -87,7 +87,7 @@
     @apply text-micro font-mono text-cobalt-600 tabular-numerals;
   }
 
-  /* Card surface — minimal by default */
+  /* Card surface - minimal by default */
   .card-surface {
     @apply bg-white border border-slate-200 rounded-lg transition-all duration-200 ease-out-quart;
   }

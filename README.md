@@ -1,6 +1,6 @@
 # NOVATEK Website
 
-Marketing site for **NOVATEK&reg; LLC** — a South African AI and data consultancy. Built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion. Deploys to Cloudflare Pages via GitHub.
+Marketing site for **NOVATEK&reg; LLC** - a South African AI and data consultancy. Built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion. Deploys to Cloudflare Pages via GitHub.
 
 ## Stack
 
@@ -17,7 +17,7 @@ Marketing site for **NOVATEK&reg; LLC** — a South African AI and data consulta
 ## Local development
 
 > [!IMPORTANT]
-> **OneDrive note** — if this folder lives inside OneDrive, exclude `node_modules/` from sync. OneDrive's file-locking can corrupt large dependency trees. Either move the project outside OneDrive, or right-click `node_modules` after install → "Free up space" / "Always keep on this device" → unselect, and turn off sync for that folder.
+> **OneDrive note** - if this folder lives inside OneDrive, exclude `node_modules/` from sync. OneDrive's file-locking can corrupt large dependency trees. Either move the project outside OneDrive, or right-click `node_modules` after install → "Free up space" / "Always keep on this device" → unselect, and turn off sync for that folder.
 
 ```bash
 # 1. Install dependencies (first time only)
@@ -84,13 +84,13 @@ novatek-website/
 
 ## Editing content
 
-All site copy, stats, services, case studies, and capabilities live in **`src/data/site.ts`**. Edit there — not in section components. Stats and case-study metrics are validated against `PROJECT.md` v1.0 and the BusinessBrain Feasibility Review v1.4 (NVT-BB-CFR-001).
+All site copy, stats, services, case studies, and capabilities live in **`src/data/site.ts`**. Edit there - not in section components. Stats and case-study metrics are validated against `PROJECT.md` v1.0 and the BusinessBrain Feasibility Review v1.4 (NVT-BB-CFR-001).
 
 ## Brand discipline
 
-- **Colors:** `tailwind.config.ts` mirrors `brand.css`. Never use `#000` — use `navy.500` or `charcoal`. Cobalt is an accent, not a fill.
+- **Colors:** `tailwind.config.ts` mirrors `brand.css`. Never use `#000` - use `navy.500` or `charcoal`. Cobalt is an accent, not a fill.
 - **Logo:** `<Logo />` renders the SVG N-mark + wordmark with `gradient | navy | cobalt | white` variants. The `™ ®` symbol is included automatically.
-- **Motion:** Restrained — tween + `ease.out` only. No springs. See `src/lib/motion.ts`.
+- **Motion:** Restrained - tween + `ease.out` only. No springs. See `src/lib/motion.ts`.
 - **Accessibility:** WCAG 2.1 AA. Don't remove focus rings; respect `prefers-reduced-motion`.
 
 ## Deploying to Cloudflare Pages
@@ -119,11 +119,11 @@ In the Pages project → **Custom domains** → add `novatek.co.za`. Cloudflare 
 The first commit is created locally without pushing. To publish:
 
 ```bash
-# Option A — with the GitHub CLI
+# Option A - with the GitHub CLI
 gh auth login                                     # if you haven't already
 gh repo create novatek-website --public --source . --remote origin --push
 
-# Option B — manually
+# Option B - manually
 # 1) Create an empty repo at https://github.com/new (DON'T initialize with README)
 # 2) Then:
 git remote add origin git@github.com:YOUR_USERNAME/novatek-website.git
