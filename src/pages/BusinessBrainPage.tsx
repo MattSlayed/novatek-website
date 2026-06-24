@@ -11,12 +11,18 @@ import {
   businessBrainQuotes,
 } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport, wordReveal } from '@/lib/motion'
+import { Seo } from '@/components/Seo'
 
 const headline = ['Institutional', 'memory.', 'Engineered.']
 
 export function BusinessBrainPage() {
   return (
     <>
+      <Seo
+        title="BusinessBrain - Institutional Memory, Engineered | NOVATEK®"
+        description="BusinessBrain: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, AWS and Postgres systems."
+        path="/businessbrain"
+      />
       {/* Hero */}
       <section className="relative isolate overflow-hidden pt-28 pb-[clamp(4rem,2rem+8vw,8rem)] md:pt-36 bg-gradient-to-b from-slate-50 via-white to-white">
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-dots opacity-[0.06]" />

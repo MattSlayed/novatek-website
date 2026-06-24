@@ -9,10 +9,16 @@ import { Team } from '@/sections/Team'
 import { Compliance } from '@/sections/Compliance'
 import { CtaStrip } from '@/sections/CtaStrip'
 import { Contact } from '@/sections/Contact'
+import { Seo } from '@/components/Seo'
 
 export function Home() {
   return (
     <>
+      <Seo
+        title="NOVATEK® - Intelligent Solutions for South African Enterprise"
+        description="South African AI and data consultancy turning fragmented operational knowledge into measurable institutional intelligence. POPIA-native, BBBEE Level 1."
+        path="/"
+      />
       <Hero />
       <Marquee />
       <About />
