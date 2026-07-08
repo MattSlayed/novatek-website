@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "novatek-website",
+  // Must match the Worker connected in the Cloudflare dashboard, not the repo name.
+  "name": "novatekllc",
   "compatibility_date": "2026-07-08",
   // Assets-only Worker: no `main` entry point, Cloudflare serves ./dist directly.
   // `_headers` lives in public/ and is copied into dist/ by Vite; Workers reads it there.
