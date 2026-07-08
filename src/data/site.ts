@@ -7,7 +7,7 @@ import {
   LineChart,
   Database,
   Workflow,
-  Globe,
+  Gauge,
   Compass,
   Network,
   ShieldCheck,
@@ -91,11 +91,11 @@ export const services: Service[] = [
   },
   {
     num: '05',
-    title: 'Web Development',
+    title: 'Business Process Enhancement',
     description:
-      'Corporate websites, reporting portals, and internal tools built with modern web technologies. Brand-disciplined, accessible, fast.',
-    icon: Globe,
-    bullets: ['React + Vite', 'Cloudflare-native delivery', 'WCAG AA accessibility'],
+      'Continuous measurement and refinement of how operational work actually gets done. We baseline the process, intervene where the waste is, and measure the delta — improvement you can evidence, not assert.',
+    icon: Gauge,
+    bullets: ['Baseline & KPI definition', 'Lean waste elimination', 'Measured improvement cycles'],
   },
   {
     num: '06',
