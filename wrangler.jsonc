@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Must match the Worker connected in the Cloudflare dashboard, not the repo name.
+  "name": "novatekllc",
+  "compatibility_date": "2026-07-08",
+  // Assets-only Worker: no `main` entry point, Cloudflare serves ./dist directly.
+  // `_headers` lives in public/ and is copied into dist/ by Vite; Workers reads it there.
+  "assets": {
+    "directory": "./dist",
+    // Unmatched paths serve index.html with 200 so React Router can handle them.
+    // This replaces the Pages-era `/* /index.html 200` rule in public/_redirects.
+    "not_found_handling": "single-page-application"
+  }
+}
