@@ -14,7 +14,7 @@ export function Contact() {
   const [message, setMessage] = useState('')
 
   // Mailto fallback — works on any host with no backend.
-  // Cloudflare Pages Functions can be added later at /functions/api/contact.ts to handle direct submits.
+  // A Worker entry point can be added later (set `main` in wrangler.jsonc) to handle direct submits.
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const subject = encodeURIComponent(`Enquiry from ${name || 'NOVATEK website'}`)

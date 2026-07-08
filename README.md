@@ -1,6 +1,6 @@
 # NOVATEK Website
 
-Marketing site for **NOVATEK&reg; LLC** - a South African AI and data consultancy. Built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion. Deploys to Cloudflare Pages via GitHub.
+Marketing site for **NOVATEK&reg; LLC** - a South African AI and data consultancy. Built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion. Deploys to Cloudflare Workers (static assets) via GitHub.
 
 ## Stack
 
@@ -12,7 +12,7 @@ Marketing site for **NOVATEK&reg; LLC** - a South African AI and data consultanc
 | Styling | Tailwind CSS 3 (brand tokens in `tailwind.config.ts`) |
 | Motion | Framer Motion 11 |
 | Icons | lucide-react |
-| Hosting | Cloudflare Pages (static SPA) |
+| Hosting | Cloudflare Workers static assets (static SPA) |
 
 ## Local development
 
@@ -42,7 +42,6 @@ npm run typecheck
 novatek-website/
 ├── public/                    # Static assets served as-is
 │   ├── favicon.svg            # Brand favicon (gradient N-mark)
-│   ├── _redirects             # Cloudflare Pages SPA fallback
 │   ├── _headers               # Security + cache headers
 │   ├── robots.txt
 │   └── sitemap.xml
@@ -93,26 +92,35 @@ All site copy, stats, services, case studies, and capabilities live in **`src/da
 - **Motion:** Restrained - tween + `ease.out` only. No springs. See `src/lib/motion.ts`.
 - **Accessibility:** WCAG 2.1 AA. Don't remove focus rings; respect `prefers-reduced-motion`.
 
-## Deploying to Cloudflare Pages
+## Deploying to Cloudflare Workers
+
+Deployment is driven by `wrangler.jsonc`, which declares this as an **assets-only Worker**: there is no `main` entry point, so Cloudflare serves `./dist` directly.
+
+`not_found_handling: "single-page-application"` makes any unmatched path serve `index.html` with a `200`, so React Router can take over. This replaces the Pages-era `/* /index.html 200` rule that used to live in `public/_redirects`.
+
+`public/_headers` ships security + cache defaults; Vite copies it into `dist/`, where Workers reads it.
 
 ### One-time setup
 
 1. Push this repo to GitHub (see *Git setup* below).
-2. In the Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
+2. In the Cloudflare dashboard → **Workers & Pages** → **Create** → **Workers** → **Connect to Git**.
 3. Select the `novatek-website` repository.
 4. **Build settings:**
-   - **Framework preset:** `Vite`
    - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
+   - **Deploy command:** `npx wrangler deploy` (production branch) / `npx wrangler versions upload` (preview branches)
    - **Root directory:** `/` (default)
-   - **Node version:** `20` (set `NODE_VERSION=20` in env vars)
-5. Save and deploy.
 
-`public/_redirects` ensures SPA routing works on Pages. `public/_headers` ships sensible security + cache defaults.
+The `name` field in `wrangler.jsonc` must match the Worker in your dashboard, or uploads will target the wrong Worker.
+
+### Validating deploy config locally
+
+```bash
+npx wrangler deploy --dry-run    # validates wrangler.jsonc + resolves ./dist, uploads nothing
+```
 
 ### Custom domain
 
-In the Pages project → **Custom domains** → add `novatek.co.za`. Cloudflare handles DNS automatically if your domain is on Cloudflare; otherwise add the CNAME they show you.
+In the Worker → **Settings** → **Domains & Routes** → add `novatek.co.za`. Cloudflare handles DNS automatically if your domain is on Cloudflare; otherwise add the CNAME they show you.
 
 ## Git setup
 
