@@ -8,6 +8,10 @@ import {
   Database,
   Workflow,
   Compass,
+  ClipboardCheck,
+  FileSearch,
+  Cpu,
+  ScanEye,
   HardHat,
   GraduationCap,
   Network,
@@ -153,6 +157,84 @@ export const services: Service[] = [
       'Artisan training programmes, TVET workplace partnerships, AI workspace upskilling and leadership development for engineering teams. Capability that stays with your people after we leave.',
     icon: GraduationCap,
     bullets: ['Artisan and TVET partnerships', 'AI workspace upskilling', 'Engineering leadership development'],
+  },
+]
+
+export type PlatformMaturity =
+  | 'In production'
+  | 'In client delivery'
+  | 'MVP · design-partner stage'
+  | 'Proof of concept'
+
+export type Platform = {
+  num: string
+  name: string
+  /** Expanded name where the short name is an acronym. */
+  expanded?: string
+  maturity: PlatformMaturity
+  flagship?: boolean
+  description: string
+  bullets: string[]
+  icon: LucideIcon
+  /** Internal route, for platforms that have a deep page. */
+  href?: string
+}
+
+// Business Plan v3.0 section 3.2. Maturity is published deliberately: two of
+// these five are not finished, and saying so is cheaper than being found out.
+export const platforms: Platform[] = [
+  {
+    num: '01',
+    name: 'IQMS',
+    expanded: 'Intelligent Quality Management System',
+    maturity: 'MVP · design-partner stage',
+    description:
+      'An AI-native quality management system for ISO 9001. The first major revision of the standard since 2015 is targeted for publication in September 2026, opening a roughly three-year transition window for a certified base of more than one million organisations worldwide. New mandatory areas, including quality culture and ethics, restructured risk and integrated climate considerations, will drive gap analyses and tooling decisions. IQMS is being built to reach general availability ahead of that wave.',
+    bullets: ['ISO 9001 gap analysis', 'Per-tenant SA hosting', 'Targeting GA ahead of the window'],
+    icon: ClipboardCheck,
+  },
+  {
+    num: '02',
+    name: 'BusinessBrain',
+    maturity: 'In production',
+    flagship: true,
+    description:
+      'An operations intelligence platform: email and multi-document intelligence, executive dashboards and automated risk detection, built on agentic graph RAG. Proven in production in a national power utility environment. A system of insight, never a system of record.',
+    bullets: [
+      'Property-graph institutional memory',
+      'Human confirmation gate on every write',
+      'Provenance on every inference',
+    ],
+    icon: Network,
+    href: '/businessbrain',
+  },
+  {
+    num: '03',
+    name: 'AI Contract Analyst',
+    maturity: 'In client delivery',
+    description:
+      'Productised NEC contract review. More than 100 pre-built analytical modules cut review time from 15-20 hours to 3-5 hours per document, with risk categorised across eight defined categories. A local-content compliance module automates SBD 6.2 declarations, SANS 1286 verification and bill-of-materials provenance. That is the document-and-evidence problem South Africa’s 70% local-content designation creates for every industrial supplier, and no equipment manufacturer sells against it.',
+    bullets: ['NEC3 / NEC4 lifecycle', '8-category risk taxonomy', 'SBD 6.2 · SANS 1286 · BoM provenance'],
+    icon: FileSearch,
+  },
+  {
+    num: '04',
+    name: 'AI Harness Technology',
+    maturity: 'In production',
+    description:
+      'Structured agentic delivery environments that give AI agents governed access to tools, documents and operational data, with defined workflows and quality gates. This is the engineering backbone behind the AI Contract Analyst and BusinessBrain. It is what makes the automation repeatable and auditable rather than one-off prompting.',
+    bullets: ['Governed tool access', 'Defined workflows and quality gates', 'Auditable, repeatable delivery'],
+    icon: Cpu,
+  },
+  {
+    num: '05',
+    name: 'IPV',
+    expanded: 'Immersive Plant Virtualisation',
+    maturity: 'Proof of concept',
+    description:
+      'A browser-based digital twin of the plant a client actually has. A photoreal, walkable reconstruction opens on any laptop, tablet or headset, with the operation’s knowledge graph overlaid on every asset: pump, valve and vessel maintenance history, open deviations, governing SOPs and the next service date. Each fact is cited to its source record. No game engine, no per-seat licensing, no specialist hardware. Leadership inspects without travelling, and contractors scope against what is installed rather than against a drawing.',
+    bullets: ['Walkable plant reconstruction', 'Knowledge graph on every asset', 'Cited to source records'],
+    icon: ScanEye,
   },
 ]
 
@@ -450,6 +532,7 @@ export const homeSections = [
   { id: 'about', label: 'Who we are' },
   { id: 'services', label: 'What we do' },
   { id: 'integrations', label: 'Built on what you have' },
+  { id: 'platforms', label: 'What we build' },
   { id: 'businessbrain', label: 'Flagship platform' },
   { id: 'cases', label: 'Proven outcomes' },
   { id: 'team', label: 'Our team' },
