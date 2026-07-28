@@ -700,6 +700,7 @@ export const homeSections = [
   { id: 'cases', label: 'Proven outcomes' },
   { id: 'team', label: 'Our team' },
   { id: 'compliance', label: 'Governance' },
+  { id: 'faq', label: 'Common questions' },
   { id: 'contact', label: 'Contact' },
 ] as const
 
@@ -709,6 +710,39 @@ export function eyebrowFor(id: HomeSectionId): string {
   const i = homeSections.findIndex((s) => s.id === id)
   return `${String(i + 1).padStart(2, '0')} / ${homeSections[i].label}`
 }
+
+export type Faq = { q: string; a: string }
+
+// These are mirrored verbatim into the FAQPage JSON-LD in index.html. Google's
+// structured-data policy requires FAQ markup to match content the user can
+// actually see, so the two must be edited together, and the accordion below
+// keeps every answer in the DOM even when collapsed.
+export const faqs: Faq[] = [
+  {
+    q: 'What does NOVATEK do?',
+    a: 'NOVATEK is a South African AI, data and operations-intelligence consultancy. We turn fragmented operational knowledge into measurable institutional intelligence for mid-market industrial enterprises across power generation, heavy engineering, mining services and fabrication. We are POPIA-native and B-BBEE Level 1.',
+  },
+  {
+    q: 'Who does NOVATEK serve?',
+    a: 'South African industrial enterprises of roughly 50 to 500 employees with small in-house IT teams: valves, pumps, fabrication, mining services and construction, plus power generation and the Just Energy Transition. We also serve B-BBEE-conscious procurement across government, SOEs and large enterprise, and deliver into SADC from an active Botswana engagement.',
+  },
+  {
+    q: 'Where is our data stored, and does anything leave South Africa?',
+    a: 'Client data is stored in South Africa on in-country infrastructure, and routine processing runs in-region. You remain the data owner; we operate as a processor. Role-based access control and encryption are standard, with mTLS between services and a full audit trail on every tool call. Some frontier AI models are not yet hosted in South Africa. Where a workload requires one, that cross-border processing is disclosed explicitly and scoped in writing before it runs. We do not obscure it.',
+  },
+  {
+    q: 'Does the AI make decisions automatically?',
+    a: 'No. Every write action passes through a mandatory human confirmation gate, so no black-box AI acts on your behalf. Reads traverse freely; writes always require human consent. Human review is also mandatory on all AI-generated contract analysis.',
+  },
+  {
+    q: 'What is NOVAFLOW, and why does a software company run a pump division?',
+    a: 'NOVAFLOW is NOVATEK’s flow-assets division: brand-agnostic service, repair, reliability and spares for pumps and valves, with an agentic AI layer built in. It exists because our software is only as defensible as the industrial record it is correct about, and that record is earned in the workshop rather than licensed. It is an internal division, not a separate company or joint venture, and it is self-funded. It holds no equipment distributorship or agency, does not import or stock equipment, and does not compete with the clients it serves.',
+  },
+  {
+    q: 'What technology does NOVATEK build on?',
+    a: 'Tool-using agent constellations on the Claude Agent SDK, with LangGraph and CrewAI as portable fallbacks, a Neo4j property-graph backbone with pgvector retrieval, and a Model Context Protocol integration fleet over Microsoft 365, Google Cloud and Postgres. Every inference carries a citation chain to an authoritative source record.',
+  },
+]
 
 export type NavLink = {
   label: string

@@ -9,6 +9,7 @@ import { Novaflow } from '@/sections/Novaflow'
 import { CaseStudies } from '@/sections/CaseStudies'
 import { Team } from '@/sections/Team'
 import { Compliance } from '@/sections/Compliance'
+import { Faq } from '@/sections/Faq'
 import { CtaStrip } from '@/sections/CtaStrip'
 import { Contact } from '@/sections/Contact'
 import { Seo } from '@/components/Seo'
@@ -32,6 +33,7 @@ export function Home() {
       <CaseStudies />
       <Team />
       <Compliance />
+      <Faq />
       <CtaStrip />
       <Contact />
     </>
