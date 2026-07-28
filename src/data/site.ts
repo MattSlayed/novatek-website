@@ -708,12 +708,22 @@ export function eyebrowFor(id: HomeSectionId): string {
   return `${String(i + 1).padStart(2, '0')} / ${homeSections[i].label}`
 }
 
-export const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'BusinessBrain', href: '#businessbrain' },
-  { label: 'Case studies', href: '#cases' },
-  { label: 'Compliance', href: '#compliance' },
+export type NavLink = {
+  label: string
+  /** '#anchor' when kind is 'anchor'; a '/route' path when kind is 'route'. */
+  href: string
+  kind: 'anchor' | 'route'
+}
+
+// `kind` is load-bearing, not decorative: Nav and Footer previously templated
+// every href as `/${href}`, which mangles a real route path.
+export const navLinks: readonly NavLink[] = [
+  { label: 'About', href: '#about', kind: 'anchor' },
+  { label: 'Services', href: '#services', kind: 'anchor' },
+  { label: 'Platforms', href: '#platforms', kind: 'anchor' },
+  { label: 'NOVAFLOW', href: '/novaflow', kind: 'route' },
+  { label: 'Case studies', href: '#cases', kind: 'anchor' },
+  { label: 'Compliance', href: '#compliance', kind: 'anchor' },
 ] as const
 
 export const tickerKeywords = [

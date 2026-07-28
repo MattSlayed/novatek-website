@@ -50,12 +50,21 @@ export function Footer() {
             <ul className="flex flex-col gap-2 text-sm">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={`/${l.href}`}
-                    className="text-white/80 hover:text-cobalt-400 transition-colors"
-                  >
-                    {l.label}
-                  </a>
+                  {l.kind === 'route' ? (
+                    <Link
+                      to={l.href}
+                      className="text-white/80 hover:text-cobalt-400 transition-colors"
+                    >
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={`/${l.href}`}
+                      className="text-white/80 hover:text-cobalt-400 transition-colors"
+                    >
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
               <li>

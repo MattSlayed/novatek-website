@@ -59,17 +59,27 @@ export function Nav() {
             <Logo variant="gradient" size="md" />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={onRoot ? link.href : `/${link.href}`}
-                onClick={handleAnchor(link.href)}
-                className="text-sm font-medium text-charcoal/80 hover:text-cobalt-600 transition-colors duration-150"
-              >
-                {link.label}
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
+            {navLinks.map((link) =>
+              link.kind === 'route' ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-charcoal/80 hover:text-cobalt-600 transition-colors duration-150"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={onRoot ? link.href : `/${link.href}`}
+                  onClick={handleAnchor(link.href)}
+                  className="text-sm font-medium text-charcoal/80 hover:text-cobalt-600 transition-colors duration-150"
+                >
+                  {link.label}
+                </a>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center gap-3">
@@ -110,23 +120,34 @@ export function Nav() {
             className="lg:hidden overflow-hidden border-t border-slate-200 bg-white"
           >
             <Container size="wide" className="py-4 flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={onRoot ? link.href : `/${link.href}`}
-                  onClick={(e) => {
-                    if (!onRoot) {
-                      navigate('/' + link.href)
-                      setOpen(false)
-                      return
-                    }
-                    handleAnchor(link.href)(e)
-                  }}
-                  className="px-3 py-3 text-base font-medium text-charcoal hover:bg-slate-50 rounded-md"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.kind === 'route' ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setOpen(false)}
+                    className="px-3 py-3 text-base font-medium text-charcoal hover:bg-slate-50 rounded-md"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={onRoot ? link.href : `/${link.href}`}
+                    onClick={(e) => {
+                      if (!onRoot) {
+                        navigate('/' + link.href)
+                        setOpen(false)
+                        return
+                      }
+                      handleAnchor(link.href)(e)
+                    }}
+                    className="px-3 py-3 text-base font-medium text-charcoal hover:bg-slate-50 rounded-md"
+                  >
+                    {link.label}
+                  </a>
+                ),
+              )}
               <a
                 href={onRoot ? '#contact' : '/#contact'}
                 onClick={(e) => onRoot && handleAnchor('#contact')(e)}
