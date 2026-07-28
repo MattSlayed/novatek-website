@@ -120,7 +120,7 @@ npx wrangler deploy --dry-run    # validates wrangler.jsonc + resolves ./dist, u
 
 ### Custom domain
 
-In the Worker → **Settings** → **Domains & Routes** → add `novatek.co.za`. Cloudflare handles DNS automatically if your domain is on Cloudflare; otherwise add the CNAME they show you.
+In the Worker → **Settings** → **Domains & Routes** → add `novatekllc.co.za`. Cloudflare handles DNS automatically if your domain is on Cloudflare; otherwise add the CNAME they show you.
 
 ## Git setup
 
