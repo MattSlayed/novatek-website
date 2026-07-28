@@ -20,7 +20,7 @@ export function BusinessBrainPage() {
     <>
       <Seo
         title="BusinessBrain - Institutional Memory, Engineered | NOVATEK®"
-        description="BusinessBrain: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, AWS and Postgres systems."
+        description="BusinessBrain: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, Google Cloud and Postgres systems."
         path="/businessbrain"
       />
       {/* Hero */}
@@ -85,7 +85,7 @@ export function BusinessBrainPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-body-lg text-charcoal/85 max-w-2xl leading-relaxed"
               >
-                A retrieval-and-reasoning layer that sits over your existing Microsoft 365, AWS,
+                A retrieval-and-reasoning layer that sits over your existing Microsoft 365, Google Cloud,
                 and Postgres systems and turns fragmented company knowledge into one connected,
                 queryable brain. <strong className="font-semibold text-navy-500">
                   System of insight, never system of record.
@@ -314,7 +314,7 @@ export function BusinessBrainPage() {
                   tone: 'bg-cobalt-50 border-cobalt-200 text-cobalt-700',
                   items: [
                     'POPIA-native provenance — citation chains by construction',
-                    'af-south-1-first data residency (Bedrock Cape Town · Neo4j Aura Africa)',
+                    'South African data residency by default: client data stored in-country, routine processing in-region, and any cross-border inference for frontier models disclosed explicitly',
                     'Load-shedding-resilient by design — degraded-mode is an operating assumption',
                     'Human Confirmation Gate is permanent, not a temporary scaffold',
                     'Source systems remain authoritative — BusinessBrain reads and proposes, never the truth',

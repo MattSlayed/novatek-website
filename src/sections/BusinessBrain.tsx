@@ -53,7 +53,7 @@ export function BusinessBrain() {
             >
               "The graph is the memory. The agents are the interface. MCP is the
               integration seam." A retrieval-and-reasoning layer over your existing
-              Microsoft 365, AWS, and Postgres systems — not a new system of record.
+              Microsoft 365, Google Cloud, and Postgres systems — not a new system of record.
             </motion.blockquote>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mt-2">
               <LinkButton

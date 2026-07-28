@@ -145,4 +145,4 @@ This site supersedes the prior pure-HTML/CSS/JS draft (v1.2) and the print-first
 
 ---
 
-© NOVATEK LLC. BBBEE Level 1 · POPIA compliant · af-south-1.
+© NOVATEK LLC (Pty) Ltd. B-BBEE Level 1 · POPIA compliant · Data stored in South Africa.

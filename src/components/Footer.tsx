@@ -115,7 +115,7 @@ export function Footer() {
             </span>
             <span className="inline-flex items-center gap-2">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-cobalt-400" />
-              af-south-1
+              Data stored in South Africa
             </span>
           </div>
         </div>

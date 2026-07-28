@@ -17,6 +17,8 @@ import {
   MapPin,
   Trash2,
   KeyRound,
+  Server,
+  Globe,
   Mail,
   Cloud,
   Calculator,
@@ -88,7 +90,7 @@ export const services: Service[] = [
     description:
       'Workflow automation with n8n and Python that eliminate manual handoffs and free skilled staff for high-value work. Always with a human confirmation gate on writes.',
     icon: Workflow,
-    bullets: ['n8n / Python workflows', 'Human-in-the-loop guardrails', 'M365 + AWS integrations'],
+    bullets: ['n8n / Python workflows', 'Human-in-the-loop guardrails', 'M365 + Google Cloud integrations'],
   },
   {
     num: '05',
@@ -253,7 +255,7 @@ export const businessBrainCapabilities: BusinessBrainCapability[] = [
     num: '05',
     title: 'MCP integration fleet',
     description:
-      'Per-source MCP servers (ms-graph, aws-s3, aws-rds, pg, graph) — each holding only its own scoped credentials. Replace v2 with v3 without touching agent logic.',
+      'Per-source MCP servers (ms-graph, object-store, sql-readonly, pg, graph) — each holding only its own scoped credentials. Replace v2 with v3 without touching agent logic.',
     icon: Database,
   },
   {
@@ -293,12 +295,12 @@ export const businessBrainTiers = [
   {
     label: 'MCP integration seam',
     sub: 'Typed tool surfaces · mTLS · scoped tokens',
-    detail: 'ms-graph · aws-s3 · aws-rds · pg-readonly · pg-write · graph',
+    detail: 'ms-graph · object-store · sql-readonly · pg-readonly · pg-write · graph',
   },
   {
     label: 'Authoritative sources',
     sub: 'Source systems remain truth',
-    detail: 'Microsoft Graph · AWS S3 (af-south-1) · RDS Postgres · client LOB databases',
+    detail: 'Microsoft Graph · Google Cloud Storage · Postgres · client LOB databases',
   },
 ] as const
 
@@ -345,26 +347,45 @@ export const compliance = [
   },
 ] as const
 
+// Mirrors the Values sentence in Business Plan v3.0 section 2, clause by clause.
+// The broader "stored and processed in South Africa" wording is deliberately NOT
+// used - it was retracted by the company as unsupportable for frontier-model
+// inference. Do not reintroduce it.
 export const governancePillars = [
   {
     title: 'Data ownership',
-    description: 'You own your data. We operate as a processor, never the owner.',
+    description:
+      'You remain the owner of your data. We operate as a processor, under your instruction and on your mandate.',
     icon: KeyRound,
   },
   {
-    title: 'In-country residency',
-    description: 'Data processed in af-south-1. No offshore transfers without explicit consent.',
+    title: 'In-country storage',
+    description:
+      'Client data is stored in South Africa, on in-country infrastructure.',
     icon: MapPin,
+  },
+  {
+    title: 'In-region processing',
+    description:
+      'Routine processing runs in-region. Where a workload moves, it moves deliberately and on the record.',
+    icon: Server,
+  },
+  {
+    title: 'Disclosed cross-border inference',
+    description:
+      'Some frontier AI models are not yet hosted in South Africa. Where a workload requires one, that cross-border processing is disclosed explicitly and scoped in writing before it runs. We do not obscure it.',
+    icon: Globe,
+  },
+  {
+    title: 'Access control and encryption',
+    description:
+      'Role-based access control and encryption are standard, with mTLS between services and a full audit trail on every tool call.',
+    icon: Eye,
   },
   {
     title: 'Secure deletion',
     description: 'Certified data destruction on project closure or contract termination.',
     icon: Trash2,
-  },
-  {
-    title: 'Access control',
-    description: 'Role-based access, mTLS between services, full audit trails on every tool call.',
-    icon: Eye,
   },
 ] as const
 
@@ -384,7 +405,7 @@ export const tickerKeywords = [
   'NEC Contract Analysis',
   'Knowledge Graphs',
   'POPIA-Native',
-  'af-south-1',
+  'Data stored in South Africa',
   'BBBEE Level 1',
   'BusinessBrain',
 ] as const
@@ -405,8 +426,8 @@ export const integrations: IntegrationCategory[] = [
   },
   {
     num: '02',
-    title: 'AWS cloud',
-    examples: 'S3 · RDS · Lambda · Bedrock (af-south-1)',
+    title: 'Google Cloud',
+    examples: 'Cloud Storage · Cloud SQL · Cloud Run · BigQuery',
     icon: Cloud,
   },
   {

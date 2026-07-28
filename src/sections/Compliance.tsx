@@ -15,7 +15,7 @@ export function Compliance() {
               eyebrow="07 / Governance"
               title="Compliance and"
               italic="data sovereignty."
-              description="POPIA-native by construction, not by retrofit. BBBEE Level 1 verified. Data residency in af-south-1, with mTLS across every service boundary."
+              description="POPIA-native by construction, not by retrofit. B-BBEE Level 1 by sworn affidavit. Client data stored in South Africa, with role-based access control and encryption standard across every service boundary."
             />
 
             <motion.div
@@ -50,7 +50,7 @@ export function Compliance() {
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
-            className="lg:col-span-7 grid grid-cols-2 gap-px bg-slate-200 border border-slate-200 rounded-lg overflow-hidden"
+            className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-slate-200 border border-slate-200 rounded-lg overflow-hidden"
           >
             {governancePillars.map((p, i) => (
               <motion.div
