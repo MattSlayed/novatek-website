@@ -102,12 +102,12 @@ export function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col-reverse gap-4 md:flex-row md:items-center md:justify-between text-xs text-white/50 font-mono uppercase tracking-[0.14em]">
           <span>
-            © {year} {company.legalName}. All rights reserved.
+            © {year} {company.legalName}. Reg. No. {company.registrationNumber}. All rights reserved.
           </span>
           <div className="flex flex-wrap gap-5">
             <span className="inline-flex items-center gap-2">
               <ShieldCheck className="h-3.5 w-3.5 text-cobalt-400" aria-hidden="true" />
-              BBBEE Level 1
+              B-BBEE Level 1
             </span>
             <span className="inline-flex items-center gap-2">
               <Lock className="h-3.5 w-3.5 text-cobalt-400" aria-hidden="true" />

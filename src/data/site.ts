@@ -14,6 +14,7 @@ import {
   GitBranch,
   Eye,
   Lock,
+  FileBadge,
   MapPin,
   Trash2,
   KeyRound,
@@ -31,7 +32,8 @@ import {
 
 export const company = {
   name: 'NOVATEK',
-  legalName: 'NOVATEK LLC',
+  legalName: 'NOVATEK LLC (Pty) Ltd',
+  registrationNumber: '2025/796748/07',
   tagline: 'Intelligent Solutions',
   domain: 'novatekllc.co.za',
   url: 'https://novatekllc.co.za',
@@ -42,7 +44,7 @@ export const company = {
   mission:
     'Empower South African enterprises with intelligent, data-driven solutions that create measurable operational impact.',
   description:
-    'NOVATEK is a South African AI and data consultancy serving the power generation, engineering, and industrial sectors. We turn fragmented operational knowledge into measurable institutional intelligence — POPIA-native, BBBEE Level 1, and engineered for the realities of mid-market SA enterprise.',
+    'NOVATEK is a South African AI and data consultancy serving the power generation, engineering, and industrial sectors. We turn fragmented operational knowledge into measurable institutional intelligence — POPIA-native, B-BBEE Level 1, and engineered for the realities of mid-market SA enterprise.',
 } as const
 
 export const heroStats = [
@@ -211,7 +213,7 @@ export const values = [
   {
     title: 'Integrity',
     description:
-      'BBBEE Level 1. POPIA compliant. Every answer we give traces back to its source.',
+      'B-BBEE Level 1. POPIA compliant. Every answer we give traces back to its source.',
   },
 ] as const
 
@@ -336,14 +338,22 @@ export const team = [
 
 export const compliance = [
   {
-    title: 'BBBEE Level 1',
-    description: 'Maximum procurement recognition. 135% recognition for enterprise spend.',
+    title: 'B-BBEE Level 1',
+    description:
+      '100% Black-owned South African company. Level 1 contributor status carries 135% procurement recognition on your enterprise spend.',
     icon: ShieldCheck,
   },
   {
-    title: 'POPIA Compliant',
-    description: 'Architected for Act 4 of 2013. Subject-access requests collapse to a single graph query.',
+    title: 'POPIA compliant',
+    description:
+      'Architected for the Protection of Personal Information Act 4 of 2013. Subject-access requests collapse to a single graph query.',
     icon: Lock,
+  },
+  {
+    title: 'Registered entity',
+    description:
+      'NOVATEK LLC (Pty) Ltd, registration number 2025/796748/07 (CIPC). SARS registered and a UIF-registered employer.',
+    icon: FileBadge,
   },
 ] as const
 
@@ -406,7 +416,7 @@ export const tickerKeywords = [
   'Knowledge Graphs',
   'POPIA-Native',
   'Data stored in South Africa',
-  'BBBEE Level 1',
+  'B-BBEE Level 1',
   'BusinessBrain',
 ] as const
 
