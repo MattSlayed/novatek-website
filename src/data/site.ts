@@ -443,6 +443,27 @@ export const governancePillars = [
   },
 ] as const
 
+// Ordered manifest for the home-page narrative. The "NN / Label" eyebrows are
+// derived from this, so inserting or reordering a section renumbers the whole
+// page automatically instead of by hand.
+export const homeSections = [
+  { id: 'about', label: 'Who we are' },
+  { id: 'services', label: 'What we do' },
+  { id: 'integrations', label: 'Built on what you have' },
+  { id: 'businessbrain', label: 'Flagship platform' },
+  { id: 'cases', label: 'Proven outcomes' },
+  { id: 'team', label: 'Our team' },
+  { id: 'compliance', label: 'Governance' },
+  { id: 'contact', label: 'Contact' },
+] as const
+
+export type HomeSectionId = (typeof homeSections)[number]['id']
+
+export function eyebrowFor(id: HomeSectionId): string {
+  const i = homeSections.findIndex((s) => s.id === id)
+  return `${String(i + 1).padStart(2, '0')} / ${homeSections[i].label}`
+}
+
 export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },

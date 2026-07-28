@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { values } from '@/data/site'
+import { values, eyebrowFor } from '@/data/site'
 import { ease, fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function About() {
@@ -16,7 +16,7 @@ export function About() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7 flex flex-col gap-8 text-charcoal/85 leading-relaxed">
             <SectionHeader
-              eyebrow="01 / Who we are"
+              eyebrow={eyebrowFor('about')}
               title="A South African team that turns scattered data into"
               italic="decisions you can act on."
             />

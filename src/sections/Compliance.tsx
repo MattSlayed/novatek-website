@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { compliance, governancePillars } from '@/data/site'
+import { compliance, governancePillars, eyebrowFor } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function Compliance() {
@@ -12,7 +12,7 @@ export function Compliance() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeader
-              eyebrow="07 / Governance"
+              eyebrow={eyebrowFor('compliance')}
               title="Compliance and"
               italic="data sovereignty."
               description="POPIA-native by construction, not by retrofit. B-BBEE Level 1 by sworn affidavit. Client data stored in South Africa, with role-based access control and encryption standard across every service boundary."

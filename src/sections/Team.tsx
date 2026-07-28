@@ -3,7 +3,7 @@ import { Users } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { team } from '@/data/site'
+import { team, eyebrowFor } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function Team() {
@@ -11,7 +11,7 @@ export function Team() {
     <Section id="team" tone="canvas">
       <Container size="wide">
         <SectionHeader
-          eyebrow="06 / Our team"
+          eyebrow={eyebrowFor('team')}
           title="A small, deliberate team —"
           italic="role-led, not name-led."
           description="We deliberately publish capabilities, not bios. The people change; the discipline doesn't. Engagements are scoped to the role, not the headcount."

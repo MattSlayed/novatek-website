@@ -4,11 +4,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { LinkButton } from '@/components/ui/Button'
-import {
-  businessBrainCapabilities,
-  businessBrainTiers,
-  businessBrainQuotes,
-} from '@/data/site'
+import { businessBrainCapabilities, businessBrainTiers, businessBrainQuotes, eyebrowFor } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function BusinessBrain() {
@@ -36,7 +32,7 @@ export function BusinessBrain() {
         >
           <div className="lg:col-span-7 flex flex-col gap-6">
             <motion.span variants={fadeUp} className="eyebrow text-cobalt-400">
-              04 / Flagship platform
+              {eyebrowFor('businessbrain')}
             </motion.span>
             <motion.h2
               variants={fadeUp}

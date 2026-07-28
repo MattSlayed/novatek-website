@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { integrations, integrationsQuote } from '@/data/site'
+import { integrations, integrationsQuote, eyebrowFor } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function Integrations() {
@@ -10,7 +10,7 @@ export function Integrations() {
     <Section id="integrations" tone="subtle">
       <Container size="wide">
         <SectionHeader
-          eyebrow="03 / Built on what you have"
+          eyebrow={eyebrowFor('integrations')}
           title="We integrate with the systems you already run."
           italic="Legacy or modern."
           description="Most consultancies tell you to throw out what you've built and start over. We don't. Whether your stack is a 1990s ERP, modern cloud services, or fifteen years of operational spreadsheets — that's where we begin."

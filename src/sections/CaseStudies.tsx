@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { caseStudies, trackRecord } from '@/data/site'
+import { caseStudies, trackRecord, eyebrowFor } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function CaseStudies() {
@@ -10,7 +10,7 @@ export function CaseStudies() {
     <Section id="cases" tone="subtle">
       <Container size="wide">
         <SectionHeader
-          eyebrow="05 / Proven outcomes"
+          eyebrow={eyebrowFor('cases')}
           title="Anonymised, but"
           italic="real."
           description="Every case study is a live engagement under NDA. Numbers are direct measurements; client names are withheld. Sectors are accurate."
