@@ -19,8 +19,14 @@
 /*.jpg
   Cache-Control: public, max-age=86400
 
-# HTML — short cache so deploys propagate fast
+# HTML — short cache so deploys propagate fast.
+# SPA fallback serves the routes below as HTML too, so they need the same rule;
+# the "/" rule does not match them.
 /
   Cache-Control: public, max-age=300, must-revalidate
 /index.html
+  Cache-Control: public, max-age=300, must-revalidate
+/businessbrain
+  Cache-Control: public, max-age=300, must-revalidate
+/novaflow
   Cache-Control: public, max-age=300, must-revalidate
