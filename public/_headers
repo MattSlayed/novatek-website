@@ -1,3 +1,7 @@
+# Cloudflare-format headers. NOTE: the live host is Vercel, which ignores this
+# file entirely - see vercel.json, which carries the same rules in Vercel's
+# format. Keep the two in sync while both deploy targets exist.
+#
 # Security headers for the whole site
 /*
   X-Frame-Options: DENY

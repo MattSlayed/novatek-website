@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 // canonical, and Open Graph / Twitter tags on navigation so each route is
 // uniquely described - the static defaults in index.html cover the homepage
 // and the no-JS fallback.
-const SITE_URL = 'https://novatekllc.co.za'
+const SITE_URL = 'https://www.novatekllc.co.za'
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`
 
 type SeoProps = {
