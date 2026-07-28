@@ -42,16 +42,53 @@ export const company = {
   region: 'South Africa',
   timezone: 'Africa/Johannesburg',
   mission:
-    'Empower South African enterprises with intelligent, data-driven solutions that create measurable operational impact.',
+    'Empower and digitise South African enterprises with intelligent, data-driven solutions that create measurable operational impact.',
   description:
-    'NOVATEK is a South African AI and data consultancy serving the power generation, engineering, and industrial sectors. We turn fragmented operational knowledge into measurable institutional intelligence — POPIA-native, B-BBEE Level 1, and engineered for the realities of mid-market SA enterprise.',
+    'NOVATEK is a South African AI, data and operations-intelligence consultancy serving mid-market industrial enterprises: valves, pumps, fabrication, mining services, construction and power generation. We turn fragmented operational knowledge into measurable institutional intelligence. POPIA-native, B-BBEE Level 1, and engineered for the realities of South African industry.',
 } as const
 
+// Sourced from Business Plan v3.0 sections 5.1 and 5.2. The previous strip is
+// deliberately gone: "up to 90% / Average time savings" labelled a maximum as an
+// average, and "R835K+" summed two unrelated engagements into an aggregate no
+// single client experienced. Both were indefensible under scrutiny.
 export const heroStats = [
-  { value: 90, suffix: '%', prefix: 'up to ', label: 'Average time savings', detail: 'across review and reporting cycles' },
-  { value: 835, suffix: 'K+', prefix: 'R', label: 'Risk identified', detail: 'flagged across active engagements' },
-  { value: 10, suffix: '+', prefix: '', label: 'Systems delivered', detail: 'in production at SA enterprise' },
+  { value: 80, suffix: '%', prefix: 'up to ', label: 'Contract review time cut', detail: 'from 15-20 hours to 3-5 hours per document' },
+  { value: 25, suffix: 'm+', prefix: 'R', label: 'Contract value administered', detail: 'across 9 active NEC3 term service contracts' },
+  { value: 45, suffix: '+', prefix: '', label: 'Years of power-fleet leadership', detail: 'rotating equipment, outages and NEC contracts' },
 ] as const
+
+export type ProofPoint = { value: string; label: string; detail: string }
+
+// Verified delivery record, Business Plan v3.0 section 5.2. Client names and all
+// rand values from the anchor engagement are deliberately withheld: consent to
+// name the anchor is an open item in the plan itself.
+export const trackRecord: ProofPoint[] = [
+  {
+    value: '45+',
+    label: 'Years of power-fleet leadership',
+    detail: 'Rotating equipment, power generation and heavy engineering',
+  },
+  {
+    value: '9',
+    label: 'Active NEC3 term service contracts',
+    detail: 'Across 10 sites, contract value administered in excess of R25 million',
+  },
+  {
+    value: '30+',
+    label: 'Outages per annum',
+    detail: 'A six-station coal fleet cluster under a single integrated plan',
+  },
+  {
+    value: '15%',
+    label: 'UCLF improvement',
+    detail: 'Achieved across that outage programme in 18 months',
+  },
+  {
+    value: 'Nov 2025',
+    label: 'Continuous anchor engagement',
+    detail: 'Embedded technical management delivered without interruption since',
+  },
+]
 
 export type Service = {
   num: string

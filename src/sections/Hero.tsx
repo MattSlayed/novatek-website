@@ -8,7 +8,7 @@ import { ease, wordReveal } from '@/lib/motion'
 import { BusinessBrainOrbit } from './visuals/BusinessBrainOrbit'
 
 const headline = ['Intelligence', 'that survives', 'staff turnover.']
-const sub = 'AI and data consulting for South African enterprise — engineered for the realities of mid-market industry, audited to the standard of regulated finance.'
+const sub = 'AI, operations intelligence and process automation for South African industrial enterprises. Built by people who have run the plant, and evidenced against outcomes you can audit.'
 
 export function Hero() {
   return (
@@ -95,7 +95,7 @@ export function Hero() {
               className="flex items-center gap-2 text-xs text-slate-500 mt-2"
             >
               <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-              Johannesburg · serving SA mid-market enterprise (500–5,000 staff)
+              Johannesburg · South African industrial enterprises of 50 to 500 employees · Highveld and SADC
             </motion.div>
           </div>
 

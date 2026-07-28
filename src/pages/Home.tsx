@@ -16,7 +16,7 @@ export function Home() {
     <>
       <Seo
         title="NOVATEK® - Intelligent Solutions for South African Enterprise"
-        description="South African AI and data consultancy turning fragmented operational knowledge into measurable institutional intelligence. POPIA-native, B-BBEE Level 1."
+        description="South African AI, data and operations-intelligence consultancy for mid-market industrial enterprises across power generation, heavy engineering, mining services and fabrication. POPIA-native, B-BBEE Level 1."
         path="/"
       />
       <Hero />

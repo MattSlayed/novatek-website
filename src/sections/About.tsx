@@ -29,8 +29,9 @@ export function About() {
               className="group flex w-full items-start gap-3 text-left text-body-lg font-medium text-cobalt-600 transition-colors hover:text-cobalt-700 focus-visible:outline-none focus-visible:text-cobalt-700"
             >
               <span className="flex-1">
-                A small Johannesburg-based AI and data consultancy, working with industrial
-                enterprises across power, engineering, and manufacturing.
+                A Johannesburg-based AI and operations-intelligence consultancy, working with
+                South African industrial enterprises of 50 to 500 employees across power
+                generation, heavy engineering, mining services and fabrication.
               </span>
               <ChevronDown
                 aria-hidden="true"
@@ -53,12 +54,17 @@ export function About() {
                     <p>
                       We help operations teams make better decisions with the data they already
                       have. That means AI tools that read contracts, dashboards that surface real
-                      risks, and automation that takes the busywork off your plate.
+                      risks, and automation that takes the busywork off your plate. Large
+                      consultancies price the industrial mid-market out; technology agencies lack
+                      the domain knowledge industrial operations demand. We sit in that gap, and we
+                      implement the work ourselves.
                     </p>
                     <p>
                       Every system we build keeps a person in the loop — no black-box AI making
-                      calls on your behalf, no offshore data, no dependencies you can&apos;t audit.
-                      You stay in control. We just make the work faster and clearer.
+                      calls on your behalf and no dependencies you can&apos;t audit. We also serve
+                      B-BBEE-conscious procurement across government, SOEs and large enterprise,
+                      and deliver across the border into SADC. You stay in control. We just make
+                      the work faster and clearer.
                     </p>
                   </div>
                 </motion.div>
