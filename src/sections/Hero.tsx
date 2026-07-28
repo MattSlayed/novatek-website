@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
@@ -7,8 +8,19 @@ import { heroStats } from '@/data/site'
 import { ease, wordReveal } from '@/lib/motion'
 import { BusinessBrainOrbit } from './visuals/BusinessBrainOrbit'
 
-const headline = ['Intelligence', 'that survives', 'staff turnover.']
-const sub = 'AI, operations intelligence and process automation for South African industrial enterprises. Built by people who have run the plant, and evidenced against outcomes you can audit.'
+// Hero line, from the Vision statement in Business Plan v3.0 section 2: an
+// industrial sector "where decades of engineering expertise is amplified by
+// intelligent automation". Human first, machine second - that ordering is the
+// positioning, not a stylistic choice.
+//
+// Chunks are staggered word-by-word by wordReveal. Everything from
+// ACCENT_FROM onward renders as the light-italic cobalt tail.
+// Split per word rather than per phrase: each chunk is an inline-block, so
+// multi-word chunks break atomically and strand short words on their own line.
+const headline = ['South', 'Africa’s', 'next', 'industrial', 'era.', 'Human-led.', 'AI-amplified.']
+const ACCENT_FROM = 5
+const sub =
+  'AI, operations intelligence and reliability engineering for the industries that keep the country running - power, mining, heavy engineering and water. Decades of plant expertise, amplified rather than replaced.'
 
 export function Hero() {
   return (
@@ -49,17 +61,19 @@ export function Hero() {
                 className="block"
               >
                 {headline.map((word, i) => (
-                  <motion.span
-                    key={`${word}-${i}`}
-                    variants={wordReveal}
-                    className="inline-block mr-3"
-                  >
-                    {i === headline.length - 1 ? (
-                      <span className="italic font-light text-cobalt-600">{word}</span>
-                    ) : (
-                      word
-                    )}
-                  </motion.span>
+                  // Real whitespace between the spans, not a margin. These are
+                  // inline-blocks, so a margin leaves the text layer with no word
+                  // boundaries at all - screen readers and crawlers previously saw
+                  // the headline as one run-on string.
+                  <Fragment key={`${word}-${i}`}>
+                    <motion.span variants={wordReveal} className="inline-block">
+                      {i >= ACCENT_FROM ? (
+                        <span className="italic font-light text-cobalt-600">{word}</span>
+                      ) : (
+                        word
+                      )}
+                    </motion.span>{' '}
+                  </Fragment>
                 ))}
               </motion.span>
             </h1>
