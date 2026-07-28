@@ -20,7 +20,6 @@ import {
   GitBranch,
   Eye,
   Lock,
-  FileBadge,
   MapPin,
   Trash2,
   KeyRound,
@@ -637,12 +636,6 @@ export const compliance = [
       'Architected for the Protection of Personal Information Act 4 of 2013. Subject-access requests collapse to a single graph query.',
     icon: Lock,
   },
-  {
-    title: 'Registered entity',
-    description:
-      'NOVATEK LLC (Pty) Ltd, registration number 2025/796748/07 (CIPC). SARS registered and a UIF-registered employer.',
-    icon: FileBadge,
-  },
 ] as const
 
 // Mirrors the Values sentence in Business Plan v3.0 section 2, clause by clause.
@@ -695,7 +688,6 @@ export const homeSections = [
   { id: 'services', label: 'What we do' },
   { id: 'integrations', label: 'Built on what you have' },
   { id: 'platforms', label: 'What we build' },
-  { id: 'businessbrain', label: 'Flagship platform' },
   { id: 'novaflow', label: 'Flow assets' },
   { id: 'cases', label: 'Proven outcomes' },
   { id: 'team', label: 'Our team' },

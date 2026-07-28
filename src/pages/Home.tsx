@@ -4,7 +4,6 @@ import { About } from '@/sections/About'
 import { Services } from '@/sections/Services'
 import { Integrations } from '@/sections/Integrations'
 import { Platforms } from '@/sections/Platforms'
-import { BusinessBrain } from '@/sections/BusinessBrain'
 import { Novaflow } from '@/sections/Novaflow'
 import { CaseStudies } from '@/sections/CaseStudies'
 import { Team } from '@/sections/Team'
@@ -28,7 +27,6 @@ export function Home() {
       <Services />
       <Integrations />
       <Platforms />
-      <BusinessBrain />
       <Novaflow />
       <CaseStudies />
       <Team />
