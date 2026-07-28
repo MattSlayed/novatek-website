@@ -599,6 +599,8 @@ export const businessBrainQuotes = [
   '"Every inference must carry a citation chain to an authoritative source record."',
 ] as const
 
+// Roles, not names, by deliberate policy. The set matches the funded headcount
+// in Business Plan v3.0 sections 8.2 and 9.
 export const team = [
   {
     role: 'Lead Consultant',
@@ -606,19 +608,19 @@ export const team = [
     capabilities: ['NEC Contracts', 'Process Design', 'Agent Architecture'],
   },
   {
-    role: 'Data Engineer',
-    focus: 'Pipelines & BI Platforms',
+    role: 'Senior Data / ML Engineer',
+    focus: 'Pipelines, Models & BI Platforms',
     capabilities: ['Python', 'Power BI', 'Postgres', 'pgvector'],
   },
   {
-    role: 'Automation Specialist',
-    focus: 'Workflow & Integration',
-    capabilities: ['n8n', 'M365 Graph', 'API design'],
+    role: 'Full-Stack Developer',
+    focus: 'Product & Platform Delivery',
+    capabilities: ['React', 'TypeScript', 'API design'],
   },
   {
-    role: 'Web Developer',
-    focus: 'Corporate Platforms',
-    capabilities: ['React', 'TypeScript', 'Cloudflare'],
+    role: 'DevOps & Infrastructure',
+    focus: 'Hosting, Pipelines & Security',
+    capabilities: ['Deployment pipelines', 'MCP hosting', 'Uptime & security'],
   },
 ] as const
 
@@ -727,16 +729,22 @@ export const navLinks: readonly NavLink[] = [
 ] as const
 
 export const tickerKeywords = [
-  'AI Implementation',
+  'Strategic AI Implementation',
   'Operations Intelligence',
   'Data Analytics',
   'Process Automation',
-  'NEC Contract Analysis',
+  'NEC3 / NEC4 Administration',
+  'Skills Development',
   'Knowledge Graphs',
   'POPIA-Native',
   'Data stored in South Africa',
   'B-BBEE Level 1',
+  'Local content compliance',
+  'ISO 9001:2026 ready',
   'BusinessBrain',
+  'IQMS',
+  'IPV',
+  'NOVAFLOW',
 ] as const
 
 export type IntegrationCategory = {

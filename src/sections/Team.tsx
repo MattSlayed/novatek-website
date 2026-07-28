@@ -55,6 +55,19 @@ export function Team() {
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="mt-10 max-w-3xl text-charcoal/80 leading-relaxed"
+        >
+          Junior engineering roles are fed by a Wits Crucible graduate pipeline, and for
+          project-dependent work the core team is extended by a vetted associate bench engaged per
+          project. That lets a single engagement scale to the size the work demands without
+          carrying, or passing on, the overhead of a large permanent team.
+        </motion.p>
       </Container>
     </Section>
   )
