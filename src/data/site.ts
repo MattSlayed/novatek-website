@@ -43,7 +43,7 @@ export const company = {
   tagline: 'Intelligent Solutions',
   domain: 'www.novatekllc.co.za',
   url: 'https://www.novatekllc.co.za',
-  email: 'matthew@novatekllc.co.za',
+  email: 'info@novatekllc.co.za',
   phone: '+27 82 680 5571',
   region: 'South Africa',
   timezone: 'Africa/Johannesburg',
