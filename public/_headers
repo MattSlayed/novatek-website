@@ -1,3 +1,7 @@
+# Cloudflare-format headers. NOTE: the live host is Vercel, which ignores this
+# file entirely - see vercel.json, which carries the same rules in Vercel's
+# format. Keep the two in sync while both deploy targets exist.
+#
 # Security headers for the whole site
 /*
   X-Frame-Options: DENY
@@ -19,8 +23,14 @@
 /*.jpg
   Cache-Control: public, max-age=86400
 
-# HTML — short cache so deploys propagate fast
+# HTML — short cache so deploys propagate fast.
+# SPA fallback serves the routes below as HTML too, so they need the same rule;
+# the "/" rule does not match them.
 /
   Cache-Control: public, max-age=300, must-revalidate
 /index.html
+  Cache-Control: public, max-age=300, must-revalidate
+/businessbrain
+  Cache-Control: public, max-age=300, must-revalidate
+/novaflow
   Cache-Control: public, max-age=300, must-revalidate

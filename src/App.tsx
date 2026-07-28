@@ -4,6 +4,7 @@ import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
 import { Home } from './pages/Home'
 import { BusinessBrainPage } from './pages/BusinessBrainPage'
+import { NovaflowPage } from './pages/NovaflowPage'
 import { NotFound } from './pages/NotFound'
 
 function ScrollToTopOnRouteChange() {
@@ -31,6 +32,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/businessbrain" element={<BusinessBrainPage />} />
+          <Route path="/novaflow" element={<NovaflowPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

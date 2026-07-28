@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { values } from '@/data/site'
+import { values, eyebrowFor } from '@/data/site'
 import { ease, fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function About() {
@@ -16,7 +16,7 @@ export function About() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7 flex flex-col gap-8 text-charcoal/85 leading-relaxed">
             <SectionHeader
-              eyebrow="01 / Who we are"
+              eyebrow={eyebrowFor('about')}
               title="A South African team that turns scattered data into"
               italic="decisions you can act on."
             />
@@ -29,8 +29,9 @@ export function About() {
               className="group flex w-full items-start gap-3 text-left text-body-lg font-medium text-cobalt-600 transition-colors hover:text-cobalt-700 focus-visible:outline-none focus-visible:text-cobalt-700"
             >
               <span className="flex-1">
-                A small Johannesburg-based AI and data consultancy, working with industrial
-                enterprises across power, engineering, and manufacturing.
+                A Johannesburg-based AI and operations-intelligence consultancy, working with
+                South African industrial enterprises of 50 to 500 employees across power
+                generation, heavy engineering, mining services and fabrication.
               </span>
               <ChevronDown
                 aria-hidden="true"
@@ -53,12 +54,17 @@ export function About() {
                     <p>
                       We help operations teams make better decisions with the data they already
                       have. That means AI tools that read contracts, dashboards that surface real
-                      risks, and automation that takes the busywork off your plate.
+                      risks, and automation that takes the busywork off your plate. Large
+                      consultancies price the industrial mid-market out; technology agencies lack
+                      the domain knowledge industrial operations demand. We sit in that gap, and we
+                      implement the work ourselves.
                     </p>
                     <p>
-                      Every system we build keeps a person in the loop — no black-box AI making
-                      calls on your behalf, no offshore data, no dependencies you can&apos;t audit.
-                      You stay in control. We just make the work faster and clearer.
+                      Every system we build keeps a person in the loop - no black-box AI making
+                      calls on your behalf and no dependencies you can&apos;t audit. We also serve
+                      B-BBEE-conscious procurement across government, SOEs and large enterprise,
+                      and deliver across the border into SADC. You stay in control. We just make
+                      the work faster and clearer.
                     </p>
                   </div>
                 </motion.div>

@@ -28,7 +28,7 @@ function polar(angle: number, r: number) {
 }
 
 /**
- * BusinessBrain orbit motif — central N-mark + six radial spokes terminating at
+ * BusinessBrain orbit motif - central N-mark + six radial spokes terminating at
  * labelled nodes. Spokes draw in via stroke-dashoffset; nodes scale in.
  * Inspired by Vercel-style geometric system diagrams; brand-aligned to navy/cobalt.
  */
@@ -39,7 +39,7 @@ export function BusinessBrainOrbit() {
         viewBox={`0 0 ${SIZE} ${SIZE}`}
         className="h-full w-full"
         role="img"
-        aria-label="BusinessBrain architecture diagram: central reasoning node with six labelled spokes — Reasoning, Skills, Provenance, Graph, MCP seam, Sources."
+        aria-label="BusinessBrain architecture diagram: central reasoning node with six labelled spokes - Reasoning, Skills, Provenance, Graph, MCP seam, Sources."
       >
         <defs>
           <linearGradient id="bb-grad" x1="0%" y1="0%" x2="100%" y2="100%">

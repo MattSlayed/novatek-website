@@ -20,7 +20,7 @@ export function BusinessBrainPage() {
     <>
       <Seo
         title="BusinessBrain - Institutional Memory, Engineered | NOVATEK®"
-        description="BusinessBrain: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, AWS and Postgres systems."
+        description="BusinessBrain: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, Google Cloud and Postgres systems."
         path="/businessbrain"
       />
       {/* Hero */}
@@ -85,7 +85,7 @@ export function BusinessBrainPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-body-lg text-charcoal/85 max-w-2xl leading-relaxed"
               >
-                A retrieval-and-reasoning layer that sits over your existing Microsoft 365, AWS,
+                A retrieval-and-reasoning layer that sits over your existing Microsoft 365, Google Cloud,
                 and Postgres systems and turns fragmented company knowledge into one connected,
                 queryable brain. <strong className="font-semibold text-navy-500">
                   System of insight, never system of record.
@@ -138,9 +138,9 @@ export function BusinessBrainPage() {
               className="lg:col-span-7 grid gap-3 text-charcoal/85 text-body-lg leading-relaxed"
             >
               {[
-                'Critical relationships between contracts, vendors, projects, and decisions live in employees\' heads — and lapse with staff turnover.',
+                'Critical relationships between contracts, vendors, projects, and decisions live in employees\' heads - and lapse with staff turnover.',
                 'Multi-hop questions ("which open invoices relate to contracts signed by Vendor X against cost-centre Y in Q1?") break vector RAG.',
-                'POPIA s.23 subject-access requests become manual reconstruction projects — exactly what POPIA was designed to disincentivise.',
+                'POPIA s.23 subject-access requests become manual reconstruction projects - exactly what POPIA was designed to disincentivise.',
                 'Generic US-built AI products are not priced, hosted, or wired to the source systems an SA mid-market enterprise actually runs.',
                 'Stage 4–6 load-shedding breaks systems that fail hard when a data source goes briefly unreachable.',
               ].map((p) => (
@@ -178,7 +178,7 @@ export function BusinessBrainPage() {
                 </span>
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-5 text-body-lg text-white/75 leading-relaxed">
-                The reader's eye moves downward — chat surface to agents to graph substrate to MCP
+                The reader's eye moves downward - chat surface to agents to graph substrate to MCP
                 seam to authoritative sources. Reads traverse freely. Writes always pass through
                 the human confirmation gate.
               </motion.p>
@@ -313,18 +313,18 @@ export function BusinessBrainPage() {
                   label: 'Defensible',
                   tone: 'bg-cobalt-50 border-cobalt-200 text-cobalt-700',
                   items: [
-                    'POPIA-native provenance — citation chains by construction',
-                    'af-south-1-first data residency (Bedrock Cape Town · Neo4j Aura Africa)',
-                    'Load-shedding-resilient by design — degraded-mode is an operating assumption',
+                    'POPIA-native provenance - citation chains by construction',
+                    'South African data residency by default: client data stored in-country, routine processing in-region, and any cross-border inference for frontier models disclosed explicitly',
+                    'Load-shedding-resilient by design - degraded-mode is an operating assumption',
                     'Human Confirmation Gate is permanent, not a temporary scaffold',
-                    'Source systems remain authoritative — BusinessBrain reads and proposes, never the truth',
+                    'Source systems remain authoritative - BusinessBrain reads and proposes, never the truth',
                   ],
                 },
                 {
                   label: 'Aspirational',
                   tone: 'bg-amber-soft/15 border-amber-soft/40 text-amber',
                   items: [
-                    'SA-language entity resolution (isiZulu, isiXhosa, Afrikaans) — actively researched, not yet shipped',
+                    'SA-language entity resolution (isiZulu, isiXhosa, Afrikaans) - actively researched, not yet shipped',
                     'Multi-hop query faithfulness materially higher than tuned vector RAG (falsifiable hypothesis under test)',
                   ],
                 },
@@ -332,8 +332,8 @@ export function BusinessBrainPage() {
                   label: 'Undefendable',
                   tone: 'bg-slate-100 border-slate-300 text-slate-600',
                   items: [
-                    '"We understand SA business better than competitors" — not architecturally provable; we don\'t lean on it',
-                    'Eliminating labour, replacing judgement, or eliminating hallucination — none of these are claims we make',
+                    '"We understand SA business better than competitors" - not architecturally provable; we don\'t lean on it',
+                    'Eliminating labour, replacing judgement, or eliminating hallucination - none of these are claims we make',
                   ],
                 },
               ].map((group) => (

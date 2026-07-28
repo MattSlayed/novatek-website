@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://novatek.co.za/sitemap.xml
+Sitemap: https://www.novatekllc.co.za/sitemap.xml

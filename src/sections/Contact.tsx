@@ -4,7 +4,7 @@ import { Mail, Phone, Send, ArrowUpRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
-import { company } from '@/data/site'
+import { company, eyebrowFor } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function Contact() {
@@ -13,7 +13,7 @@ export function Contact() {
   const [org, setOrg] = useState('')
   const [message, setMessage] = useState('')
 
-  // Mailto fallback — works on any host with no backend.
+  // Mailto fallback - works on any host with no backend.
   // A Worker entry point can be added later (set `main` in wrangler.jsonc) to handle direct submits.
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -36,7 +36,7 @@ export function Contact() {
         >
           <div className="lg:col-span-5 flex flex-col gap-6">
             <motion.span variants={fadeUp} className="eyebrow">
-              08 / Contact
+              {eyebrowFor('contact')}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-h1 text-navy-500 tracking-tight">
               Let's build something{' '}
@@ -47,7 +47,7 @@ export function Contact() {
               className="text-body-lg text-charcoal/85 max-w-xl leading-relaxed"
             >
               Tell us what you're trying to make decidable. We'll come back with what we can
-              defensibly commit to — and what we can't.
+              defensibly commit to - and what we can't.
             </motion.p>
 
             <motion.dl variants={fadeUp} className="mt-2 flex flex-col gap-4">
@@ -116,7 +116,7 @@ export function Contact() {
             <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
               <p className="text-xs text-slate-500 max-w-md leading-relaxed">
                 Submissions open your mail client and pre-fill a message to {company.email}.
-                We respond within one working day. POPIA-compliant — no data is stored on this site.
+                We respond within one working day. POPIA-compliant - no data is stored on this site.
               </p>
               <Button type="submit" size="md" withArrow>
                 <Send className="h-4 w-4" aria-hidden="true" />

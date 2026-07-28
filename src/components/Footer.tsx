@@ -50,12 +50,21 @@ export function Footer() {
             <ul className="flex flex-col gap-2 text-sm">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={`/${l.href}`}
-                    className="text-white/80 hover:text-cobalt-400 transition-colors"
-                  >
-                    {l.label}
-                  </a>
+                  {l.kind === 'route' ? (
+                    <Link
+                      to={l.href}
+                      className="text-white/80 hover:text-cobalt-400 transition-colors"
+                    >
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={`/${l.href}`}
+                      className="text-white/80 hover:text-cobalt-400 transition-colors"
+                    >
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
               <li>
@@ -102,12 +111,12 @@ export function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col-reverse gap-4 md:flex-row md:items-center md:justify-between text-xs text-white/50 font-mono uppercase tracking-[0.14em]">
           <span>
-            © {year} {company.legalName}. All rights reserved.
+            © {year} {company.legalName}. Reg. No. {company.registrationNumber}. All rights reserved.
           </span>
           <div className="flex flex-wrap gap-5">
             <span className="inline-flex items-center gap-2">
               <ShieldCheck className="h-3.5 w-3.5 text-cobalt-400" aria-hidden="true" />
-              BBBEE Level 1
+              B-BBEE Level 1
             </span>
             <span className="inline-flex items-center gap-2">
               <Lock className="h-3.5 w-3.5 text-cobalt-400" aria-hidden="true" />
@@ -115,7 +124,7 @@ export function Footer() {
             </span>
             <span className="inline-flex items-center gap-2">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-cobalt-400" />
-              af-south-1
+              Data stored in South Africa
             </span>
           </div>
         </div>

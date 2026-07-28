@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { caseStudies } from '@/data/site'
+import { caseStudies, trackRecord, eyebrowFor } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport } from '@/lib/motion'
 
 export function CaseStudies() {
@@ -10,11 +10,36 @@ export function CaseStudies() {
     <Section id="cases" tone="subtle">
       <Container size="wide">
         <SectionHeader
-          eyebrow="05 / Proven outcomes"
+          eyebrow={eyebrowFor('cases')}
           title="Anonymised, but"
           italic="real."
           description="Every case study is a live engagement under NDA. Numbers are direct measurements; client names are withheld. Sectors are accurate."
         />
+
+        <motion.dl
+          variants={fadeUpStagger(0.06)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="mt-12 border-t border-slate-200 pt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-slate-200"
+        >
+          {trackRecord.map((p) => (
+            <motion.div
+              key={p.label}
+              variants={fadeUp}
+              className="flex flex-col gap-1 lg:px-6 lg:first:pl-0 lg:last:pr-0"
+            >
+              <dt className="sr-only">{p.label}</dt>
+              <dd className="flex flex-col gap-1">
+                <span className="text-h2 font-semibold text-navy-500 tabular-numerals leading-none">
+                  {p.value}
+                </span>
+                <span className="text-sm font-medium text-charcoal">{p.label}</span>
+                <span className="text-xs text-charcoal/65 leading-relaxed">{p.detail}</span>
+              </dd>
+            </motion.div>
+          ))}
+        </motion.dl>
 
         <motion.div
           variants={fadeUpStagger(0.1)}
