@@ -17,7 +17,7 @@ interface LogoProps {
 }
 
 /**
- * NOVATEK N-mark — geometric letterform with circuit nodes and an upward arrow.
+ * NOVATEK N-mark - geometric letterform with circuit nodes and an upward arrow.
  * Source-of-truth SVG from the brand guidelines skill (§4).
  */
 export function Logo({

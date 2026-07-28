@@ -412,13 +412,13 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     num: '01',
-    client: 'Engineering Services Firm — NEC Contract Environment',
+    client: 'Engineering Services Firm - NEC Contract Environment',
     title: 'AI-Powered Contract Analysis Assembly Line',
     tags: ['AI', 'Document Analysis', 'Risk'],
     challenge:
       'Manual review of NEC-standard agreements consumed 15–20 hours per document, creating procurement bottlenecks and inconsistent risk classification.',
     solution:
-      'A modular AI assembly line with 100+ pre-built clause modules, structured extraction, and an 8-category risk taxonomy — every output traceable to source.',
+      'A modular AI assembly line with 100+ pre-built clause modules, structured extraction, and an 8-category risk taxonomy - every output traceable to source.',
     outcome:
       'Review time reduced 75–80%. Consistent, audit-ready risk reports delivered in 3–5 hours.',
     metrics: [
@@ -429,13 +429,13 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     num: '02',
-    client: 'National Power Utility — Multi-Site Operations',
+    client: 'National Power Utility - Multi-Site Operations',
     title: 'Executive Intelligence Platform',
     tags: ['Dashboards', 'Data Ops'],
     challenge:
       'Critical risks buried in emails and spreadsheets across 10+ power stations. No executive line-of-sight, weekly manual reporting cadence.',
     solution:
-      'Automated parsing of operational comms into a continuously refreshed executive dashboard — with anomaly thresholds and drill-through to source records.',
+      'Automated parsing of operational comms into a continuously refreshed executive dashboard - with anomaly thresholds and drill-through to source records.',
     outcome:
       'R555K of latent financial risk surfaced within 24 hours of go-live. Manual reporting cycle eliminated.',
     metrics: [
@@ -446,7 +446,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     num: '03',
-    client: 'Industrial Workshop — Repair Operations',
+    client: 'Industrial Workshop - Repair Operations',
     title: 'Workshop Automation & Throughput Recovery',
     tags: ['Automation', 'Operations'],
     challenge:
@@ -463,7 +463,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     num: '04',
-    client: 'Corporate Function — Executive Forum',
+    client: 'Corporate Function - Executive Forum',
     title: 'Meeting Intelligence & MANCO Automation',
     tags: ['AI', 'Process'],
     challenge:
@@ -515,7 +515,7 @@ export const businessBrainCapabilities: BusinessBrainCapability[] = [
     num: '01',
     title: 'Property-graph backbone',
     description:
-      'Entities (Contract, Vendor, Invoice, Person, Site) and relationships (SIGNED_BY, DEPENDS_ON, ASSIGNED_TO) — with provenance tuples on every node and edge.',
+      'Entities (Contract, Vendor, Invoice, Person, Site) and relationships (SIGNED_BY, DEPENDS_ON, ASSIGNED_TO) - with provenance tuples on every node and edge.',
     icon: Network,
   },
   {
@@ -534,7 +534,7 @@ export const businessBrainCapabilities: BusinessBrainCapability[] = [
   },
   {
     num: '04',
-    title: 'Skills — codified SOPs',
+    title: 'Skills - codified SOPs',
     description:
       'Versioned, client-owned artefacts that capture how this client runs AR follow-ups, contractor onboarding, monthly management packs.',
     icon: Workflow,
@@ -543,7 +543,7 @@ export const businessBrainCapabilities: BusinessBrainCapability[] = [
     num: '05',
     title: 'MCP integration fleet',
     description:
-      'Per-source MCP servers (ms-graph, object-store, sql-readonly, pg, graph) — each holding only its own scoped credentials. Replace v2 with v3 without touching agent logic.',
+      'Per-source MCP servers (ms-graph, object-store, sql-readonly, pg, graph) - each holding only its own scoped credentials. Replace v2 with v3 without touching agent logic.',
     icon: Database,
   },
   {
@@ -840,5 +840,5 @@ export const integrations: IntegrationCategory[] = [
 ]
 
 export const integrationsQuote =
-  '"Your source systems stay the source of truth. We build a layer on top — one that reads them, learns from them, and proposes. Never replaces."'
+  '"Your source systems stay the source of truth. We build a layer on top - one that reads them, learns from them, and proposes. Never replaces."'
 

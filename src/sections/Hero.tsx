@@ -34,7 +34,7 @@ export function Hero() {
         }}
       />
 
-      {/* Corner brackets — brand spec §9 */}
+      {/* Corner brackets - brand spec §9 */}
       <div className="corner-bracket top-20 left-0 border-l-2 border-t-2" />
       <div className="corner-bracket top-20 right-0 border-r-2 border-t-2" />
 

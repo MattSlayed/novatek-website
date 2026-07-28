@@ -12,7 +12,7 @@ export function Team() {
       <Container size="wide">
         <SectionHeader
           eyebrow={eyebrowFor('team')}
-          title="A small, deliberate team —"
+          title="A small, deliberate team."
           italic="role-led, not name-led."
           description="We deliberately publish capabilities, not bios. The people change; the discipline doesn't. Engagements are scoped to the role, not the headcount."
         />

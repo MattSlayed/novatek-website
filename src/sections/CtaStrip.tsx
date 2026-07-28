@@ -35,7 +35,7 @@ export function CtaStrip() {
             </h2>
             <p className="text-body-lg text-white/75 max-w-2xl leading-relaxed">
               Whether it's an AI readiness review, a contract-analysis pipeline, or a full
-              BusinessBrain pilot — the conversation starts with what you actually need.
+              BusinessBrain pilot - the conversation starts with what you actually need.
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">

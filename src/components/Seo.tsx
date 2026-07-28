@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 // Per-route head manager (no dependency). Updates title, meta description,
 // canonical, and Open Graph / Twitter tags on navigation so each route is
-// uniquely described — the static defaults in index.html cover the homepage
+// uniquely described - the static defaults in index.html cover the homepage
 // and the no-JS fallback.
 const SITE_URL = 'https://novatekllc.co.za'
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`

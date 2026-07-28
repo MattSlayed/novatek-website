@@ -1,6 +1,6 @@
 import { tickerKeywords } from '@/data/site'
 
-/** Subtle keyword ticker — restrained, grayscale, no distracting motion. */
+/** Subtle keyword ticker - restrained, grayscale, no distracting motion. */
 export function Marquee() {
   const items = [...tickerKeywords, ...tickerKeywords]
   return (

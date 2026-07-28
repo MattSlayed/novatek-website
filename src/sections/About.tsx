@@ -60,7 +60,7 @@ export function About() {
                       implement the work ourselves.
                     </p>
                     <p>
-                      Every system we build keeps a person in the loop — no black-box AI making
+                      Every system we build keeps a person in the loop - no black-box AI making
                       calls on your behalf and no dependencies you can&apos;t audit. We also serve
                       B-BBEE-conscious procurement across government, SOEs and large enterprise,
                       and deliver across the border into SADC. You stay in control. We just make

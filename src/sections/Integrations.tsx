@@ -13,7 +13,7 @@ export function Integrations() {
           eyebrow={eyebrowFor('integrations')}
           title="We integrate with the systems you already run."
           italic="Legacy or modern."
-          description="Most consultancies tell you to throw out what you've built and start over. We don't. Whether your stack is a 1990s ERP, modern cloud services, or fifteen years of operational spreadsheets — that's where we begin."
+          description="Most consultancies tell you to throw out what you've built and start over. We don't. Whether your stack is a 1990s ERP, modern cloud services, or fifteen years of operational spreadsheets - that's where we begin."
         />
 
         <motion.div

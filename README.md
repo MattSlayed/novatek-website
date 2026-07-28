@@ -42,6 +42,8 @@ npm run typecheck
 novatek-website/
 ├── public/                    # Static assets served as-is
 │   ├── favicon.svg            # Brand favicon (gradient N-mark)
+│   ├── og-image.png           # Social card, home
+│   ├── og-novaflow.png        # Social card, /novaflow
 │   ├── _headers               # Security + cache headers
 │   ├── robots.txt
 │   └── sitemap.xml
@@ -55,18 +57,24 @@ novatek-website/
 │   │   ├── Hero.tsx
 │   │   ├── About.tsx
 │   │   ├── Services.tsx
+│   │   ├── Integrations.tsx
+│   │   ├── Platforms.tsx      # All five products, with maturity labels
 │   │   ├── BusinessBrain.tsx
+│   │   ├── Novaflow.tsx       # Flow-assets division band
 │   │   ├── CaseStudies.tsx
 │   │   ├── Team.tsx
 │   │   ├── Compliance.tsx
+│   │   ├── Faq.tsx            # Mirrored into the FAQPage JSON-LD
 │   │   ├── CtaStrip.tsx
 │   │   ├── Contact.tsx
 │   │   ├── Marquee.tsx
 │   │   └── visuals/
-│   │       └── BusinessBrainOrbit.tsx
+│   │       ├── BusinessBrainOrbit.tsx
+│   │       └── NovaflowWaves.tsx
 │   ├── pages/
 │   │   ├── Home.tsx           # Single-page scroll narrative
-│   │   └── BusinessBrainPage.tsx  # /businessbrain deep-dive
+│   │   ├── BusinessBrainPage.tsx  # /businessbrain deep-dive
+│   │   └── NovaflowPage.tsx   # /novaflow deep-dive
 │   ├── data/
 │   │   └── site.ts            # Single source of truth for site copy
 │   ├── lib/
@@ -83,13 +91,22 @@ novatek-website/
 
 ## Editing content
 
-All site copy, stats, services, case studies, and capabilities live in **`src/data/site.ts`**. Edit there - not in section components. Stats and case-study metrics are validated against `PROJECT.md` v1.0 and the BusinessBrain Feasibility Review v1.4 (NVT-BB-CFR-001).
+All site copy, stats, services, case studies, and capabilities live in **`src/data/site.ts`**. Edit there - not in section components. Copy is validated against **NOVATEK Business Plan v3.0** (27 July 2026) and the BusinessBrain Feasibility Review v1.4 (NVT-BB-CFR-001).
+
+Three conventions that are easy to break:
+
+- **Section numbering is derived, not written.** The `01 /` ... `11 /` eyebrows come from the `homeSections` manifest in `site.ts` via `eyebrowFor(id)`. To add or reorder a section, edit the manifest - never hard-code a number.
+- **The FAQ exists twice and must match.** `faqs[]` in `site.ts` renders the visible accordion, and the same six answers are mirrored into the `FAQPage` JSON-LD in `index.html`. Google requires FAQ markup to reflect visible content, and the accordion keeps answers in the DOM when collapsed for exactly that reason. Change one, change the other.
+- **Service copy exists twice too.** `services[]` and the JSON-LD `hasOfferCatalog` in `index.html` must stay in lockstep.
+
+Claims that must not appear on this site: the funding requirement and its tiers, any figure from the plan's sections 8.3 or 8.4, the anchor retainer value, gross margin, SaaS unit economics, NOVAFLOW's divisional cash ceiling or kill criteria, and the anchor client's name. Those are funder-only or awaiting consent.
 
 ## Brand discipline
 
 - **Colors:** `tailwind.config.ts` mirrors `brand.css`. Never use `#000` - use `navy.500` or `charcoal`. Cobalt is an accent, not a fill.
 - **Logo:** `<Logo />` renders the SVG N-mark + wordmark with `gradient | navy | cobalt | white` variants. The `™ ®` symbol is included automatically.
 - **Motion:** Restrained - tween + `ease.out` only. No springs. See `src/lib/motion.ts`.
+- **Punctuation:** No em-dashes anywhere in copy or comments. Use a hyphen, or restructure. En-dashes inside numeric ranges (`15-20 hours`) are fine.
 - **Accessibility:** WCAG 2.1 AA. Don't remove focus rings; respect `prefers-reduced-motion`.
 
 ## Deploying to Cloudflare Workers

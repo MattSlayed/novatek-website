@@ -6,7 +6,7 @@ const H = 420
 const LINES = 6
 
 /**
- * NOVAFLOW flow motif — stacked sine paths that draw once and settle, with
+ * NOVAFLOW flow motif - stacked sine paths that draw once and settle, with
  * three node markers reading as instrumented assets on the line.
  *
  * Deliberately a static SVG with motion.path pathLength, mirroring
