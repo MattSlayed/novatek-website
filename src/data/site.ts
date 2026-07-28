@@ -7,8 +7,9 @@ import {
   LineChart,
   Database,
   Workflow,
-  Gauge,
   Compass,
+  HardHat,
+  GraduationCap,
   Network,
   ShieldCheck,
   GitBranch,
@@ -98,28 +99,34 @@ export type Service = {
   bullets: string[]
 }
 
+// The six consulting pillars fixed by Business Plan v3.0 section 3.1.
+// "Business Process Enhancement" (added deliberately in 8448dfd) and "Strategic
+// Advisory" are not deleted, they are folded into the pillars that carry them:
+// the baseline-intervene-measure method lives in Operations Intelligence and in
+// the Services lede; readiness review and roadmap live under Strategic AI
+// Implementation. Both phrases stay in JSON-LD knowsAbout.
 export const services: Service[] = [
   {
     num: '01',
-    title: 'AI Implementation',
+    title: 'Strategic AI Implementation',
     description:
-      'Bespoke AI assembly lines for document analysis, knowledge extraction, and decision support. From prompt engineering to production deployment with auditable outputs.',
+      'Bespoke AI solutions from prompt engineering through to full assembly-line architectures. We specialise in document analysis, NEC contract review and structured agentic workflows for engineering operations, and we separate Defensible from Aspirational before anything gets built.',
     icon: Brain,
-    bullets: ['NEC contract analysis', 'Knowledge graph construction', 'Tool-using agent constellations'],
+    bullets: ['AI readiness review', 'NEC contract analysis', 'Transformation roadmap'],
   },
   {
     num: '02',
     title: 'Operations Intelligence',
     description:
-      'Real-time executive dashboards and decision-support systems that turn operational data into measurable insight. Built for mid-market IT teams of two to six.',
+      'Real-time dashboards and decision-support systems that turn operational data into executive insight across multiple sites and business units. We baseline the process first, intervene where the waste actually is, and measure the delta.',
     icon: LineChart,
-    bullets: ['Multi-site monitoring', 'Risk surfacing', 'Executive reporting'],
+    bullets: ['Multi-site monitoring', 'Baseline and KPI definition', 'Measured improvement cycles'],
   },
   {
     num: '03',
     title: 'Data Analytics',
     description:
-      'End-to-end data pipelines, ETL, and Power BI reporting. We treat data as evidence, not dashboards as theatre — every metric carries provenance.',
+      'End-to-end data pipelines, ETL and Power BI reporting that turn raw operational data into validated, auditable business intelligence. We treat data as evidence, not dashboards as theatre. Every metric carries provenance.',
     icon: Database,
     bullets: ['Pipeline architecture', 'Power BI semantic models', 'Provenance-traced reporting'],
   },
@@ -127,25 +134,25 @@ export const services: Service[] = [
     num: '04',
     title: 'Process Automation',
     description:
-      'Workflow automation with n8n and Python that eliminate manual handoffs and free skilled staff for high-value work. Always with a human confirmation gate on writes.',
+      'Workflow automation with Microsoft Power Automate, Python and custom integrations that eliminate manual handoffs and free skilled staff for higher-value work. Always with a human confirmation gate on writes.',
     icon: Workflow,
-    bullets: ['n8n / Python workflows', 'Human-in-the-loop guardrails', 'M365 + Google Cloud integrations'],
+    bullets: ['Power Automate / Python workflows', 'Human-in-the-loop guardrails', 'M365 + Google Cloud integrations'],
   },
   {
     num: '05',
-    title: 'Business Process Enhancement',
+    title: 'Engineering Management & NEC Contract Administration',
     description:
-      'Continuous measurement and refinement of how operational work actually gets done. We baseline the process, intervene where the waste is, and measure the delta — improvement you can evidence, not assert.',
-    icon: Gauge,
-    bullets: ['Baseline & KPI definition', 'Lean waste elimination', 'Measured improvement cycles'],
+      'Technical operations management, project management, outage planning and full NEC3/NEC4 contract lifecycle administration, grounded in more than 45 years of power-fleet leadership. Including local-content declarations and the evidence that has to sit behind them.',
+    icon: HardHat,
+    bullets: ['Outage planning', 'NEC3 / NEC4 lifecycle', 'SBD 6.2 and local-content evidence'],
   },
   {
     num: '06',
-    title: 'Strategic Advisory',
+    title: 'Skills Development & Training',
     description:
-      'Technology strategy, AI readiness assessments, and transformation roadmaps. We separate Defensible from Aspirational — and only build what stays standing.',
-    icon: Compass,
-    bullets: ['AI readiness review', 'Vendor exit horizons', 'POPIA-aware design'],
+      'Artisan training programmes, TVET workplace partnerships, AI workspace upskilling and leadership development for engineering teams. Capability that stays with your people after we leave.',
+    icon: GraduationCap,
+    bullets: ['Artisan and TVET partnerships', 'AI workspace upskilling', 'Engineering leadership development'],
   },
 ]
 

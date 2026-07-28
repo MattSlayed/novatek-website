@@ -12,7 +12,7 @@ export function Services() {
           eyebrow="02 / What we do"
           title="Six disciplines."
           italic="One integrated approach."
-          description="Every engagement starts with the same question — what does Defensible look like for this client, this industry, this constraint set? Then we build only what stays standing."
+          description="Every engagement starts with the same question. What does Defensible look like for this client, this industry, this constraint set? Then we baseline the process, intervene where the waste is, and measure the delta. Improvement you can evidence, not assert."
         />
 
         <div className="mt-12">
