@@ -5,6 +5,7 @@ import { Services } from '@/sections/Services'
 import { Integrations } from '@/sections/Integrations'
 import { Platforms } from '@/sections/Platforms'
 import { BusinessBrain } from '@/sections/BusinessBrain'
+import { Novaflow } from '@/sections/Novaflow'
 import { CaseStudies } from '@/sections/CaseStudies'
 import { Team } from '@/sections/Team'
 import { Compliance } from '@/sections/Compliance'
@@ -27,6 +28,7 @@ export function Home() {
       <Integrations />
       <Platforms />
       <BusinessBrain />
+      <Novaflow />
       <CaseStudies />
       <Team />
       <Compliance />
