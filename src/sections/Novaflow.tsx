@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { ArrowUpRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
@@ -66,16 +64,9 @@ export function Novaflow() {
           viewport={viewport}
           className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3"
         >
-          <LinkButton href="/novaflow" size="lg" withArrow>
-            Read the NOVAFLOW brief
+          <LinkButton href="#contact" size="lg" withArrow>
+            Talk to us about a flow-asset engagement
           </LinkButton>
-          <Link
-            to="/novaflow#scope"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-cobalt-600 hover:text-cobalt-700 transition-colors"
-          >
-            What it deliberately does not do
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
         </motion.div>
       </Container>
     </Section>

@@ -770,7 +770,9 @@ export const navLinks: readonly NavLink[] = [
   { label: 'About', href: '#about', kind: 'anchor' },
   { label: 'Services', href: '#services', kind: 'anchor' },
   { label: 'Platforms', href: '#platforms', kind: 'anchor' },
-  { label: 'NOVAFLOW', href: '/novaflow', kind: 'route' },
+  // NOVAFLOW is deliberately absent while /novaflow is a placeholder. The
+  // homepage section is still reachable at #novaflow via the section rail.
+  // Restore this entry when the brief is rebuilt - see archive/novaflow-page.
   { label: 'Case studies', href: '#cases', kind: 'anchor' },
   { label: 'Compliance', href: '#compliance', kind: 'anchor' },
 ] as const
