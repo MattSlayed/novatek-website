@@ -605,41 +605,103 @@ export const businessBrainQuotes = [
 // Roles, not names, by deliberate policy. The set matches the funded headcount
 // in Business Plan v3.0 sections 8.2 and 9.
 // `status` is not decoration. 'funded' roles are line items in Business Plan
-// v3.1 section 10.2 - they are what the current round hires, not who works here
-// today. The plan and the pitch deck both disclose the founder as the company's
-// principal key-person risk, so a site that renders these four as one standing
-// team contradicts our own funding documents, and does so in the more flattering
-// direction. Any new entry must declare a status.
+// v3.1 section 10.2 - what this round hires, not who works here today. The plan
+// and the pitch deck both disclose the founder as the company's principal
+// key-person risk, so a site that renders these as one standing team
+// contradicts our own funding documents, in the more flattering direction.
+//
+// Names and credentials come from slide 10 of the Demo Day deck, with three
+// corrections applied in transit and documented in the commit: barred client
+// names anonymised (a JSE-listed energy and chemicals major / a national power
+// utility environment / a Big Four firm), "50+ years" held at the plan's 45+,
+// and the funded set corrected against s10.2 - which funds no DevOps role.
 export type TeamMember = {
+  /** Absent for a role this round funds. A card without a name is not a person. */
+  name?: string
   role: string
-  focus: string
+  /** Which bench: advisory, delivery, or the executive line. */
+  group: 'Executive' | 'Advisory' | 'Delivery' | 'Funded'
   capabilities: readonly string[]
+  /** One credential line. Kept short: this is a site, not a CV. */
+  note?: string
   status: 'now' | 'funded'
 }
 
 export const team: readonly TeamMember[] = [
   {
-    role: 'Founder & Lead Consultant',
-    focus: 'AI Strategy, Agent Architecture & Delivery',
-    capabilities: ['NEC Contracts', 'Process Design', 'Agent Architecture'],
+    name: 'Matthew Koeberg',
+    role: 'Founder & Managing Director',
+    group: 'Executive',
+    capabilities: ['Agent architecture', 'NEC contracts', 'Process design'],
+    note: 'Architected and built the platform, and led the anchor engagement with subcontracted delivery support.',
+    status: 'now',
+  },
+  {
+    name: 'Lungile Mginqi',
+    role: 'Strategy & Governance',
+    group: 'Advisory',
+    capabilities: ['Enterprise IT governance', 'Group CIO'],
+    note: 'Former Group CIO of a JSE-listed energy and chemicals major: more than 30,000 employees across 33 countries. Twelve years at Accenture.',
+    status: 'now',
+  },
+  {
+    name: 'Joseph Koeberg',
+    role: 'Senior Domain SME',
+    group: 'Advisory',
+    capabilities: ['Rotating equipment', 'Plant operations', 'Outages'],
+    note: 'More than 45 years in engineering and operations, including generation leadership in a national power utility environment.',
+    status: 'now',
+  },
+  {
+    name: 'Thembi Kganane',
+    role: 'Financial Assurance',
+    group: 'Delivery',
+    capabilities: ['CA(SA)', 'IFRS', 'Assurance'],
+    note: 'CA(SA) and IFRS technical specialist, formerly in a Big Four technical department. MBA (Stellenbosch). Deputy Chairperson, SAICA ITC Exam Committee 2021-2023.',
+    status: 'now',
+  },
+  {
+    name: 'Siyabonga Hlongwane',
+    role: 'DevOps & Infrastructure',
+    group: 'Delivery',
+    capabilities: ['Self-hosting', 'MCP hosting', 'POPIA-aware deployment'],
+    note: 'Self-hosting, MCP-server and POPIA-aware deployment. HyperionDev Full-Stack; BA, Wits.',
+    status: 'now',
+  },
+  {
+    name: 'Joshua Koeberg',
+    role: 'Contract Supervisor',
+    group: 'Delivery',
+    capabilities: ['Contract execution', 'Compliance oversight'],
+    note: 'Contract execution and compliance oversight across active NEC engagements.',
     status: 'now',
   },
   {
     role: 'Senior Data / ML Engineer',
-    focus: 'Pipelines, Models & BI Platforms',
-    capabilities: ['Python', 'Power BI', 'Postgres', 'pgvector'],
+    group: 'Funded',
+    capabilities: ['Python', 'Postgres', 'pgvector', 'Ontology build'],
+    note: 'Takes the ontology build from one running deployment to a repeatable product.',
     status: 'funded',
   },
   {
     role: 'Full-Stack Developer',
-    focus: 'Product & Platform Delivery',
+    group: 'Funded',
     capabilities: ['React', 'TypeScript', 'API design'],
+    note: 'Product and platform delivery through to first release of Capture and Walk.',
     status: 'funded',
   },
   {
-    role: 'DevOps & Infrastructure',
-    focus: 'Hosting, Pipelines & Security',
-    capabilities: ['Deployment pipelines', 'MCP hosting', 'Uptime & security'],
+    role: 'Lead Consultant',
+    group: 'Funded',
+    capabilities: ['Embedded delivery', 'NEC contracts'],
+    note: 'A second delivery lead, to free the founder to roughly 60% product focus. This is the hire that removes the key-person risk.',
+    status: 'funded',
+  },
+  {
+    role: 'Graduate Engineers',
+    group: 'Funded',
+    capabilities: ['Wits Crucible pipeline', 'Two roles'],
+    note: 'Two junior engineers drawn from the Wits Crucible graduate pipeline.',
     status: 'funded',
   },
 ] as const
