@@ -1,16 +1,17 @@
 // Single source of truth for site copy and data. Edit here, not in components.
 // Stats/numbers/case studies are validated against PROJECT.md v1.0 and the
 // BusinessBrain Feasibility Review v1.4 (NVT-BB-CFR-001, 20 April 2026).
+// That is a real document title and stays as cited. The PRODUCT formerly called
+// BusinessBrain is now NOVACORE; do not rename the citation to match.
 
 import {
+  Camera,
   Brain,
   LineChart,
   Database,
   Workflow,
   Compass,
-  ClipboardCheck,
   FileSearch,
-  Cpu,
   ScanEye,
   Wrench,
   HardHat,
@@ -160,28 +161,34 @@ export const services: Service[] = [
   },
 ]
 
-// A closed vocabulary on purpose: a platform cannot be given a flattering
-// stage label without editing this union first. 'Demonstrable' is the grade
-// added in v3.1 - built and runnable, the reader can drive it, but over a
-// synthetic scene. It sits between a claim and a production deployment.
+// A closed vocabulary on purpose: a surface cannot be given a flattering stage
+// label without editing this union first. 'Demonstrable' is the grade added in
+// v3.1 - built and runnable, the reader can drive it, but over a synthetic
+// scene. It sits between a claim and a production deployment.
 export type PlatformMaturity =
-  | 'In production'
   | 'In client delivery'
   | 'Demonstrable · synthetic plant, real enforcement'
+  | 'Designed · funded by this round'
   | 'Specified · not yet built'
 
-export type Platform = {
+/**
+ * One of the two places the platform is used. NOT a product: Business Plan v3.1
+ * section 3.2 is explicit that this is one product, used in two contexts by two
+ * different people, over one ontology. A fitter in gloves at a running pump and
+ * a reliability engineer reviewing a year of failures were never going to want
+ * the same interface.
+ */
+export type PlatformSurface = {
   num: string
   name: string
-  /** Expanded name where the short name is an acronym. */
-  expanded?: string
+  /** Where the surface is used, and by whom. */
+  where: string
   maturity: PlatformMaturity
-  flagship?: boolean
   description: string
   bullets: string[]
   icon: LucideIcon
-  /** Internal route, for platforms that have a deep page. */
-  href?: string
+  /** Ways of working inside a surface. Modes, never products. */
+  modes?: { name: string; description: string }[]
   /**
    * A runnable demo, opened in a new tab. `boundary` is not optional prose: it
    * states what in the demo is real and what is staged, and it renders next to
@@ -191,69 +198,130 @@ export type Platform = {
   demo?: { href: string; label: string; boundary: string }
 }
 
-// Business Plan v3.1 section 3.2. Maturity is published deliberately: two of
-// these five are not finished, and saying so is cheaper than being found out.
-export const platforms: Platform[] = [
-  {
-    num: '01',
+// Business Plan v3.1 section 3.2, which replaced the five-product story with
+// one. The name is always used with its descriptor on first mention: NOVAFLOW
+// is a DIVISION and NOVACORE is a PRODUCT, and the shared prefix blurs the two
+// tiers unless the descriptor carries the distinction.
+export const platform = {
+  name: 'NOVACORE',
+  descriptor: 'the platform',
+  lockup: 'NOVACORE by NOVATEK®',
+  lede:
+    'One product. The records a plant already owns, made answerable, then walkable.',
+  href: '/platform',
+  // Section 3.2's own three-step table. The ontology is the product; the
+  // surfaces below are how a person touches it.
+  sequence: [
+    {
+      num: '01',
+      title: 'They own',
+      body: 'P&IDs, general arrangements, layouts, job cards, SOPs and maintenance history. Complete, and unusable.',
+    },
+    {
+      num: '02',
+      title: 'We build',
+      body: 'The ontology of that plant. Every asset a noun, every action a verb.',
+    },
+    {
+      num: '03',
+      title: 'They get',
+      body: 'Ask it, then walk it. Root cause backwards, impact forwards.',
+    },
+  ],
+  surfaces: [
+    {
+      num: '01',
+      name: 'Capture',
+      where: 'In the field, on a phone',
+      maturity: 'Designed · funded by this round',
+      description:
+        'Where the record is fed. An artisan, electrician or fitter opens the work order already assigned to them, selects the asset within it, and captures photographs and a spoken note as the work happens rather than writing it up afterwards. The camera verifies the unit against its own record before anything binds to it, and surfaces what it observes, such as visible corrosion, a weeping gland or a damaged guard, as proposals for a person to accept or reject. Never as findings. Hours accrue against the order automatically, because the account already knows whose they are.',
+      bullets: [
+        'Identity comes from the work order',
+        'Observes and proposes, never concludes',
+        'Works with no signal, reconciles on reconnect',
+      ],
+      icon: Camera,
+    },
+    {
+      num: '02',
+      name: 'Walk',
+      where: 'On site or at a desk, in the twin',
+      maturity: 'Demonstrable · synthetic plant, real enforcement',
+      description:
+        'Where the record is used. A navigable model of the site with the ontology bound to it, so history, open deviations, governing procedures and next service dates sit one glance from the asset itself. Geometry derives from the client’s own engineering drawings, not from a site scan. Walk is not only a way of looking at the plant: it is fed by Capture, so every shift that works on an asset updates what that asset shows. That is the answer to the problem that kills most digital twins, which are accurate on the day they are built and quietly wrong six months later.',
+      bullets: [
+        'Geometry from the client’s own drawings',
+        'Kept current by Capture, not by re-survey',
+        'Status shown, condition never inferred',
+      ],
+      icon: ScanEye,
+      modes: [
+        {
+          name: 'Inspect',
+          description:
+            'Select an asset and resolve it to its record: identity, history, open deviations and measurements against their thresholds, each resolving to the document, revision and signatory it came from.',
+        },
+        {
+          name: 'Ask',
+          description:
+            'Question the scene in place. Root cause backwards, impact forwards, and the practical questions a person actually has standing at a machine.',
+        },
+        {
+          name: 'Procedure',
+          description:
+            'Walk a documented procedure where it happens. Isolation and permit-to-work, step by step, scoped to what the person in front of it is competent and cleared to do.',
+        },
+      ],
+      demo: {
+        href: 'https://ipv-demo-psi.vercel.app',
+        label: 'Open the live demo',
+        boundary:
+          'The governance and binding layer is real and enforced server-side. The plant is synthetic and its records are invented. The agent and its retrieval layer are not in the demo.',
+      },
+    },
+  ] as PlatformSurface[],
+  // Appendix A. Named so the roadmap is legible, and stated at its real stage.
+  // AI Harness Technology, Appendix B, is deliberately absent from this site:
+  // it is the engineering backbone behind the platform and the Contract
+  // Analyst, which makes it infrastructure rather than something to sell.
+  roadmap: {
     name: 'IQMS',
     expanded: 'Intelligent Quality Management System',
-    maturity: 'Specified · not yet built',
+    maturity: 'Specified · not yet built' as PlatformMaturity,
     description:
-      'An AI-native quality management system for ISO 9001. The first major revision of the standard since 2015 is targeted for publication in September 2026, opening a roughly three-year transition window for a certified base of more than one million organisations worldwide. New mandatory areas, including quality culture and ethics, restructured risk and integrated climate considerations, will drive gap analyses and tooling decisions. The specification is complete. There is no proof-of-concept build and no design partner under instrument yet; both are funded under the full-portfolio tier, targeting general availability ahead of that wave.',
-    bullets: ['Specification complete', 'No build, no design partner yet', 'Per-tenant SA hosting by design'],
-    icon: ClipboardCheck,
+      'An AI-native quality management application for ISO 9001, built on the same ontology. The first major revision of the standard since 2015 is targeted for publication in September 2026, opening a roughly three-year transition window for a certified base of more than one million organisations worldwide. The specification is complete. There is no proof-of-concept build and no design partner under instrument.',
   },
-  {
-    num: '02',
-    name: 'BusinessBrain',
-    maturity: 'In production',
-    flagship: true,
-    description:
-      'An operations intelligence platform: email and multi-document intelligence, executive dashboards and automated risk detection, built on agentic graph RAG. Proven in production in a national power utility environment. A system of insight, never a system of record.',
-    bullets: [
-      'Property-graph institutional memory',
-      'Human confirmation gate on every write',
-      'Provenance on every inference',
-    ],
-    icon: Network,
-    href: '/businessbrain',
-  },
-  {
-    num: '03',
-    name: 'AI Contract Analyst',
-    maturity: 'In client delivery',
-    description:
-      'Productised NEC contract review. More than 100 pre-built analytical modules cut review time from 15-20 hours to 3-5 hours per document, with risk categorised across eight defined categories. A local-content compliance module automates SBD 6.2 declarations, SANS 1286 verification and bill-of-materials provenance. That is the document-and-evidence problem South Africa’s 70% local-content designation creates for every industrial supplier, and no equipment manufacturer sells against it.',
-    bullets: ['NEC3 / NEC4 lifecycle', '8-category risk taxonomy', 'SBD 6.2 · SANS 1286 · BoM provenance'],
-    icon: FileSearch,
-  },
-  {
-    num: '04',
-    name: 'AI Harness Technology',
-    maturity: 'In production',
-    description:
-      'Structured agentic delivery environments that give AI agents governed access to tools, documents and operational data, with defined workflows and quality gates. This is the engineering backbone behind the AI Contract Analyst and BusinessBrain. It is what makes the automation repeatable and auditable rather than one-off prompting.',
-    bullets: ['Governed tool access', 'Defined workflows and quality gates', 'Auditable, repeatable delivery'],
-    icon: Cpu,
-  },
-  {
-    num: '05',
-    name: 'Walk',
-    expanded: 'The navigable plant twin',
-    maturity: 'Demonstrable · synthetic plant, real enforcement',
-    description:
-      'The site-and-desk surface of the platform, in the browser. Geometry derives from the client’s own engineering drawings, not from a site scan, and Inspect, Ask and Procedure run as modes inside it. Every asset carries its record: maintenance history, open deviations, governing SOPs and the next service date, each fact cited to its source. Status is shown; condition is never inferred. Field capture feeds the model as work is done on the plant, so it stays current rather than going stale the week after a survey. Zones govern geometry as well as facts, so restricted areas are absent from what is transmitted rather than greyed out. No game engine, no per-seat licensing, no specialist hardware.',
-    bullets: ['Geometry from the client’s own drawings', 'Kept current by field capture', 'Status shown, condition never inferred'],
-    icon: ScanEye,
-    demo: {
-      href: 'https://ipv-demo-psi.vercel.app',
-      label: 'Open the live demo',
-      boundary:
-        'The governance and binding layer is real and enforced server-side. The plant is synthetic and its records are invented. The agent and its retrieval layer are not in the demo.',
+}
+
+// Business Plan v3.1 section 3.3. Deliberately NOT a surface on the platform.
+// It is the portfolio's single strongest measured outcome and the only thing
+// currently being paid for, and folding it into the platform would dilute both
+// the platform story and the proof.
+export const contractAnalyst = {
+  name: 'AI Contract Analyst',
+  maturity: 'In client delivery' as PlatformMaturity,
+  lede:
+    'Productised NEC contract review, and the portfolio’s single strongest measured outcome.',
+  description:
+    'More than 100 pre-built analytical modules cut contract review from 15-20 hours to 3-5 hours per document, with risk categorised across eight defined categories. It runs against NEC3 and NEC4 across the contract lifecycle, and every finding carries the clause it came from.',
+  metrics: [
+    {
+      value: '75-80%',
+      label: 'Review time reduction',
+      detail: 'From 15-20 hours to 3-5 hours per document',
+      emphasis: true,
     },
+    { value: '100+', label: 'Pre-built analytical modules' },
+    { value: '8', label: 'Defined risk categories' },
+  ],
+  localContent: {
+    title: 'Local-content compliance, automated',
+    description:
+      'A compliance module automates SBD 6.2 declarations, SANS 1286 verification and bill-of-materials provenance. That is the document-and-evidence problem a 70% local-content designation creates for every industrial supplier, and it is a structural advantage rather than a feature: local-content compliance is a jurisdiction-specific document problem that global platform vendors have no commercial reason to solve. It also grows harder, and therefore more valuable to automate, precisely because the rule is enforced.',
+    tags: ['SBD 6.2', 'SANS 1286', 'BoM provenance'],
   },
-]
+}
 
 export type NovaflowPillar = {
   num: string
@@ -316,7 +384,7 @@ export const novaflow = {
       icon: ScanEye,
       bullets: [
         'Walk plant twin',
-        'BusinessBrain operations intelligence',
+        'NOVACORE operations intelligence',
         'Cited to source records',
       ],
     },
@@ -324,7 +392,7 @@ export const novaflow = {
       num: '03',
       title: 'Compliance and contracts, automated',
       description:
-        'Local-content documentation (SBD 6.2, SANS 1286), bill-of-materials traceability and NEC contract administration. The paperwork that gates public-sector flow work, handled by the AI Contract Analyst and BusinessBrain.',
+        'Local-content documentation (SBD 6.2, SANS 1286), bill-of-materials traceability and NEC contract administration. The paperwork that gates public-sector flow work, handled by the AI Contract Analyst and NOVACORE.',
       icon: FileSearch,
       bullets: ['SBD 6.2 declarations', 'SANS 1286 verification', 'NEC3 / NEC4 administration'],
     },
@@ -519,14 +587,14 @@ export const values = [
   },
 ] as const
 
-export type BusinessBrainCapability = {
+export type PlatformCapability = {
   num: string
   title: string
   description: string
   icon: LucideIcon
 }
 
-export const businessBrainCapabilities: BusinessBrainCapability[] = [
+export const platformCapabilities: PlatformCapability[] = [
   {
     num: '01',
     title: 'Property-graph backbone',
@@ -748,6 +816,7 @@ export const homeSections = [
   { id: 'services', label: 'What we do' },
   { id: 'integrations', label: 'Built on what you have' },
   { id: 'platforms', label: 'What we build' },
+  { id: 'contract-analyst', label: 'In client delivery' },
   { id: 'novaflow', label: 'Flow assets' },
   { id: 'cases', label: 'Proven outcomes' },
   { id: 'team', label: 'Our team' },
@@ -829,7 +898,7 @@ export const tickerKeywords = [
   'B-BBEE Level 1',
   'Local content compliance',
   'ISO 9001:2026 ready',
-  'BusinessBrain',
+  'NOVACORE',
   'IQMS',
   'Plant digital twin',
   'NOVAFLOW',

@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
 import { Home } from './pages/Home'
-import { BusinessBrainPage } from './pages/BusinessBrainPage'
+import { PlatformPage } from './pages/PlatformPage'
 import { NovaflowPage } from './pages/NovaflowPage'
 import { NotFound } from './pages/NotFound'
 
@@ -31,7 +31,7 @@ export default function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/businessbrain" element={<BusinessBrainPage />} />
+          <Route path="/platform" element={<PlatformPage />} />
           <Route path="/novaflow" element={<NovaflowPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

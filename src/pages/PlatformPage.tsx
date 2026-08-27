@@ -4,9 +4,9 @@ import { ArrowLeft, Quote } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { LinkButton } from '@/components/ui/Button'
-import { BusinessBrainOrbit } from '@/sections/visuals/BusinessBrainOrbit'
+import { PlatformOrbit } from '@/sections/visuals/PlatformOrbit'
 import {
-  businessBrainCapabilities,
+  platformCapabilities,
   businessBrainTiers,
   businessBrainQuotes,
 } from '@/data/site'
@@ -15,13 +15,13 @@ import { Seo } from '@/components/Seo'
 
 const headline = ['Institutional', 'memory.', 'Engineered.']
 
-export function BusinessBrainPage() {
+export function PlatformPage() {
   return (
     <>
       <Seo
-        title="BusinessBrain - Institutional Memory, Engineered | NOVATEK®"
-        description="BusinessBrain: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, Google Cloud and Postgres systems."
-        path="/businessbrain"
+        title="NOVACORE - Institutional Memory, Engineered | NOVATEK®"
+        description="NOVACORE: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, Google Cloud and Postgres systems."
+        path="/platform"
       />
       {/* Hero */}
       <section className="relative isolate overflow-hidden pt-28 pb-[clamp(4rem,2rem+8vw,8rem)] md:pt-36 bg-gradient-to-b from-slate-50 via-white to-white">
@@ -53,7 +53,7 @@ export function BusinessBrainPage() {
                 transition={{ duration: 0.4 }}
                 className="eyebrow"
               >
-                BusinessBrain · Feasibility Review v1.4
+                NOVACORE · The platform
               </motion.span>
 
               <h1 className="text-display font-semibold text-navy-500 tracking-tight">
@@ -108,7 +108,7 @@ export function BusinessBrainPage() {
             </div>
 
             <div className="lg:col-span-5 relative">
-              <BusinessBrainOrbit />
+              <PlatformOrbit />
             </div>
           </div>
         </Container>
@@ -238,7 +238,7 @@ export function BusinessBrainPage() {
             viewport={viewport}
             className="grid gap-px bg-slate-200 border border-slate-200 rounded-lg overflow-hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {businessBrainCapabilities.map((cap) => (
+            {platformCapabilities.map((cap) => (
               <motion.div
                 key={cap.num}
                 variants={fadeUp}
@@ -317,7 +317,7 @@ export function BusinessBrainPage() {
                     'Data residency by jurisdiction: client data stored in-country, routine processing in-region, and any cross-border inference for frontier models disclosed explicitly. South Africa today, under POPIA; the same pattern applies wherever the rules do',
                     'Load-shedding-resilient by design - degraded-mode is an operating assumption',
                     'Human Confirmation Gate is permanent, not a temporary scaffold',
-                    'Source systems remain authoritative - BusinessBrain reads and proposes, never the truth',
+                    'Source systems remain authoritative - NOVACORE reads and proposes, never the truth',
                   ],
                 },
                 {
@@ -367,7 +367,7 @@ export function BusinessBrainPage() {
             <div className="flex flex-col gap-2">
               <span className="eyebrow">Pilot enquiries</span>
               <h3 className="text-h3 text-navy-500">
-                Ready to scope a BusinessBrain pilot for your enterprise?
+                Ready to scope a NOVACORE pilot for your enterprise?
               </h3>
               <p className="text-sm text-charcoal/75 max-w-xl">
                 We start with a one-week feasibility scan against your real sources and constraints.

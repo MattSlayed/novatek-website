@@ -69,10 +69,10 @@ export function Footer() {
               ))}
               <li>
                 <Link
-                  to="/businessbrain"
+                  to="/platform"
                   className="text-white/80 hover:text-cobalt-400 transition-colors"
                 >
-                  BusinessBrain platform
+                  NOVACORE, the platform
                 </Link>
               </li>
             </ul>
