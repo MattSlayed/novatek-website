@@ -182,6 +182,13 @@ export type Platform = {
   icon: LucideIcon
   /** Internal route, for platforms that have a deep page. */
   href?: string
+  /**
+   * A runnable demo, opened in a new tab. `boundary` is not optional prose: it
+   * states what in the demo is real and what is staged, and it renders next to
+   * the link rather than beneath it. A demo published without that sentence
+   * reads as a product claim.
+   */
+  demo?: { href: string; label: string; boundary: string }
 }
 
 // Business Plan v3.1 section 3.2. Maturity is published deliberately: two of
@@ -239,6 +246,12 @@ export const platforms: Platform[] = [
       'The site-and-desk surface of the platform, in the browser. Geometry derives from the client’s own engineering drawings, not from a site scan, and Inspect, Ask and Procedure run as modes inside it. Every asset carries its record: maintenance history, open deviations, governing SOPs and the next service date, each fact cited to its source. Status is shown; condition is never inferred. Field capture feeds the model as work is done on the plant, so it stays current rather than going stale the week after a survey. Zones govern geometry as well as facts, so restricted areas are absent from what is transmitted rather than greyed out. No game engine, no per-seat licensing, no specialist hardware.',
     bullets: ['Geometry from the client’s own drawings', 'Kept current by field capture', 'Status shown, condition never inferred'],
     icon: ScanEye,
+    demo: {
+      href: 'https://ipv-demo-psi.vercel.app',
+      label: 'Open the live demo',
+      boundary:
+        'The governance and binding layer is real and enforced server-side. The plant is synthetic and its records are invented. The agent and its retrieval layer are not in the demo.',
+    },
   },
 ]
 
@@ -604,43 +617,69 @@ export const businessBrainQuotes = [
 
 // Roles, not names, by deliberate policy. The set matches the funded headcount
 // in Business Plan v3.0 sections 8.2 and 9.
-// `status` is not decoration. 'funded' roles are line items in Business Plan
-// v3.1 section 10.2 - they are what the current round hires, not who works here
-// today. The plan and the pitch deck both disclose the founder as the company's
-// principal key-person risk, so a site that renders these four as one standing
-// team contradicts our own funding documents, and does so in the more flattering
-// direction. Any new entry must declare a status.
+// Names and credentials come from slide 10 of the Demo Day deck, with the
+// barred client names anonymised on the way across - "a JSE-listed energy and
+// chemicals major", "a national power utility environment", "a Big Four firm" -
+// so this page and the pitch deck cannot be caught disagreeing. Joseph
+// Koeberg's tenure is held at the plan's "more than 45 years"; the deck's "50+"
+// is the outlier and section 10.5 open item #6 is still unresolved.
+//
+// Every entry is a person. Roles this funding round hires are a matter for the
+// funding documents, not for a page headed "our team" - the moment an unfilled
+// role appears here it starts reading as staff, which is the exact failure this
+// section was rebuilt to remove.
 export type TeamMember = {
+  name: string
   role: string
-  focus: string
+  /** Which bench: the executive line, advisory, or delivery. */
+  group: 'Executive' | 'Advisory' | 'Delivery'
   capabilities: readonly string[]
-  status: 'now' | 'funded'
+  /** One credential line. Kept short: this is a site, not a CV. */
+  note?: string
 }
 
 export const team: readonly TeamMember[] = [
   {
-    role: 'Founder & Lead Consultant',
-    focus: 'AI Strategy, Agent Architecture & Delivery',
-    capabilities: ['NEC Contracts', 'Process Design', 'Agent Architecture'],
-    status: 'now',
+    name: 'Matthew Koeberg',
+    role: 'Founder & Managing Director',
+    group: 'Executive',
+    capabilities: ['Agent architecture', 'NEC contracts', 'Process design'],
+    note: 'Architected and built the platform, and led the anchor engagement with subcontracted delivery support.',
   },
   {
-    role: 'Senior Data / ML Engineer',
-    focus: 'Pipelines, Models & BI Platforms',
-    capabilities: ['Python', 'Power BI', 'Postgres', 'pgvector'],
-    status: 'funded',
+    name: 'Lungile Mginqi',
+    role: 'Strategy & Governance',
+    group: 'Advisory',
+    capabilities: ['Enterprise IT governance', 'Group CIO'],
+    note: 'Former Group CIO of a JSE-listed energy and chemicals major: more than 30,000 employees across 33 countries. Twelve years at Accenture.',
   },
   {
-    role: 'Full-Stack Developer',
-    focus: 'Product & Platform Delivery',
-    capabilities: ['React', 'TypeScript', 'API design'],
-    status: 'funded',
+    name: 'Joseph Koeberg',
+    role: 'Senior Domain SME',
+    group: 'Advisory',
+    capabilities: ['Rotating equipment', 'Plant operations', 'Outages'],
+    note: 'More than 45 years in engineering and operations, including generation leadership in a national power utility environment.',
   },
   {
+    name: 'Thembi Kganane',
+    role: 'Financial Assurance',
+    group: 'Delivery',
+    capabilities: ['CA(SA)', 'IFRS', 'Assurance'],
+    note: 'CA(SA) and IFRS technical specialist, formerly in a Big Four technical department. MBA (Stellenbosch). Deputy Chairperson, SAICA ITC Exam Committee 2021-2023.',
+  },
+  {
+    name: 'Siyabonga Hlongwane',
     role: 'DevOps & Infrastructure',
-    focus: 'Hosting, Pipelines & Security',
-    capabilities: ['Deployment pipelines', 'MCP hosting', 'Uptime & security'],
-    status: 'funded',
+    group: 'Delivery',
+    capabilities: ['Self-hosting', 'MCP hosting', 'POPIA-aware deployment'],
+    note: 'Self-hosting, MCP-server and POPIA-aware deployment. HyperionDev Full-Stack; BA, Wits.',
+  },
+  {
+    name: 'Joshua Koeberg',
+    role: 'Contract Supervisor',
+    group: 'Delivery',
+    capabilities: ['Contract execution', 'Compliance oversight'],
+    note: 'Contract execution and compliance oversight across active NEC engagements.',
   },
 ] as const
 
