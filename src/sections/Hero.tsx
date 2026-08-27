@@ -109,7 +109,7 @@ export function Hero() {
               className="flex items-center gap-2 text-xs text-slate-500 mt-2"
             >
               <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-              Johannesburg · South African industrial enterprises of 50 to 500 employees · Highveld and SADC
+              Johannesburg · Industrial enterprises of 50 to 500 employees · Residency and local content, by design
             </motion.div>
           </div>
 

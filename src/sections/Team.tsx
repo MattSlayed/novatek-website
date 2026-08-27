@@ -80,7 +80,7 @@ export function Team() {
           eyebrow={eyebrowFor('team')}
           title="A small, deliberate team."
           italic="role-led, not name-led."
-          description="We deliberately publish capabilities, not bios. We also publish which roles are filled today and which the current funding round hires — the distinction tells you more about this company than a headcount would."
+          description="We deliberately publish capabilities, not bios. We also publish which roles are filled today and which the current funding round hires. The distinction tells you more about this company than a headcount would."
         />
 
         {/* Filled today. Kept visually solid so the contrast with the funded
@@ -105,7 +105,7 @@ export function Team() {
             them for staff at a glance. */}
         <div className="mt-12">
           <h3 className="eyebrow text-charcoal/60">
-            Funded by the current round — not yet filled
+            Funded by the current round - not yet filled
           </h3>
           <motion.div
             variants={fadeUpStagger(0.08)}

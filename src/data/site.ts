@@ -47,9 +47,9 @@ export const company = {
   region: 'South Africa',
   timezone: 'Africa/Johannesburg',
   mission:
-    'Empower and digitise South African enterprises with intelligent, data-driven solutions that create measurable operational impact.',
+    'Empower and digitise industrial enterprises with intelligent, data-driven solutions that create measurable operational impact.',
   description:
-    'NOVATEK is a South African AI, data and operations-intelligence consultancy serving mid-market industrial enterprises: valves, pumps, fabrication, mining services, construction and power generation. We turn fragmented operational knowledge into measurable institutional intelligence. POPIA-native, B-BBEE Level 1, and engineered for the realities of South African industry.',
+    'NOVATEK builds operations intelligence for industrial enterprises in regulated, resource-driven economies, where data residency and local-content rules are not optional: valves, pumps, fabrication, mining services, construction and power generation. We turn fragmented operational knowledge into measurable institutional intelligence. Data is held in the jurisdiction that governs it, and local content is documented against whichever regime applies. Based in Johannesburg; POPIA-native and B-BBEE Level 1.',
 } as const
 
 // Sourced from Business Plan v3.0 sections 5.1 and 5.2. The previous strip is
@@ -598,7 +598,7 @@ export const businessBrainTiers = [
 export const businessBrainQuotes = [
   '"We are building an institutional-memory substrate, not an autonomous agent. The graph is the memory. The agents are the interface. MCP is the integration seam."',
   '"We build systems of insight, never systems of record."',
-  '"The South African mid-market is not a discount version of the US market."',
+  '"An emerging-market industrial base is not a discount version of the US market."',
   '"Every inference must carry a citation chain to an authoritative source record."',
 ] as const
 
@@ -648,7 +648,7 @@ export const compliance = [
   {
     title: 'B-BBEE Level 1',
     description:
-      '100% Black-owned South African company. Level 1 contributor status carries 135% procurement recognition on your enterprise spend.',
+      '100% Black-owned South African company. Level 1 contributor status carries 135% procurement recognition on your enterprise spend. B-BBEE is South Africa’s local-content regime, and every resource economy runs one. The compliance capability is built to generalise; the certificate does not.',
     icon: ShieldCheck,
   },
   {
@@ -733,15 +733,15 @@ export type Faq = { q: string; a: string }
 export const faqs: Faq[] = [
   {
     q: 'What does NOVATEK do?',
-    a: 'NOVATEK is a South African AI, data and operations-intelligence consultancy. We turn fragmented operational knowledge into measurable institutional intelligence for mid-market industrial enterprises across power generation, heavy engineering, mining services and fabrication. We are POPIA-native and B-BBEE Level 1.',
+    a: 'NOVATEK builds operations intelligence for mid-market industrial enterprises in regulated, resource-driven economies: power generation, heavy engineering, mining services and fabrication. We turn fragmented operational knowledge into measurable institutional intelligence, and the platform is built to hold data in the jurisdiction that governs it. Based in Johannesburg; POPIA-native and B-BBEE Level 1.',
   },
   {
     q: 'Who does NOVATEK serve?',
-    a: 'South African industrial enterprises of roughly 50 to 500 employees with small in-house IT teams: valves, pumps, fabrication, mining services and construction, plus power generation and the Just Energy Transition. We also serve B-BBEE-conscious procurement across government, SOEs and large enterprise, and deliver into SADC from an active Botswana engagement.',
+    a: 'Industrial enterprises of roughly 50 to 500 employees with small in-house IT teams: valves, pumps, fabrication, mining services and construction, plus power generation and energy-transition work. Cross-border delivery is proven rather than theoretical, from an active Botswana engagement, and the architecture is per-jurisdiction by design, so the same system fits any market that governs where its data lives and how much of its content must be local. We also serve B-BBEE-conscious procurement across government, SOEs and large enterprise.',
   },
   {
-    q: 'Where is our data stored, and does anything leave South Africa?',
-    a: 'Client data is stored in South Africa on in-country infrastructure, and routine processing runs in-region. You remain the data owner; we operate as a processor. Role-based access control and encryption are standard, with mTLS between services and a full audit trail on every tool call. Some frontier AI models are not yet hosted in South Africa. Where a workload requires one, that cross-border processing is disclosed explicitly and scoped in writing before it runs. We do not obscure it.',
+    q: 'Where is our data stored, and does any of it leave the country?',
+    a: 'Data is held in the jurisdiction that governs it. For South African clients that means stored in South Africa on in-country infrastructure, with routine processing in-region. You remain the data owner; we operate as a processor. Role-based access control and encryption are standard, with mTLS between services and a full audit trail on every tool call. Some frontier AI models are not yet hosted in every jurisdiction we work in. Where a workload requires one, that cross-border processing is disclosed explicitly and scoped in writing before it runs. We do not obscure it.',
   },
   {
     q: 'Does the AI make decisions automatically?',
@@ -786,7 +786,7 @@ export const tickerKeywords = [
   'Skills Development',
   'Knowledge Graphs',
   'POPIA-Native',
-  'Data stored in South Africa',
+  'Data residency by jurisdiction',
   'B-BBEE Level 1',
   'Local content compliance',
   'ISO 9001:2026 ready',
