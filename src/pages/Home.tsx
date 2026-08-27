@@ -24,11 +24,11 @@ export function Home() {
       />
       <Hero />
       <Marquee />
-      <About />
-      <Services />
-      <Integrations />
       <Platforms />
       <ContractAnalyst />
+      <Services />
+      <About />
+      <Integrations />
       <Novaflow />
       <CaseStudies />
       <Team />

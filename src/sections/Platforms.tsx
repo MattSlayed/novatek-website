@@ -17,39 +17,30 @@ export function Platforms() {
           description={platform.lede}
         />
 
-        {/* The ontology first. The surfaces below are how a person touches it,
-            and leading with them would sell the interface over the substance. */}
-        <motion.ol
+        {/* What it is, before how it is built. The three cards carry the two
+            resolutions this section depends on: single VIEW not single record,
+            and current rather than real time. Both are load-bearing - the first
+            keeps us a processor rather than an owner, the second keeps us out
+            of a claim about telemetry we do not ingest. */}
+        <motion.div
           variants={fadeUpStagger(0.06)}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
-          className="mt-12 grid gap-px bg-slate-200 border border-slate-200 rounded-lg overflow-hidden sm:grid-cols-3"
+          className="mt-12 grid gap-4 md:grid-cols-3"
         >
-          {platform.sequence.map((step) => (
-            <motion.li
-              key={step.num}
-              variants={fadeUp}
-              className="bg-white p-6 flex flex-col gap-2"
-            >
-              <span className="taxonomy-num">{step.num}</span>
-              <h3 className="text-h4 text-navy-500">{step.title}</h3>
-              <p className="text-sm text-charcoal/80 leading-relaxed">{step.body}</p>
-            </motion.li>
+          {platform.positioning.map((p) => (
+            <motion.div key={p.title} variants={fadeUp} className="card-surface p-6 flex flex-col gap-2">
+              <h3 className="text-h4 text-navy-500">{p.title}</h3>
+              <p className="text-sm text-charcoal/80 leading-relaxed">{p.body}</p>
+            </motion.div>
           ))}
-        </motion.ol>
+        </motion.div>
 
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          className="mt-10 max-w-3xl text-charcoal/85 leading-relaxed"
-        >
-          One ontology, used in two places by two different people. A fitter in gloves at a running
-          pump and a reliability engineer reviewing a year of failures were never going to want the
-          same interface, so they do not share one.
-        </motion.p>
+
+
+
+
 
         <motion.div
           variants={fadeUpStagger(0.08)}
@@ -141,32 +132,6 @@ export function Platforms() {
           </LinkButton>
         </motion.div>
 
-        {/* Appendix A. One line, at its real stage. AI Harness is Appendix B and
-            is deliberately not on this site: it is the engineering backbone, not
-            a product, and publishing it would be selling the build pipeline. */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          className="mt-12 rounded-lg border border-dashed border-slate-300 bg-white/60 p-6 flex flex-col gap-2"
-        >
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="eyebrow text-charcoal/60">On the roadmap</span>
-            <span className="text-[11px] font-mono uppercase tracking-[0.1em] text-charcoal/50 border border-dashed border-slate-300 px-2 py-1 rounded-sharp">
-              {platform.roadmap.maturity}
-            </span>
-          </div>
-          <h3 className="text-h4 text-navy-500/80">
-            {platform.roadmap.name}
-            <span className="ml-2 align-middle text-xs font-normal text-charcoal/55">
-              {platform.roadmap.expanded}
-            </span>
-          </h3>
-          <p className="text-sm text-charcoal/65 leading-relaxed max-w-4xl">
-            {platform.roadmap.description}
-          </p>
-        </motion.div>
       </Container>
     </Section>
   )

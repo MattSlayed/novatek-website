@@ -207,8 +207,56 @@ export const platform = {
   descriptor: 'the platform',
   lockup: 'NOVACORE by NOVATEK®',
   lede:
-    'One product. The records a plant already owns, made answerable, then walkable.',
+    'The intelligence inside your operations control centre. One place to manage production, projects and assets, built on the records the plant already owns.',
   href: '/platform',
+  // Drawn from control-centre practice, resolved against our own positioning.
+  // "Single version of the truth" is NOT claimed: we are a processor, not the
+  // owner, and s4 is explicit that source systems stay authoritative.
+  positioning: [
+    {
+      title: 'What a control centre is for',
+      body: 'One place to run production, projects and assets across their whole life: construction, maintenance, refurbishment, rehabilitation and replacement. Managed against one view, rather than across six systems, a shared drive and a WhatsApp thread.',
+    },
+    {
+      title: 'Single view, not single record',
+      body: 'NOVACORE does not become the place your truth lives. Your ERP, document stores, maintenance system and drawing register stay authoritative, and we operate as a processor on your mandate. What NOVACORE builds is the map that binds them, so the operation gets one place to ask and one place to look, with every answer resolving to the record it came from.',
+    },
+    {
+      title: 'Current, not real time',
+      body: 'The map is kept current by the work itself. Every shift that touches an asset updates what that asset shows, so it does not go stale the way a twin built from a one-off survey does. This is not a sensor feed and does not pretend to be one: live telemetry is what your SCADA is already for.',
+    },
+  ],
+  // The "How It Works" stack, top down. Surfaces sit on the ontology; the
+  // ontology sits on the client's data and the model layer.
+  stack: {
+    caption:
+      'Plant, process and people bound into one map. Everything above it is an answer.',
+    tiers: [
+      {
+        label: 'Surfaces',
+        note: 'Where a person meets the operation',
+        items: ['Ask', 'Capture', 'Walk'],
+      },
+      {
+        label: 'Ontology',
+        note: 'The map that binds the two below',
+        items: ['Every asset a noun, every action a verb'],
+      },
+      {
+        label: 'Foundations',
+        note: 'Your systems stay authoritative',
+        items: [
+          'Data: ERP · document stores · P&IDs · job cards',
+          'Models: agents · retrieval · reasoning',
+        ],
+      },
+    ],
+  },
+  mechanism: {
+    title: 'How the map is built, and why it answers',
+    body: 'The ontology is assembled from what the operation already has: the asset register, the drawing set, the job cards, the procedures and the competency records. Each becomes a node with its relationships stated, so the map holds not just what exists but what governs what, who is competent to do it, and what a deviation blocks.',
+    graphRag: 'Retrieval then works the way a graph-RAG system works. Rather than searching a pile of documents and hoping the right paragraph surfaces, a question traverses the structured map, so asking about one pump reaches the work orders, procedures, measurements and deviations actually connected to it. Historic and current records resolve in the same traversal. That is why an answer can cite the document, revision and signatory behind it, why root cause runs backwards and impact runs forwards, and why a person can decide a response with the whole picture in front of them instead of assembling it first.',
+  },
   // Section 3.2's own three-step table. The ontology is the product; the
   // surfaces below are how a person touches it.
   sequence: [
@@ -228,6 +276,10 @@ export const platform = {
       body: 'Ask it, then walk it. Root cause backwards, impact forwards.',
     },
   ],
+  // Appendix A (IQMS) and Appendix B (AI Harness Technology) are both
+  // deliberately absent from this site. Neither is built, neither is in the
+  // funded core of this round, and AI Harness is the engineering backbone
+  // behind the platform rather than something to sell.
   surfaces: [
     {
       num: '01',
@@ -281,17 +333,6 @@ export const platform = {
       },
     },
   ] as PlatformSurface[],
-  // Appendix A. Named so the roadmap is legible, and stated at its real stage.
-  // AI Harness Technology, Appendix B, is deliberately absent from this site:
-  // it is the engineering backbone behind the platform and the Contract
-  // Analyst, which makes it infrastructure rather than something to sell.
-  roadmap: {
-    name: 'IQMS',
-    expanded: 'Intelligent Quality Management System',
-    maturity: 'Specified · not yet built' as PlatformMaturity,
-    description:
-      'An AI-native quality management application for ISO 9001, built on the same ontology. The first major revision of the standard since 2015 is targeted for publication in September 2026, opening a roughly three-year transition window for a certified base of more than one million organisations worldwide. The specification is complete. There is no proof-of-concept build and no design partner under instrument.',
-  },
 }
 
 // Business Plan v3.1 section 3.3. Deliberately NOT a surface on the platform.
@@ -597,37 +638,37 @@ export type PlatformCapability = {
 export const platformCapabilities: PlatformCapability[] = [
   {
     num: '01',
-    title: 'Property-graph backbone',
+    title: 'The ontology, as a graph',
     description:
-      'Entities (Contract, Vendor, Invoice, Person, Site) and relationships (SIGNED_BY, DEPENDS_ON, ASSIGNED_TO) - with provenance tuples on every node and edge.',
+      'Every asset, contract, person, procedure and site is a node, and every relationship between them is stated rather than inferred: signed by, depends on, assigned to, governed by. Provenance travels on every node and every edge.',
     icon: Network,
   },
   {
     num: '02',
-    title: 'Hybrid graph + vector retrieval',
+    title: 'Retrieval that traverses, not guesses',
     description:
-      'Graph narrows the candidate space via subgraph-match; pgvector re-ranks attached text. Citations point to nodes, not chunks.',
+      'The map narrows the candidate space by structure before any text is read, and attached documents are ranked within it. Citations point at records rather than at paragraphs, which is what makes an answer checkable instead of merely plausible.',
     icon: GitBranch,
   },
   {
     num: '03',
-    title: 'Tool-using agent constellation',
+    title: 'Agents that plan, retrieve and propose',
     description:
-      'Coordinator with planner, retrieval, reflector, and action-proposer agents on the Claude Agent SDK. LangGraph and CrewAI as portable fallbacks.',
+      'A coordinator working with planning, retrieval, review and action-proposing agents. Every one of them proposes and none of them commits. The model layer is deliberately replaceable: the commitment is to the behaviour, not to a vendor.',
     icon: Brain,
   },
   {
     num: '04',
-    title: 'Skills - codified SOPs',
+    title: 'Skills: your procedures, codified',
     description:
-      'Versioned, client-owned artefacts that capture how this client runs AR follow-ups, contractor onboarding, monthly management packs.',
+      'Versioned artefacts capturing how this operation actually runs a task, rather than how a manual says it should. They are owned by the client and they leave with the client.',
     icon: Workflow,
   },
   {
     num: '05',
-    title: 'MCP integration fleet',
+    title: 'A typed integration seam',
     description:
-      'Per-source MCP servers (ms-graph, object-store, sql-readonly, pg, graph) - each holding only its own scoped credentials. Replace v2 with v3 without touching agent logic.',
+      'One scoped connector per source system, each holding only the credentials for its own source, over mutual TLS. Nothing holds a master key to everything, so a compromise is bounded by design, and a source can be replaced without touching agent logic.',
     icon: Database,
   },
   {
@@ -641,7 +682,7 @@ export const platformCapabilities: PlatformCapability[] = [
     num: '07',
     title: 'Provenance & audit substrate',
     description:
-      'Every inference carries source_uri, source_version, extracted_at, extractor_hash, confidence. Every tool call is logged.',
+      'Every inference carries the source it came from, the version of that source, when it was read and how confident the system is. Every tool call is logged. Nothing asserts itself without a chain back to a record.',
     icon: Eye,
   },
   {
@@ -653,30 +694,8 @@ export const platformCapabilities: PlatformCapability[] = [
   },
 ]
 
-export const businessBrainTiers = [
-  {
-    label: 'Reasoning tier',
-    sub: 'Chat surface · agent constellation',
-    detail: 'Claude Agent SDK · planner · retrieval · reflector · action-proposer',
-  },
-  {
-    label: 'Graph & provenance substrate',
-    sub: 'Persistent shared memory',
-    detail: 'Neo4j AuraDB property graph · pgvector · audit log',
-  },
-  {
-    label: 'MCP integration seam',
-    sub: 'Typed tool surfaces · mTLS · scoped tokens',
-    detail: 'ms-graph · object-store · sql-readonly · pg-readonly · pg-write · graph',
-  },
-  {
-    label: 'Authoritative sources',
-    sub: 'Source systems remain truth',
-    detail: 'Microsoft Graph · Google Cloud Storage · Postgres · client LOB databases',
-  },
-] as const
 
-export const businessBrainQuotes = [
+export const platformQuotes = [
   '"We are building an institutional-memory substrate, not an autonomous agent. The graph is the memory. The agents are the interface. MCP is the integration seam."',
   '"We build systems of insight, never systems of record."',
   '"An emerging-market industrial base is not a discount version of the US market."',
@@ -811,12 +830,14 @@ export const governancePillars = [
 // Ordered manifest for the home-page narrative. The "NN / Label" eyebrows are
 // derived from this, so inserting or reordering a section renumbers the whole
 // page automatically instead of by hand.
+// Order here MUST match the render order in pages/Home.tsx: the eyebrow numbers
+// are derived from this array, so a mismatch numbers the page out of sequence.
 export const homeSections = [
-  { id: 'about', label: 'Who we are' },
-  { id: 'services', label: 'What we do' },
-  { id: 'integrations', label: 'Built on what you have' },
   { id: 'platforms', label: 'What we build' },
   { id: 'contract-analyst', label: 'In client delivery' },
+  { id: 'services', label: 'What we do' },
+  { id: 'about', label: 'Who we are' },
+  { id: 'integrations', label: 'Built on what you have' },
   { id: 'novaflow', label: 'Flow assets' },
   { id: 'cases', label: 'Proven outcomes' },
   { id: 'team', label: 'Our team' },
@@ -861,7 +882,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'What technology does NOVATEK build on?',
-    a: 'Tool-using agent constellations on the Claude Agent SDK, with LangGraph and CrewAI as portable fallbacks, a Neo4j property-graph backbone with pgvector retrieval, and a Model Context Protocol integration fleet over Microsoft 365, Google Cloud and Postgres. Every inference carries a citation chain to an authoritative source record.',
+    a: 'We commit to behaviour rather than to a vendor. The ontology of the operation is held as a property graph; retrieval traverses that structure before any text is read; a constellation of agents plans, retrieves and proposes, and none of them commits; and every source system is reached through its own scoped connector rather than one master key. Every inference carries a citation chain back to an authoritative source record, and every write passes a human confirmation gate. The components underneath are deliberately replaceable, and naming one of them as the identity of the product would be a mistake.',
   },
 ]
 
@@ -875,9 +896,9 @@ export type NavLink = {
 // `kind` is load-bearing, not decorative: Nav and Footer previously templated
 // every href as `/${href}`, which mangles a real route path.
 export const navLinks: readonly NavLink[] = [
-  { label: 'About', href: '#about', kind: 'anchor' },
+  { label: 'Platform', href: '#platforms', kind: 'anchor' },
   { label: 'Services', href: '#services', kind: 'anchor' },
-  { label: 'Platforms', href: '#platforms', kind: 'anchor' },
+  { label: 'About', href: '#about', kind: 'anchor' },
   // NOVAFLOW is deliberately absent while /novaflow is a placeholder. The
   // homepage section is still reachable at #novaflow via the section rail.
   // Restore this entry when the brief is rebuilt - see archive/novaflow-page.
@@ -899,7 +920,6 @@ export const tickerKeywords = [
   'Local content compliance',
   'ISO 9001:2026 ready',
   'NOVACORE',
-  'IQMS',
   'Plant digital twin',
   'NOVAFLOW',
 ] as const
