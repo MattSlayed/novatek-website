@@ -33,7 +33,10 @@ export function Stat({
 }: StatProps) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.5 })
-  const [displayed, setDisplayed] = useState(0)
+  // Seed with the FINAL value, not 0. Anything that reads the DOM without running the
+  // animation to completion - a scraper, an AI pre-screen, a screenshot tool, a slow
+  // connection - must see the real number. The count-up is decoration, not the source.
+  const [displayed, setDisplayed] = useState(value)
 
   useEffect(() => {
     if (!inView) return
@@ -46,7 +49,10 @@ export function Stat({
     const dur = 1600
     let raf = 0
     const tick = (t: number) => {
-      const p = Math.min((t - start) / dur, 1)
+      // Clamp BOTH ends. Only the upper bound was clamped, so a clock reporting
+      // t < start - headless Chrome under --virtual-time-budget does exactly that -
+      // drove progress negative and rendered "up to -314%" where the data says 80%.
+      const p = Math.min(Math.max((t - start) / dur, 0), 1)
       // ease.out cubic-bezier (approx by 1 - (1-p)^3)
       const eased = 1 - Math.pow(1 - p, 3)
       setDisplayed(eased * value)

@@ -17,7 +17,7 @@ export function About() {
           <div className="lg:col-span-7 flex flex-col gap-8 text-charcoal/85 leading-relaxed">
             <SectionHeader
               eyebrow={eyebrowFor('about')}
-              title="A South African team that turns scattered data into"
+              title="A team that turns scattered data into"
               italic="decisions you can act on."
             />
 
@@ -30,8 +30,8 @@ export function About() {
             >
               <span className="flex-1">
                 A Johannesburg-based AI and operations-intelligence consultancy, working with
-                South African industrial enterprises of 50 to 500 employees across power
-                generation, heavy engineering, mining services and fabrication.
+                industrial enterprises of 50 to 500 employees across power generation,
+                heavy engineering, mining services and fabrication.
               </span>
               <ChevronDown
                 aria-hidden="true"
@@ -63,7 +63,7 @@ export function About() {
                       Every system we build keeps a person in the loop - no black-box AI making
                       calls on your behalf and no dependencies you can&apos;t audit. We also serve
                       B-BBEE-conscious procurement across government, SOEs and large enterprise,
-                      and deliver across the border into SADC. You stay in control. We just make
+                      and we deliver across borders. You stay in control. We just make
                       the work faster and clearer.
                     </p>
                   </div>

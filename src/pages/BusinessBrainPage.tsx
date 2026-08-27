@@ -314,7 +314,7 @@ export function BusinessBrainPage() {
                   tone: 'bg-cobalt-50 border-cobalt-200 text-cobalt-700',
                   items: [
                     'POPIA-native provenance - citation chains by construction',
-                    'South African data residency by default: client data stored in-country, routine processing in-region, and any cross-border inference for frontier models disclosed explicitly',
+                    'Data residency by jurisdiction: client data stored in-country, routine processing in-region, and any cross-border inference for frontier models disclosed explicitly. South Africa today, under POPIA; the same pattern applies wherever the rules do',
                     'Load-shedding-resilient by design - degraded-mode is an operating assumption',
                     'Human Confirmation Gate is permanent, not a temporary scaffold',
                     'Source systems remain authoritative - BusinessBrain reads and proposes, never the truth',
