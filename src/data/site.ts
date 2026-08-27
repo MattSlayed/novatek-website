@@ -182,6 +182,13 @@ export type Platform = {
   icon: LucideIcon
   /** Internal route, for platforms that have a deep page. */
   href?: string
+  /**
+   * A runnable demo, opened in a new tab. `boundary` is not optional prose: it
+   * states what in the demo is real and what is staged, and it renders next to
+   * the link rather than beneath it. A demo published without that sentence
+   * reads as a product claim.
+   */
+  demo?: { href: string; label: string; boundary: string }
 }
 
 // Business Plan v3.1 section 3.2. Maturity is published deliberately: two of
@@ -239,6 +246,12 @@ export const platforms: Platform[] = [
       'The site-and-desk surface of the platform, in the browser. Geometry derives from the client’s own engineering drawings, not from a site scan, and Inspect, Ask and Procedure run as modes inside it. Every asset carries its record: maintenance history, open deviations, governing SOPs and the next service date, each fact cited to its source. Status is shown; condition is never inferred. Field capture feeds the model as work is done on the plant, so it stays current rather than going stale the week after a survey. Zones govern geometry as well as facts, so restricted areas are absent from what is transmitted rather than greyed out. No game engine, no per-seat licensing, no specialist hardware.',
     bullets: ['Geometry from the client’s own drawings', 'Kept current by field capture', 'Status shown, condition never inferred'],
     icon: ScanEye,
+    demo: {
+      href: 'https://ipv-demo-psi.vercel.app',
+      label: 'Open the live demo',
+      boundary:
+        'The governance and binding layer is real and enforced server-side. The plant is synthetic and its records are invented. The agent and its retrieval layer are not in the demo.',
+    },
   },
 ]
 
@@ -604,27 +617,25 @@ export const businessBrainQuotes = [
 
 // Roles, not names, by deliberate policy. The set matches the funded headcount
 // in Business Plan v3.0 sections 8.2 and 9.
-// `status` is not decoration. 'funded' roles are line items in Business Plan
-// v3.1 section 10.2 - what this round hires, not who works here today. The plan
-// and the pitch deck both disclose the founder as the company's principal
-// key-person risk, so a site that renders these as one standing team
-// contradicts our own funding documents, in the more flattering direction.
+// Names and credentials come from slide 10 of the Demo Day deck, with the
+// barred client names anonymised on the way across - "a JSE-listed energy and
+// chemicals major", "a national power utility environment", "a Big Four firm" -
+// so this page and the pitch deck cannot be caught disagreeing. Joseph
+// Koeberg's tenure is held at the plan's "more than 45 years"; the deck's "50+"
+// is the outlier and section 10.5 open item #6 is still unresolved.
 //
-// Names and credentials come from slide 10 of the Demo Day deck, with three
-// corrections applied in transit and documented in the commit: barred client
-// names anonymised (a JSE-listed energy and chemicals major / a national power
-// utility environment / a Big Four firm), "50+ years" held at the plan's 45+,
-// and the funded set corrected against s10.2 - which funds no DevOps role.
+// Every entry is a person. Roles this funding round hires are a matter for the
+// funding documents, not for a page headed "our team" - the moment an unfilled
+// role appears here it starts reading as staff, which is the exact failure this
+// section was rebuilt to remove.
 export type TeamMember = {
-  /** Absent for a role this round funds. A card without a name is not a person. */
-  name?: string
+  name: string
   role: string
-  /** Which bench: advisory, delivery, or the executive line. */
-  group: 'Executive' | 'Advisory' | 'Delivery' | 'Funded'
+  /** Which bench: the executive line, advisory, or delivery. */
+  group: 'Executive' | 'Advisory' | 'Delivery'
   capabilities: readonly string[]
   /** One credential line. Kept short: this is a site, not a CV. */
   note?: string
-  status: 'now' | 'funded'
 }
 
 export const team: readonly TeamMember[] = [
@@ -634,7 +645,6 @@ export const team: readonly TeamMember[] = [
     group: 'Executive',
     capabilities: ['Agent architecture', 'NEC contracts', 'Process design'],
     note: 'Architected and built the platform, and led the anchor engagement with subcontracted delivery support.',
-    status: 'now',
   },
   {
     name: 'Lungile Mginqi',
@@ -642,7 +652,6 @@ export const team: readonly TeamMember[] = [
     group: 'Advisory',
     capabilities: ['Enterprise IT governance', 'Group CIO'],
     note: 'Former Group CIO of a JSE-listed energy and chemicals major: more than 30,000 employees across 33 countries. Twelve years at Accenture.',
-    status: 'now',
   },
   {
     name: 'Joseph Koeberg',
@@ -650,7 +659,6 @@ export const team: readonly TeamMember[] = [
     group: 'Advisory',
     capabilities: ['Rotating equipment', 'Plant operations', 'Outages'],
     note: 'More than 45 years in engineering and operations, including generation leadership in a national power utility environment.',
-    status: 'now',
   },
   {
     name: 'Thembi Kganane',
@@ -658,7 +666,6 @@ export const team: readonly TeamMember[] = [
     group: 'Delivery',
     capabilities: ['CA(SA)', 'IFRS', 'Assurance'],
     note: 'CA(SA) and IFRS technical specialist, formerly in a Big Four technical department. MBA (Stellenbosch). Deputy Chairperson, SAICA ITC Exam Committee 2021-2023.',
-    status: 'now',
   },
   {
     name: 'Siyabonga Hlongwane',
@@ -666,7 +673,6 @@ export const team: readonly TeamMember[] = [
     group: 'Delivery',
     capabilities: ['Self-hosting', 'MCP hosting', 'POPIA-aware deployment'],
     note: 'Self-hosting, MCP-server and POPIA-aware deployment. HyperionDev Full-Stack; BA, Wits.',
-    status: 'now',
   },
   {
     name: 'Joshua Koeberg',
@@ -674,35 +680,6 @@ export const team: readonly TeamMember[] = [
     group: 'Delivery',
     capabilities: ['Contract execution', 'Compliance oversight'],
     note: 'Contract execution and compliance oversight across active NEC engagements.',
-    status: 'now',
-  },
-  {
-    role: 'Senior Data / ML Engineer',
-    group: 'Funded',
-    capabilities: ['Python', 'Postgres', 'pgvector', 'Ontology build'],
-    note: 'Takes the ontology build from one running deployment to a repeatable product.',
-    status: 'funded',
-  },
-  {
-    role: 'Full-Stack Developer',
-    group: 'Funded',
-    capabilities: ['React', 'TypeScript', 'API design'],
-    note: 'Product and platform delivery through to first release of Capture and Walk.',
-    status: 'funded',
-  },
-  {
-    role: 'Lead Consultant',
-    group: 'Funded',
-    capabilities: ['Embedded delivery', 'NEC contracts'],
-    note: 'A second delivery lead, to free the founder to roughly 60% product focus. This is the hire that removes the key-person risk.',
-    status: 'funded',
-  },
-  {
-    role: 'Graduate Engineers',
-    group: 'Funded',
-    capabilities: ['Wits Crucible pipeline', 'Two roles'],
-    note: 'Two junior engineers drawn from the Wits Crucible graduate pipeline.',
-    status: 'funded',
   },
 ] as const
 

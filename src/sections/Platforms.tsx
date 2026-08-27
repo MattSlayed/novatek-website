@@ -80,6 +80,24 @@ export function Platforms() {
                   </LinkButton>
                 </div>
               )}
+
+              {p.demo && (
+                <div className="pt-2 flex flex-col gap-2">
+                  <LinkButton
+                    href={p.demo.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="ghost"
+                    size="sm"
+                    withArrow
+                  >
+                    {p.demo.label}
+                  </LinkButton>
+                  <p className="text-xs text-charcoal/60 leading-relaxed">
+                    {p.demo.boundary}
+                  </p>
+                </div>
+              )}
             </motion.article>
           ))}
         </motion.div>
