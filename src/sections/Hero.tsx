@@ -8,7 +8,7 @@ import { heroStats } from '@/data/site'
 import { ease, wordReveal } from '@/lib/motion'
 import { BusinessBrainOrbit } from './visuals/BusinessBrainOrbit'
 
-// Hero line, from the Vision statement in Business Plan v3.0 section 2: an
+// Hero line, from the Vision statement in Business Plan v3.1 section 2: an
 // industrial sector "where decades of engineering expertise is amplified by
 // intelligent automation". Human first, machine second - that ordering is the
 // positioning, not a stylistic choice.
@@ -17,10 +17,15 @@ import { BusinessBrainOrbit } from './visuals/BusinessBrainOrbit'
 // ACCENT_FROM onward renders as the light-italic cobalt tail.
 // Split per word rather than per phrase: each chunk is an inline-block, so
 // multi-word chunks break atomically and strand short words on their own line.
-const headline = ['South', 'Africa’s', 'next', 'industrial', 'era.', 'Human-led.', 'AI-amplified.']
-const ACCENT_FROM = 5
+const headline = ['The', 'next', 'industrial', 'era.', 'Human-led.', 'AI-amplified.']
+// Derived, not hardcoded. This marks where the light-italic cobalt tail
+// begins, so it is index-coupled to `headline` above: editing the headline
+// used to shift every index and strand the accent on the wrong word without
+// erroring. If the accent word is ever renamed the whole line changes
+// colour, which is loud enough to catch immediately.
+const ACCENT_FROM = headline.findIndex((w) => w.startsWith('Human-led'))
 const sub =
-  'AI, operations intelligence and reliability engineering for the industries that keep the country running - power, mining, heavy engineering and water. Decades of plant expertise, amplified rather than replaced.'
+  'AI, operations intelligence and reliability engineering for the industries that keep countries running - power, mining, heavy engineering and water. Decades of plant expertise, amplified rather than replaced.'
 
 export function Hero() {
   return (

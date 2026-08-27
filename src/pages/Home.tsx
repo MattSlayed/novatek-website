@@ -17,7 +17,7 @@ export function Home() {
   return (
     <>
       <Seo
-        title="NOVATEK® - Operations Intelligence for Regulated Industry"
+        title="NOVATEK® - The Next Industrial Era. Human-led, AI-amplified."
         description="Operations intelligence for mid-market industrial enterprises in regulated, resource-driven economies: power generation, heavy engineering, mining services and fabrication. Based in Johannesburg. POPIA-native, B-BBEE Level 1."
         path="/"
       />
