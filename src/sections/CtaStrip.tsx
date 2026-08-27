@@ -35,12 +35,12 @@ export function CtaStrip() {
             </h2>
             <p className="text-body-lg text-white/75 max-w-2xl leading-relaxed">
               Whether it's an AI readiness review, a contract-analysis pipeline, or a full
-              BusinessBrain pilot - the conversation starts with what you actually need.
+              NOVACORE pilot - the conversation starts with what you actually need.
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
-            <LinkButton href="/businessbrain" variant="ghost" size="lg" withArrow className="!border-white/20 !text-white hover:!border-white hover:!text-white">
-              Read the BusinessBrain brief
+            <LinkButton href="/platform" variant="ghost" size="lg" withArrow className="!border-white/20 !text-white hover:!border-white hover:!text-white">
+              Read the NOVACORE brief
             </LinkButton>
           </div>
         </motion.div>

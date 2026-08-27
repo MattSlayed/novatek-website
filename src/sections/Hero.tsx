@@ -6,7 +6,7 @@ import { LinkButton } from '@/components/ui/Button'
 import { Stat } from '@/components/ui/Stat'
 import { heroStats } from '@/data/site'
 import { ease, wordReveal } from '@/lib/motion'
-import { BusinessBrainOrbit } from './visuals/BusinessBrainOrbit'
+import { PlatformOrbit } from './visuals/PlatformOrbit'
 
 // Hero line, from the Vision statement in Business Plan v3.1 section 2: an
 // industrial sector "where decades of engineering expertise is amplified by
@@ -101,8 +101,8 @@ export function Hero() {
               <LinkButton href="#cases" size="lg" withArrow>
                 See proven outcomes
               </LinkButton>
-              <LinkButton href="/businessbrain" variant="ghost" size="lg">
-                Meet BusinessBrain
+              <LinkButton href="/platform" variant="ghost" size="lg">
+                Meet NOVACORE
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </LinkButton>
             </motion.div>
@@ -119,7 +119,7 @@ export function Hero() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <BusinessBrainOrbit />
+            <PlatformOrbit />
           </div>
         </div>
 

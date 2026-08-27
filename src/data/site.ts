@@ -1,16 +1,17 @@
 // Single source of truth for site copy and data. Edit here, not in components.
 // Stats/numbers/case studies are validated against PROJECT.md v1.0 and the
 // BusinessBrain Feasibility Review v1.4 (NVT-BB-CFR-001, 20 April 2026).
+// That is a real document title and stays as cited. The PRODUCT formerly called
+// BusinessBrain is now NOVACORE; do not rename the citation to match.
 
 import {
+  Camera,
   Brain,
   LineChart,
   Database,
   Workflow,
   Compass,
-  ClipboardCheck,
   FileSearch,
-  Cpu,
   ScanEye,
   Wrench,
   HardHat,
@@ -160,28 +161,34 @@ export const services: Service[] = [
   },
 ]
 
-// A closed vocabulary on purpose: a platform cannot be given a flattering
-// stage label without editing this union first. 'Demonstrable' is the grade
-// added in v3.1 - built and runnable, the reader can drive it, but over a
-// synthetic scene. It sits between a claim and a production deployment.
+// A closed vocabulary on purpose: a surface cannot be given a flattering stage
+// label without editing this union first. 'Demonstrable' is the grade added in
+// v3.1 - built and runnable, the reader can drive it, but over a synthetic
+// scene. It sits between a claim and a production deployment.
 export type PlatformMaturity =
-  | 'In production'
   | 'In client delivery'
   | 'Demonstrable · synthetic plant, real enforcement'
+  | 'Designed · funded by this round'
   | 'Specified · not yet built'
 
-export type Platform = {
+/**
+ * One of the two places the platform is used. NOT a product: Business Plan v3.1
+ * section 3.2 is explicit that this is one product, used in two contexts by two
+ * different people, over one ontology. A fitter in gloves at a running pump and
+ * a reliability engineer reviewing a year of failures were never going to want
+ * the same interface.
+ */
+export type PlatformSurface = {
   num: string
   name: string
-  /** Expanded name where the short name is an acronym. */
-  expanded?: string
+  /** Where the surface is used, and by whom. */
+  where: string
   maturity: PlatformMaturity
-  flagship?: boolean
   description: string
   bullets: string[]
   icon: LucideIcon
-  /** Internal route, for platforms that have a deep page. */
-  href?: string
+  /** Ways of working inside a surface. Modes, never products. */
+  modes?: { name: string; description: string }[]
   /**
    * A runnable demo, opened in a new tab. `boundary` is not optional prose: it
    * states what in the demo is real and what is staged, and it renders next to
@@ -191,69 +198,171 @@ export type Platform = {
   demo?: { href: string; label: string; boundary: string }
 }
 
-// Business Plan v3.1 section 3.2. Maturity is published deliberately: two of
-// these five are not finished, and saying so is cheaper than being found out.
-export const platforms: Platform[] = [
-  {
-    num: '01',
-    name: 'IQMS',
-    expanded: 'Intelligent Quality Management System',
-    maturity: 'Specified · not yet built',
-    description:
-      'An AI-native quality management system for ISO 9001. The first major revision of the standard since 2015 is targeted for publication in September 2026, opening a roughly three-year transition window for a certified base of more than one million organisations worldwide. New mandatory areas, including quality culture and ethics, restructured risk and integrated climate considerations, will drive gap analyses and tooling decisions. The specification is complete. There is no proof-of-concept build and no design partner under instrument yet; both are funded under the full-portfolio tier, targeting general availability ahead of that wave.',
-    bullets: ['Specification complete', 'No build, no design partner yet', 'Per-tenant SA hosting by design'],
-    icon: ClipboardCheck,
-  },
-  {
-    num: '02',
-    name: 'BusinessBrain',
-    maturity: 'In production',
-    flagship: true,
-    description:
-      'An operations intelligence platform: email and multi-document intelligence, executive dashboards and automated risk detection, built on agentic graph RAG. Proven in production in a national power utility environment. A system of insight, never a system of record.',
-    bullets: [
-      'Property-graph institutional memory',
-      'Human confirmation gate on every write',
-      'Provenance on every inference',
-    ],
-    icon: Network,
-    href: '/businessbrain',
-  },
-  {
-    num: '03',
-    name: 'AI Contract Analyst',
-    maturity: 'In client delivery',
-    description:
-      'Productised NEC contract review. More than 100 pre-built analytical modules cut review time from 15-20 hours to 3-5 hours per document, with risk categorised across eight defined categories. A local-content compliance module automates SBD 6.2 declarations, SANS 1286 verification and bill-of-materials provenance. That is the document-and-evidence problem South Africa’s 70% local-content designation creates for every industrial supplier, and no equipment manufacturer sells against it.',
-    bullets: ['NEC3 / NEC4 lifecycle', '8-category risk taxonomy', 'SBD 6.2 · SANS 1286 · BoM provenance'],
-    icon: FileSearch,
-  },
-  {
-    num: '04',
-    name: 'AI Harness Technology',
-    maturity: 'In production',
-    description:
-      'Structured agentic delivery environments that give AI agents governed access to tools, documents and operational data, with defined workflows and quality gates. This is the engineering backbone behind the AI Contract Analyst and BusinessBrain. It is what makes the automation repeatable and auditable rather than one-off prompting.',
-    bullets: ['Governed tool access', 'Defined workflows and quality gates', 'Auditable, repeatable delivery'],
-    icon: Cpu,
-  },
-  {
-    num: '05',
-    name: 'Walk',
-    expanded: 'The navigable plant twin',
-    maturity: 'Demonstrable · synthetic plant, real enforcement',
-    description:
-      'The site-and-desk surface of the platform, in the browser. Geometry derives from the client’s own engineering drawings, not from a site scan, and Inspect, Ask and Procedure run as modes inside it. Every asset carries its record: maintenance history, open deviations, governing SOPs and the next service date, each fact cited to its source. Status is shown; condition is never inferred. Field capture feeds the model as work is done on the plant, so it stays current rather than going stale the week after a survey. Zones govern geometry as well as facts, so restricted areas are absent from what is transmitted rather than greyed out. No game engine, no per-seat licensing, no specialist hardware.',
-    bullets: ['Geometry from the client’s own drawings', 'Kept current by field capture', 'Status shown, condition never inferred'],
-    icon: ScanEye,
-    demo: {
-      href: 'https://ipv-demo-psi.vercel.app',
-      label: 'Open the live demo',
-      boundary:
-        'The governance and binding layer is real and enforced server-side. The plant is synthetic and its records are invented. The agent and its retrieval layer are not in the demo.',
+// Business Plan v3.1 section 3.2, which replaced the five-product story with
+// one. The name is always used with its descriptor on first mention: NOVAFLOW
+// is a DIVISION and NOVACORE is a PRODUCT, and the shared prefix blurs the two
+// tiers unless the descriptor carries the distinction.
+export const platform = {
+  name: 'NOVACORE',
+  descriptor: 'the platform',
+  lockup: 'NOVACORE by NOVATEK®',
+  lede:
+    'The intelligence inside your operations control centre. One place to manage production, projects and assets, built on the records the plant already owns.',
+  href: '/platform',
+  // Drawn from control-centre practice, resolved against our own positioning.
+  // "Single version of the truth" is NOT claimed: we are a processor, not the
+  // owner, and s4 is explicit that source systems stay authoritative.
+  positioning: [
+    {
+      title: 'What a control centre is for',
+      body: 'One place to run production, projects and assets across their whole life: construction, maintenance, refurbishment, rehabilitation and replacement. Managed against one view, rather than across six systems, a shared drive and a WhatsApp thread.',
     },
+    {
+      title: 'Single view, not single record',
+      body: 'NOVACORE does not become the place your truth lives. Your ERP, document stores, maintenance system and drawing register stay authoritative, and we operate as a processor on your mandate. What NOVACORE builds is the map that binds them, so the operation gets one place to ask and one place to look, with every answer resolving to the record it came from.',
+    },
+    {
+      title: 'Current, not real time',
+      body: 'The map is kept current by the work itself. Every shift that touches an asset updates what that asset shows, so it does not go stale the way a twin built from a one-off survey does. This is not a sensor feed and does not pretend to be one: live telemetry is what your SCADA is already for.',
+    },
+  ],
+  // The "How It Works" stack, top down. Surfaces sit on the ontology; the
+  // ontology sits on the client's data and the model layer.
+  stack: {
+    caption:
+      'Plant, process and people bound into one map. Everything above it is an answer.',
+    tiers: [
+      {
+        label: 'Surfaces',
+        note: 'Where a person meets the operation',
+        items: ['Ask', 'Capture', 'Walk'],
+      },
+      {
+        label: 'Ontology',
+        note: 'The map that binds the two below',
+        items: ['Every asset a noun, every action a verb'],
+      },
+      {
+        label: 'Foundations',
+        note: 'Your systems stay authoritative',
+        items: [
+          'Data: ERP · document stores · P&IDs · job cards',
+          'Models: agents · retrieval · reasoning',
+        ],
+      },
+    ],
   },
-]
+  mechanism: {
+    title: 'How the map is built, and why it answers',
+    body: 'The ontology is assembled from what the operation already has: the asset register, the drawing set, the job cards, the procedures and the competency records. Each becomes a node with its relationships stated, so the map holds not just what exists but what governs what, who is competent to do it, and what a deviation blocks.',
+    graphRag: 'Retrieval then works the way a graph-RAG system works. Rather than searching a pile of documents and hoping the right paragraph surfaces, a question traverses the structured map, so asking about one pump reaches the work orders, procedures, measurements and deviations actually connected to it. Historic and current records resolve in the same traversal. That is why an answer can cite the document, revision and signatory behind it, why root cause runs backwards and impact runs forwards, and why a person can decide a response with the whole picture in front of them instead of assembling it first.',
+  },
+  // Section 3.2's own three-step table. The ontology is the product; the
+  // surfaces below are how a person touches it.
+  sequence: [
+    {
+      num: '01',
+      title: 'They own',
+      body: 'P&IDs, general arrangements, layouts, job cards, SOPs and maintenance history. Complete, and unusable.',
+    },
+    {
+      num: '02',
+      title: 'We build',
+      body: 'The ontology of that plant. Every asset a noun, every action a verb.',
+    },
+    {
+      num: '03',
+      title: 'They get',
+      body: 'Ask it, then walk it. Root cause backwards, impact forwards.',
+    },
+  ],
+  // Appendix A (IQMS) and Appendix B (AI Harness Technology) are both
+  // deliberately absent from this site. Neither is built, neither is in the
+  // funded core of this round, and AI Harness is the engineering backbone
+  // behind the platform rather than something to sell.
+  surfaces: [
+    {
+      num: '01',
+      name: 'Capture',
+      where: 'In the field, on a phone',
+      maturity: 'Designed · funded by this round',
+      description:
+        'Where the record is fed. An artisan, electrician or fitter opens the work order already assigned to them, selects the asset within it, and captures photographs and a spoken note as the work happens rather than writing it up afterwards. The camera verifies the unit against its own record before anything binds to it, and surfaces what it observes, such as visible corrosion, a weeping gland or a damaged guard, as proposals for a person to accept or reject. Never as findings. Hours accrue against the order automatically, because the account already knows whose they are.',
+      bullets: [
+        'Identity comes from the work order',
+        'Observes and proposes, never concludes',
+        'Works with no signal, reconciles on reconnect',
+      ],
+      icon: Camera,
+    },
+    {
+      num: '02',
+      name: 'Walk',
+      where: 'On site or at a desk, in the twin',
+      maturity: 'Demonstrable · synthetic plant, real enforcement',
+      description:
+        'Where the record is used. A navigable model of the site with the ontology bound to it, so history, open deviations, governing procedures and next service dates sit one glance from the asset itself. Geometry derives from the client’s own engineering drawings, not from a site scan. Walk is not only a way of looking at the plant: it is fed by Capture, so every shift that works on an asset updates what that asset shows. That is the answer to the problem that kills most digital twins, which are accurate on the day they are built and quietly wrong six months later.',
+      bullets: [
+        'Geometry from the client’s own drawings',
+        'Kept current by Capture, not by re-survey',
+        'Status shown, condition never inferred',
+      ],
+      icon: ScanEye,
+      modes: [
+        {
+          name: 'Inspect',
+          description:
+            'Select an asset and resolve it to its record: identity, history, open deviations and measurements against their thresholds, each resolving to the document, revision and signatory it came from.',
+        },
+        {
+          name: 'Ask',
+          description:
+            'Question the scene in place. Root cause backwards, impact forwards, and the practical questions a person actually has standing at a machine.',
+        },
+        {
+          name: 'Procedure',
+          description:
+            'Walk a documented procedure where it happens. Isolation and permit-to-work, step by step, scoped to what the person in front of it is competent and cleared to do.',
+        },
+      ],
+      demo: {
+        href: 'https://ipv-demo-psi.vercel.app',
+        label: 'Open the live demo',
+        boundary:
+          'The governance and binding layer is real and enforced server-side. The plant is synthetic and its records are invented. The agent and its retrieval layer are not in the demo.',
+      },
+    },
+  ] as PlatformSurface[],
+}
+
+// Business Plan v3.1 section 3.3. Deliberately NOT a surface on the platform.
+// It is the portfolio's single strongest measured outcome and the only thing
+// currently being paid for, and folding it into the platform would dilute both
+// the platform story and the proof.
+export const contractAnalyst = {
+  name: 'AI Contract Analyst',
+  maturity: 'In client delivery' as PlatformMaturity,
+  lede:
+    'Productised NEC contract review, and the portfolio’s single strongest measured outcome.',
+  description:
+    'More than 100 pre-built analytical modules cut contract review from 15-20 hours to 3-5 hours per document, with risk categorised across eight defined categories. It runs against NEC3 and NEC4 across the contract lifecycle, and every finding carries the clause it came from.',
+  metrics: [
+    {
+      value: '75-80%',
+      label: 'Review time reduction',
+      detail: 'From 15-20 hours to 3-5 hours per document',
+      emphasis: true,
+    },
+    { value: '100+', label: 'Pre-built analytical modules' },
+    { value: '8', label: 'Defined risk categories' },
+  ],
+  localContent: {
+    title: 'Local-content compliance, automated',
+    description:
+      'A compliance module automates SBD 6.2 declarations, SANS 1286 verification and bill-of-materials provenance. That is the document-and-evidence problem a 70% local-content designation creates for every industrial supplier, and it is a structural advantage rather than a feature: local-content compliance is a jurisdiction-specific document problem that global platform vendors have no commercial reason to solve. It also grows harder, and therefore more valuable to automate, precisely because the rule is enforced.',
+    tags: ['SBD 6.2', 'SANS 1286', 'BoM provenance'],
+  },
+}
 
 export type NovaflowPillar = {
   num: string
@@ -316,7 +425,7 @@ export const novaflow = {
       icon: ScanEye,
       bullets: [
         'Walk plant twin',
-        'BusinessBrain operations intelligence',
+        'NOVACORE operations intelligence',
         'Cited to source records',
       ],
     },
@@ -324,7 +433,7 @@ export const novaflow = {
       num: '03',
       title: 'Compliance and contracts, automated',
       description:
-        'Local-content documentation (SBD 6.2, SANS 1286), bill-of-materials traceability and NEC contract administration. The paperwork that gates public-sector flow work, handled by the AI Contract Analyst and BusinessBrain.',
+        'Local-content documentation (SBD 6.2, SANS 1286), bill-of-materials traceability and NEC contract administration. The paperwork that gates public-sector flow work, handled by the AI Contract Analyst and NOVACORE.',
       icon: FileSearch,
       bullets: ['SBD 6.2 declarations', 'SANS 1286 verification', 'NEC3 / NEC4 administration'],
     },
@@ -519,47 +628,47 @@ export const values = [
   },
 ] as const
 
-export type BusinessBrainCapability = {
+export type PlatformCapability = {
   num: string
   title: string
   description: string
   icon: LucideIcon
 }
 
-export const businessBrainCapabilities: BusinessBrainCapability[] = [
+export const platformCapabilities: PlatformCapability[] = [
   {
     num: '01',
-    title: 'Property-graph backbone',
+    title: 'The ontology, as a graph',
     description:
-      'Entities (Contract, Vendor, Invoice, Person, Site) and relationships (SIGNED_BY, DEPENDS_ON, ASSIGNED_TO) - with provenance tuples on every node and edge.',
+      'Every asset, contract, person, procedure and site is a node, and every relationship between them is stated rather than inferred: signed by, depends on, assigned to, governed by. Provenance travels on every node and every edge.',
     icon: Network,
   },
   {
     num: '02',
-    title: 'Hybrid graph + vector retrieval',
+    title: 'Retrieval that traverses, not guesses',
     description:
-      'Graph narrows the candidate space via subgraph-match; pgvector re-ranks attached text. Citations point to nodes, not chunks.',
+      'The map narrows the candidate space by structure before any text is read, and attached documents are ranked within it. Citations point at records rather than at paragraphs, which is what makes an answer checkable instead of merely plausible.',
     icon: GitBranch,
   },
   {
     num: '03',
-    title: 'Tool-using agent constellation',
+    title: 'Agents that plan, retrieve and propose',
     description:
-      'Coordinator with planner, retrieval, reflector, and action-proposer agents on the Claude Agent SDK. LangGraph and CrewAI as portable fallbacks.',
+      'A coordinator working with planning, retrieval, review and action-proposing agents. Every one of them proposes and none of them commits. The model layer is deliberately replaceable: the commitment is to the behaviour, not to a vendor.',
     icon: Brain,
   },
   {
     num: '04',
-    title: 'Skills - codified SOPs',
+    title: 'Skills: your procedures, codified',
     description:
-      'Versioned, client-owned artefacts that capture how this client runs AR follow-ups, contractor onboarding, monthly management packs.',
+      'Versioned artefacts capturing how this operation actually runs a task, rather than how a manual says it should. They are owned by the client and they leave with the client.',
     icon: Workflow,
   },
   {
     num: '05',
-    title: 'MCP integration fleet',
+    title: 'A typed integration seam',
     description:
-      'Per-source MCP servers (ms-graph, object-store, sql-readonly, pg, graph) - each holding only its own scoped credentials. Replace v2 with v3 without touching agent logic.',
+      'One scoped connector per source system, each holding only the credentials for its own source, over mutual TLS. Nothing holds a master key to everything, so a compromise is bounded by design, and a source can be replaced without touching agent logic.',
     icon: Database,
   },
   {
@@ -573,7 +682,7 @@ export const businessBrainCapabilities: BusinessBrainCapability[] = [
     num: '07',
     title: 'Provenance & audit substrate',
     description:
-      'Every inference carries source_uri, source_version, extracted_at, extractor_hash, confidence. Every tool call is logged.',
+      'Every inference carries the source it came from, the version of that source, when it was read and how confident the system is. Every tool call is logged. Nothing asserts itself without a chain back to a record.',
     icon: Eye,
   },
   {
@@ -585,30 +694,8 @@ export const businessBrainCapabilities: BusinessBrainCapability[] = [
   },
 ]
 
-export const businessBrainTiers = [
-  {
-    label: 'Reasoning tier',
-    sub: 'Chat surface · agent constellation',
-    detail: 'Claude Agent SDK · planner · retrieval · reflector · action-proposer',
-  },
-  {
-    label: 'Graph & provenance substrate',
-    sub: 'Persistent shared memory',
-    detail: 'Neo4j AuraDB property graph · pgvector · audit log',
-  },
-  {
-    label: 'MCP integration seam',
-    sub: 'Typed tool surfaces · mTLS · scoped tokens',
-    detail: 'ms-graph · object-store · sql-readonly · pg-readonly · pg-write · graph',
-  },
-  {
-    label: 'Authoritative sources',
-    sub: 'Source systems remain truth',
-    detail: 'Microsoft Graph · Google Cloud Storage · Postgres · client LOB databases',
-  },
-] as const
 
-export const businessBrainQuotes = [
+export const platformQuotes = [
   '"We are building an institutional-memory substrate, not an autonomous agent. The graph is the memory. The agents are the interface. MCP is the integration seam."',
   '"We build systems of insight, never systems of record."',
   '"An emerging-market industrial base is not a discount version of the US market."',
@@ -743,11 +830,14 @@ export const governancePillars = [
 // Ordered manifest for the home-page narrative. The "NN / Label" eyebrows are
 // derived from this, so inserting or reordering a section renumbers the whole
 // page automatically instead of by hand.
+// Order here MUST match the render order in pages/Home.tsx: the eyebrow numbers
+// are derived from this array, so a mismatch numbers the page out of sequence.
 export const homeSections = [
-  { id: 'about', label: 'Who we are' },
-  { id: 'services', label: 'What we do' },
-  { id: 'integrations', label: 'Built on what you have' },
   { id: 'platforms', label: 'What we build' },
+  { id: 'contract-analyst', label: 'In client delivery' },
+  { id: 'services', label: 'What we do' },
+  { id: 'about', label: 'Who we are' },
+  { id: 'integrations', label: 'Built on what you have' },
   { id: 'novaflow', label: 'Flow assets' },
   { id: 'cases', label: 'Proven outcomes' },
   { id: 'team', label: 'Our team' },
@@ -792,7 +882,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'What technology does NOVATEK build on?',
-    a: 'Tool-using agent constellations on the Claude Agent SDK, with LangGraph and CrewAI as portable fallbacks, a Neo4j property-graph backbone with pgvector retrieval, and a Model Context Protocol integration fleet over Microsoft 365, Google Cloud and Postgres. Every inference carries a citation chain to an authoritative source record.',
+    a: 'We commit to behaviour rather than to a vendor. The ontology of the operation is held as a property graph; retrieval traverses that structure before any text is read; a constellation of agents plans, retrieves and proposes, and none of them commits; and every source system is reached through its own scoped connector rather than one master key. Every inference carries a citation chain back to an authoritative source record, and every write passes a human confirmation gate. The components underneath are deliberately replaceable, and naming one of them as the identity of the product would be a mistake.',
   },
 ]
 
@@ -806,9 +896,9 @@ export type NavLink = {
 // `kind` is load-bearing, not decorative: Nav and Footer previously templated
 // every href as `/${href}`, which mangles a real route path.
 export const navLinks: readonly NavLink[] = [
-  { label: 'About', href: '#about', kind: 'anchor' },
+  { label: 'Platform', href: '#platforms', kind: 'anchor' },
   { label: 'Services', href: '#services', kind: 'anchor' },
-  { label: 'Platforms', href: '#platforms', kind: 'anchor' },
+  { label: 'About', href: '#about', kind: 'anchor' },
   // NOVAFLOW is deliberately absent while /novaflow is a placeholder. The
   // homepage section is still reachable at #novaflow via the section rail.
   // Restore this entry when the brief is rebuilt - see archive/novaflow-page.
@@ -829,8 +919,7 @@ export const tickerKeywords = [
   'B-BBEE Level 1',
   'Local content compliance',
   'ISO 9001:2026 ready',
-  'BusinessBrain',
-  'IQMS',
+  'NOVACORE',
   'Plant digital twin',
   'NOVAFLOW',
 ] as const

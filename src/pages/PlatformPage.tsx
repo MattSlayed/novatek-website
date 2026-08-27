@@ -4,24 +4,20 @@ import { ArrowLeft, Quote } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { LinkButton } from '@/components/ui/Button'
-import { BusinessBrainOrbit } from '@/sections/visuals/BusinessBrainOrbit'
-import {
-  businessBrainCapabilities,
-  businessBrainTiers,
-  businessBrainQuotes,
-} from '@/data/site'
+import { PlatformOrbit } from '@/sections/visuals/PlatformOrbit'
+import { platformCapabilities, platform, platformQuotes } from '@/data/site'
 import { fadeUp, fadeUpStagger, viewport, wordReveal } from '@/lib/motion'
 import { Seo } from '@/components/Seo'
 
 const headline = ['Institutional', 'memory.', 'Engineered.']
 
-export function BusinessBrainPage() {
+export function PlatformPage() {
   return (
     <>
       <Seo
-        title="BusinessBrain - Institutional Memory, Engineered | NOVATEK®"
-        description="BusinessBrain: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, Google Cloud and Postgres systems."
-        path="/businessbrain"
+        title="NOVACORE - Institutional Memory, Engineered | NOVATEK®"
+        description="NOVACORE: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, Google Cloud and Postgres systems."
+        path="/platform"
       />
       {/* Hero */}
       <section className="relative isolate overflow-hidden pt-28 pb-[clamp(4rem,2rem+8vw,8rem)] md:pt-36 bg-gradient-to-b from-slate-50 via-white to-white">
@@ -53,7 +49,7 @@ export function BusinessBrainPage() {
                 transition={{ duration: 0.4 }}
                 className="eyebrow"
               >
-                BusinessBrain · Feasibility Review v1.4
+                NOVACORE · The platform
               </motion.span>
 
               <h1 className="text-display font-semibold text-navy-500 tracking-tight">
@@ -108,7 +104,7 @@ export function BusinessBrainPage() {
             </div>
 
             <div className="lg:col-span-5 relative">
-              <BusinessBrainOrbit />
+              <PlatformOrbit />
             </div>
           </div>
         </Container>
@@ -157,7 +153,13 @@ export function BusinessBrainPage() {
         </Container>
       </Section>
 
-      {/* Architecture tiers */}
+      {/* How the map is built. This replaced a four-tier table that named
+          Claude Agent SDK, Neo4j, pgvector, the MCP server list, Microsoft
+          Graph and Google Cloud Storage. Business Plan v3.1 s4 describes
+          commitments rather than implementations, on the reasoning that
+          naming a particular store as an identity is a mistake. A buyer does
+          not choose between graph databases, and the table dated the moment
+          any one component changed. */}
       <Section id="architecture" tone="inverse">
         <Container size="wide">
           <motion.div
@@ -165,47 +167,70 @@ export function BusinessBrainPage() {
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
-            className="grid gap-12 lg:grid-cols-12"
+            className="flex flex-col"
           >
-            <div className="lg:col-span-5">
-              <motion.span variants={fadeUp} className="eyebrow text-cobalt-400">
-                Architecture
-              </motion.span>
-              <motion.h2 variants={fadeUp} className="text-h2 text-white mt-3">
-                Four tiers.{' '}
-                <span className="italic font-light text-white/65">
-                  Provenance is the vertical concern.
-                </span>
-              </motion.h2>
-              <motion.p variants={fadeUp} className="mt-5 text-body-lg text-white/75 leading-relaxed">
-                The reader's eye moves downward - chat surface to agents to graph substrate to MCP
-                seam to authoritative sources. Reads traverse freely. Writes always pass through
-                the human confirmation gate.
-              </motion.p>
-            </div>
+            <motion.span variants={fadeUp} className="eyebrow text-cobalt-400">
+              Architecture
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="text-h2 text-white mt-3 max-w-3xl">
+              {platform.mechanism.title.split(', and')[0]}.{' '}
+              <span className="italic font-light text-white/65">
+                And why it answers.
+              </span>
+            </motion.h2>
 
             <motion.ol
               variants={fadeUp}
-              className="lg:col-span-7 flex flex-col rounded-lg overflow-hidden border border-white/10 bg-white/[0.03]"
+              className="mt-10 grid gap-px bg-white/10 border border-white/10 rounded-lg overflow-hidden sm:grid-cols-3"
             >
-              {businessBrainTiers.map((tier, i) => (
-                <li
-                  key={tier.label}
-                  className="grid grid-cols-[auto_1fr] gap-5 p-6 border-b border-white/5 last:border-b-0"
-                >
-                  <span className="taxonomy-num text-cobalt-400 mt-1">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-h4 text-white">{tier.label}</span>
-                    <span className="text-sm text-white/65">{tier.sub}</span>
-                    <span className="text-xs text-white/45 font-mono mt-1">
-                      {tier.detail}
-                    </span>
-                  </div>
+              {platform.sequence.map((step) => (
+                <li key={step.num} className="bg-navy-500 p-6 flex flex-col gap-2">
+                  <span className="taxonomy-num text-cobalt-400">{step.num}</span>
+                  <span className="text-h4 text-white">{step.title}</span>
+                  <p className="text-sm text-white/70 leading-relaxed">{step.body}</p>
                 </li>
               ))}
             </motion.ol>
+
+            <motion.div
+              variants={fadeUp}
+              className="mt-6 flex flex-col gap-px bg-white/10 border border-white/10 rounded-lg overflow-hidden"
+            >
+              {platform.stack.tiers.map((tier) => (
+                <div
+                  key={tier.label}
+                  className="bg-navy-500 p-5 md:p-6 grid gap-2 md:grid-cols-12 md:items-center"
+                >
+                  <div className="md:col-span-3 flex flex-col">
+                    <span className="eyebrow text-cobalt-400">{tier.label}</span>
+                    <span className="text-xs text-white/55">{tier.note}</span>
+                  </div>
+                  <ul className="md:col-span-9 flex flex-wrap gap-2">
+                    {tier.items.map((it) => (
+                      <li
+                        key={it}
+                        className="text-xs font-mono tracking-[0.04em] text-white/80 bg-white/[0.06] border border-white/10 px-3 py-1.5 rounded-sharp"
+                      >
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.p variants={fadeUp} className="mt-4 text-sm italic text-white/60">
+              {platform.stack.caption}
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="mt-10 grid gap-6 lg:grid-cols-2">
+              <p className="text-body-lg text-white/75 leading-relaxed">
+                {platform.mechanism.body}
+              </p>
+              <p className="text-body-lg text-white/75 leading-relaxed">
+                {platform.mechanism.graphRag}
+              </p>
+            </motion.div>
           </motion.div>
         </Container>
       </Section>
@@ -238,7 +263,7 @@ export function BusinessBrainPage() {
             viewport={viewport}
             className="grid gap-px bg-slate-200 border border-slate-200 rounded-lg overflow-hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {businessBrainCapabilities.map((cap) => (
+            {platformCapabilities.map((cap) => (
               <motion.div
                 key={cap.num}
                 variants={fadeUp}
@@ -268,7 +293,7 @@ export function BusinessBrainPage() {
             viewport={viewport}
             className="flex flex-col gap-8"
           >
-            {businessBrainQuotes.map((q) => (
+            {platformQuotes.map((q) => (
               <motion.figure
                 key={q}
                 variants={fadeUp}
@@ -317,7 +342,7 @@ export function BusinessBrainPage() {
                     'Data residency by jurisdiction: client data stored in-country, routine processing in-region, and any cross-border inference for frontier models disclosed explicitly. South Africa today, under POPIA; the same pattern applies wherever the rules do',
                     'Load-shedding-resilient by design - degraded-mode is an operating assumption',
                     'Human Confirmation Gate is permanent, not a temporary scaffold',
-                    'Source systems remain authoritative - BusinessBrain reads and proposes, never the truth',
+                    'Source systems remain authoritative - NOVACORE reads and proposes, never the truth',
                   ],
                 },
                 {
@@ -367,7 +392,7 @@ export function BusinessBrainPage() {
             <div className="flex flex-col gap-2">
               <span className="eyebrow">Pilot enquiries</span>
               <h3 className="text-h3 text-navy-500">
-                Ready to scope a BusinessBrain pilot for your enterprise?
+                Ready to scope a NOVACORE pilot for your enterprise?
               </h3>
               <p className="text-sm text-charcoal/75 max-w-xl">
                 We start with a one-week feasibility scan against your real sources and constraints.
