@@ -33,6 +33,8 @@ import {
   BarChart3,
   FileSpreadsheet,
   Plug,
+  Handshake,
+  Award,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -842,6 +844,7 @@ export const homeSections = [
   { id: 'cases', label: 'Proven outcomes' },
   { id: 'team', label: 'Our team' },
   { id: 'compliance', label: 'Governance' },
+  { id: 'partners', label: 'Partners & associations' },
   { id: 'faq', label: 'Common questions' },
   { id: 'contact', label: 'Contact' },
 ] as const
@@ -904,6 +907,7 @@ export const navLinks: readonly NavLink[] = [
   // Restore this entry when the brief is rebuilt - see archive/novaflow-page.
   { label: 'Case studies', href: '#cases', kind: 'anchor' },
   { label: 'Compliance', href: '#compliance', kind: 'anchor' },
+  { label: 'Partners & Associations', href: '/partners', kind: 'route' },
 ] as const
 
 export const tickerKeywords = [
@@ -984,4 +988,52 @@ export const integrations: IntegrationCategory[] = [
 
 export const integrationsQuote =
   '"Your source systems stay the source of truth. We build a layer on top - one that reads them, learns from them, and proposes. Never replaces."'
+
+export type Partner = {
+  slug: string
+  name: string
+  category: string
+  summary: string
+  description: string
+  href: string
+  icon: LucideIcon
+  /** '/logos/<slug>.svg' once a rights-clear asset is sourced; falls back to a monogram badge until then. */
+  logo?: string
+}
+
+export const partners: Partner[] = [
+  {
+    slug: 'liquidc2',
+    name: 'LiquidC2',
+    category: 'Strategic channel partner',
+    summary: 'Cloud and cyber-security infrastructure across Africa, from a Cassava Technologies business.',
+    description:
+      'LiquidC2 is Cassava Technologies’ cloud and cyber-security arm, operating Africa’s first Google Cloud Partner Experience Centre in Johannesburg. The strategic channel relationship gives NOVATEK engagements a route to enterprise-grade hosting, network and security infrastructure without carrying that build-out in-house - consistent with our own commitment to jurisdiction-appropriate data residency.',
+    href: 'https://liquidc2.com/',
+    icon: Handshake,
+    logo: '/logos/liquidc2.svg',
+  },
+  {
+    slug: 'saaia',
+    name: 'SAAIA',
+    category: 'Industry association',
+    summary: 'Member of the South African Artificial Intelligence Association.',
+    description:
+      'The South African Artificial Intelligence Association (SAAIA) unites practitioners across commercial, government, academic, startup and NGO sectors to advance responsible AI in South Africa. NOVATEK’s membership keeps our platform and delivery practice aligned with the country’s evolving AI governance conversation, not built in isolation from it.',
+    href: 'https://saaiassociation.co.za/',
+    icon: Award,
+    logo: '/logos/saaia.png',
+  },
+  {
+    slug: 'wits-crucible',
+    name: 'Wits Crucible',
+    category: 'Talent & innovation partner',
+    summary: 'Graduate pipeline from the University of the Witwatersrand’s Centre for Entrepreneurship.',
+    description:
+      'Wits Crucible Centre for Entrepreneurship, based at 47 Main Street in Johannesburg’s CBD, turns university research into market-ready ventures and trains the next generation of technology-enabled entrepreneurs. It feeds NOVATEK’s junior-engineering bench, letting delivery capacity scale with engagement demand without the overhead of a large permanent team.',
+    href: 'https://witscrucible.org/',
+    icon: GraduationCap,
+    logo: '/logos/wits-crucible.png',
+  },
+]
 
