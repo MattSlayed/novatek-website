@@ -289,7 +289,7 @@ export const platform = {
       where: 'In the field, on a phone',
       maturity: 'Designed · funded by this round',
       description:
-        'Where the record is fed. An artisan, electrician or fitter opens the work order already assigned to them, selects the asset within it, and captures photographs and a spoken note as the work happens rather than writing it up afterwards. The camera verifies the unit against its own record before anything binds to it, and surfaces what it observes, such as visible corrosion, a weeping gland or a damaged guard, as proposals for a person to accept or reject. Never as findings. Hours accrue against the order automatically, because the account already knows whose they are.',
+        'Where the record is fed. Fitters capture photos and a voice note against their assigned work order as the job happens. The camera checks the unit against its record and flags what it sees, such as corrosion or a weeping gland, as proposals for a person to accept or reject. Hours log automatically.',
       bullets: [
         'Identity comes from the work order',
         'Observes and proposes, never concludes',
@@ -303,7 +303,7 @@ export const platform = {
       where: 'On site or at a desk, in the twin',
       maturity: 'Demonstrable · synthetic plant, real enforcement',
       description:
-        'Where the record is used. A navigable model of the site with the ontology bound to it, so history, open deviations, governing procedures and next service dates sit one glance from the asset itself. Geometry derives from the client’s own engineering drawings, not from a site scan. Walk is not only a way of looking at the plant: it is fed by Capture, so every shift that works on an asset updates what that asset shows. That is the answer to the problem that kills most digital twins, which are accurate on the day they are built and quietly wrong six months later.',
+        'Where the record is used. A navigable model of the site with history, open deviations, procedures and next service dates one glance from each asset. It is fed by Capture, so it stays accurate long after the day it was built.',
       bullets: [
         'Geometry from the client’s own drawings',
         'Kept current by Capture, not by re-survey',
@@ -314,17 +314,17 @@ export const platform = {
         {
           name: 'Inspect',
           description:
-            'Select an asset and resolve it to its record: identity, history, open deviations and measurements against their thresholds, each resolving to the document, revision and signatory it came from.',
+            'Select an asset to see its identity, history, open deviations and measurements, each traced to its source document, revision and signatory.',
         },
         {
           name: 'Ask',
           description:
-            'Question the scene in place. Root cause backwards, impact forwards, and the practical questions a person actually has standing at a machine.',
+            'Question the scene in place: root cause backwards, impact forwards.',
         },
         {
           name: 'Procedure',
           description:
-            'Walk a documented procedure where it happens. Isolation and permit-to-work, step by step, scoped to what the person in front of it is competent and cleared to do.',
+            'Step through isolation and permit-to-work where it happens, scoped to what the person is cleared to do.',
         },
       ],
       demo: {
