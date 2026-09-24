@@ -47,9 +47,9 @@ export function PartnersPage() {
               <span className="italic font-light text-cobalt-600">network.</span>
             </h1>
             <p className="mt-6 text-body-lg text-charcoal/85 leading-relaxed">
-              We don&rsquo;t collect logos. Each relationship below exists for a specific reason -
-              infrastructure, governance alignment or talent - and each is named here because it
-              is the same relationship we describe in our business plan and to every funder.
+              These are our esteemed partners in building a more intelligently augmented
+              society - each chosen for a specific reason: infrastructure, governance alignment
+              or talent.
             </p>
           </motion.div>
         </Container>
