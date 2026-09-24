@@ -29,9 +29,9 @@ export function About() {
               className="group flex w-full items-start gap-3 text-left text-body-lg font-medium text-cobalt-600 transition-colors hover:text-cobalt-700 focus-visible:outline-none focus-visible:text-cobalt-700"
             >
               <span className="flex-1">
-                A Johannesburg-based AI and operations-intelligence consultancy, working with
-                industrial enterprises of 50 to 500 employees across power generation,
-                heavy engineering, mining services and fabrication.
+                A Johannesburg-based AI and operations-intelligence implementation company,
+                building working systems for industrial enterprises of 50 to 500 employees
+                across power generation, heavy engineering, mining services and fabrication.
               </span>
               <ChevronDown
                 aria-hidden="true"
@@ -55,9 +55,10 @@ export function About() {
                       We help operations teams make better decisions with the data they already
                       have. That means AI tools that read contracts, dashboards that surface real
                       risks, and automation that takes the busywork off your plate. Large
-                      consultancies price the industrial mid-market out; technology agencies lack
+                      advisory firms price the industrial mid-market out; technology agencies lack
                       the domain knowledge industrial operations demand. We sit in that gap, and we
-                      implement the work ourselves.
+                      implement the work ourselves. Every engagement starts with advisory - a
+                      readiness review and a roadmap - and ends with something built and running.
                     </p>
                     <p>
                       Every system we build keeps a person in the loop - no black-box AI making

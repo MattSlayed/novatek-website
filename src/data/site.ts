@@ -106,7 +106,7 @@ export type Service = {
   bullets: string[]
 }
 
-// The six consulting pillars fixed by Business Plan v3.0 section 3.1.
+// The six service pillars fixed by Business Plan v3.0 section 3.1.
 // "Business Process Enhancement" (added deliberately in 8448dfd) and "Strategic
 // Advisory" are not deleted, they are folded into the pillars that carry them:
 // the baseline-intervene-measure method lives in Operations Intelligence and in
@@ -404,7 +404,7 @@ export const novaflow = {
   structure: [
     'An internal division of NOVATEK, not a separate company and not a joint venture.',
     'Led by a divisional head with more than 45 years in rotating equipment, not by the founder.',
-    'Self-funded from the consulting business, and deliberately stoppable.',
+    'Self-funded from NOVATEK’s client delivery, and deliberately stoppable.',
   ],
   pillars: [
     {

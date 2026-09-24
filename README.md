@@ -1,6 +1,6 @@
 # NOVATEK Website
 
-Marketing site for **NOVATEK&reg; LLC** - a South African AI and data consultancy. Built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion. Deploys to Cloudflare Workers (static assets) via GitHub.
+Marketing site for **NOVATEK&reg; LLC** - a South African AI and operations-intelligence implementation company. Built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion. Deploys to Cloudflare Workers (static assets) via GitHub.
 
 ## Stack
 
