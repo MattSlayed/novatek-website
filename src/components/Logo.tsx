@@ -140,14 +140,12 @@ function NovaTek({ variant }: { variant: Variant }) {
     return (
       <span className="text-white">
         NOVA<span className="text-white">TEK</span>
-        <sup className="ml-0.5 text-[0.55em] font-light text-white/60">®</sup>
       </span>
     )
   }
   return (
     <span className="text-navy-500">
       NOVA<span className="text-cobalt-600">TEK</span>
-      <sup className="ml-0.5 text-[0.55em] font-light text-slate-400">®</sup>
     </span>
   )
 }

@@ -15,7 +15,7 @@ export function PlatformPage() {
   return (
     <>
       <Seo
-        title="NOVACORE - Institutional Memory, Engineered | NOVATEK®"
+        title="NOVACORE - Institutional Memory, Engineered | NOVATEK"
         description="NOVACORE: an institutional-memory platform for SA mid-market enterprise - a graph-and-agent retrieval layer over your M365, Google Cloud and Postgres systems."
         path="/platform"
       />
