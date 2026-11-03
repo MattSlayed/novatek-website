@@ -184,7 +184,7 @@ export function PlatformOrbit() {
                 className="fill-charcoal"
                 fontSize="11"
                 fontWeight={500}
-                fontFamily="JetBrains Mono, ui-monospace, monospace"
+                fontFamily="Martian Mono, ui-monospace, monospace"
                 style={{ letterSpacing: '0.08em', textTransform: 'uppercase' }}
               >
                 {s.label}

@@ -47,7 +47,7 @@ export function Contact() {
                 <span className="text-micro font-mono uppercase tracking-[0.14em] text-charcoal/60">
                   Email us
                 </span>
-                <span className="inline-flex flex-wrap items-center gap-2 text-h2 font-semibold text-navy-500 tracking-tight transition-colors group-hover:text-cobalt-600 break-all">
+                <span className="inline-flex flex-wrap items-center gap-2 font-display text-h2 text-navy-500 tracking-tight transition-colors group-hover:text-cobalt-600 break-all">
                   {company.email}
                   <ArrowUpRight
                     className="h-6 w-6 shrink-0 text-cobalt-600 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

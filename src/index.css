@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Michroma';
+  src: url('./assets/fonts/Michroma-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('./assets/fonts/HankenGrotesk-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Pinned to wdth 75: the same 0.6em advance as the mono it replaced, so labels keep their widths. */
+@font-face {
+  font-family: 'Martian Mono';
+  src: url('./assets/fonts/MartianMono-Variable.woff2') format('woff2');
+  font-weight: 100 800;
+  font-stretch: 75%;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --brand-navy: #1e3a5f;
@@ -20,6 +43,8 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
+    /* Michroma has one weight and no italic; never let the browser fake either. */
+    font-synthesis: none;
   }
 
   body {
@@ -43,7 +68,8 @@
   /* Headings inherit navy */
   h1, h2, h3, h4, h5, h6 {
     color: theme('colors.navy.500');
-    font-weight: 600;
+    font-family: theme('fontFamily.display');
+    font-weight: 400;
   }
 
   /* Focus rings - never remove, only restyle */

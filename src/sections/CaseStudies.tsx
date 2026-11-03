@@ -31,7 +31,7 @@ export function CaseStudies() {
             >
               <dt className="sr-only">{p.label}</dt>
               <dd className="flex flex-col gap-1">
-                <span className="text-h2 font-semibold text-navy-500 tabular-numerals leading-none">
+                <span className="font-display text-h2 text-navy-500 tabular-numerals leading-none">
                   {p.value}
                 </span>
                 <span className="text-sm font-medium text-charcoal">{p.label}</span>
@@ -80,8 +80,8 @@ export function CaseStudies() {
                       <div
                         className={
                           m.emphasis
-                            ? 'tabular-numerals text-4xl md:text-5xl font-semibold text-cobalt-600 tracking-tight'
-                            : 'tabular-numerals text-2xl font-semibold text-navy-500'
+                            ? 'font-display tabular-numerals text-3xl md:text-4xl text-cobalt-600 tracking-tight'
+                            : 'font-display tabular-numerals text-xl text-navy-500'
                         }
                       >
                         {m.value}
