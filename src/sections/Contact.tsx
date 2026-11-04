@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { Phone, MapPin, ArrowUpRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
@@ -94,7 +95,11 @@ export function Contact() {
               <p className="text-xs text-slate-500 leading-relaxed">
                 We respond within one working day. Tell us the operation, the constraint and what
                 you need to decide, and we'll come back with a scoped view of what is achievable.
-                POPIA-compliant - this site collects and stores no data.
+                This site has no forms, cookies or analytics. See our{' '}
+                <Link to="/privacy" className="underline hover:text-cobalt-600 transition-colors">
+                  Privacy Policy
+                </Link>
+                .
               </p>
             </div>
           </motion.div>
