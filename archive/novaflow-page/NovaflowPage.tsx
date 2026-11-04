@@ -15,7 +15,7 @@ export function NovaflowPage() {
   return (
     <>
       <Seo
-        title="NOVAFLOW by NOVATEK® - Pump and Valve Reliability, Proven with Data"
+        title="NOVAFLOW by NOVATEK - Pump and Valve Reliability, Proven with Data"
         description="NOVAFLOW is NOVATEK's flow-assets division: brand-agnostic service, repair and reliability for pumps and valves, with cross-brand asset intelligence and local-content compliance built in."
         path="/novaflow"
         image="https://www.novatekllc.co.za/og-novaflow.png"

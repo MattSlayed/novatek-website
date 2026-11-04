@@ -1,6 +1,6 @@
 # NOVATEK Website
 
-Marketing site for **NOVATEK&reg; LLC** - a South African AI and operations-intelligence implementation company. Built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion. Deploys to Cloudflare Workers (static assets) via GitHub.
+Marketing site for **NOVATEK LLC** - a South African AI and operations-intelligence implementation company. Built with Vite, React, TypeScript, Tailwind CSS, and Framer Motion. Deploys to Cloudflare Workers (static assets) via GitHub.
 
 ## Stack
 
@@ -104,7 +104,7 @@ Claims that must not appear on this site: the funding requirement and its tiers,
 ## Brand discipline
 
 - **Colors:** `tailwind.config.ts` mirrors `brand.css`. Never use `#000` - use `navy.500` or `charcoal`. Cobalt is an accent, not a fill.
-- **Logo:** `<Logo />` renders the SVG N-mark + wordmark with `gradient | navy | cobalt | white` variants. The `™ ®` symbol is included automatically.
+- **Logo:** `<Logo />` renders the SVG N-mark + wordmark with `gradient | navy | cobalt | white` variants.
 - **Motion:** Restrained - tween + `ease.out` only. No springs. See `src/lib/motion.ts`.
 - **Punctuation:** No em-dashes anywhere in copy or comments. Use a hyphen, or restructure. En-dashes inside numeric ranges (`15-20 hours`) are fine.
 - **Accessibility:** WCAG 2.1 AA. Don't remove focus rings; respect `prefers-reduced-motion`.

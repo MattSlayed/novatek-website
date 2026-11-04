@@ -35,7 +35,7 @@ export type MarginRow = {
 // section 7.4 and OVERRIDE the external strategy artifact, whose Phase 3
 // promised equipment distribution that section 7.4 forbids.
 export const novaflow = {
-  lockup: 'NOVAFLOW by NOVATEK®',
+  lockup: 'NOVAFLOW by NOVATEK',
   byline: 'Intelligent Solutions for Flow Assets',
   summary:
     'Our software is only as defensible as the industrial record it is correct about, and that record cannot be licensed, bought or scraped. It is earned in the workshop. NOVAFLOW is the flow-assets division that earns it: brand-agnostic service, repair, reliability and spares for pumps and valves, with NOVATEK’s intelligence layer built in.',

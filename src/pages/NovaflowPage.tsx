@@ -13,7 +13,7 @@ export function NovaflowPage() {
   return (
     <>
       <Seo
-        title="NOVAFLOW by NOVATEK® - Page Under Development"
+        title="NOVAFLOW by NOVATEK - Page Under Development"
         description="The NOVAFLOW brief is being rebuilt. Check back soon, or get in touch directly about a flow-asset engagement."
         path="/novaflow"
         noindex
@@ -46,7 +46,7 @@ export function NovaflowPage() {
               <Construction className="h-6 w-6" aria-hidden="true" strokeWidth={2} />
             </span>
 
-            <span className="eyebrow">NOVAFLOW by NOVATEK®</span>
+            <span className="eyebrow">NOVAFLOW by NOVATEK</span>
 
             <h1 className="text-h1 text-navy-500 tracking-tight">
               This page is <span className="font-light italic text-cobalt-600">under development.</span>

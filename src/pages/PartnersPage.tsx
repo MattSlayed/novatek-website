@@ -13,7 +13,7 @@ export function PartnersPage() {
   return (
     <>
       <Seo
-        title="Partners & Associations | NOVATEK®"
+        title="Partners & Associations | NOVATEK"
         description="LiquidC2, the South African Artificial Intelligence Association (SAAIA), and Wits Crucible - the network NOVATEK builds infrastructure, governance alignment and talent on."
         path="/partners"
       />
