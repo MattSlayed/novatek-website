@@ -14,11 +14,11 @@ import { PlatformOrbit } from './visuals/PlatformOrbit'
 // positioning, not a stylistic choice.
 //
 // Chunks are staggered word-by-word by wordReveal. Everything from
-// ACCENT_FROM onward renders as the light-italic cobalt tail.
+// ACCENT_FROM onward renders as the cobalt tail.
 // Split per word rather than per phrase: each chunk is an inline-block, so
 // multi-word chunks break atomically and strand short words on their own line.
 const headline = ['The', 'next', 'industrial', 'era.', 'Human-led.', 'AI-amplified.']
-// Derived, not hardcoded. This marks where the light-italic cobalt tail
+// Derived, not hardcoded. This marks where the cobalt tail
 // begins, so it is index-coupled to `headline` above: editing the headline
 // used to shift every index and strand the accent on the wrong word without
 // erroring. If the accent word is ever renamed the whole line changes

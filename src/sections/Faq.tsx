@@ -31,7 +31,7 @@ export function Faq() {
             const isOpen = open === i
             return (
               <motion.div key={f.q} variants={fadeUp} className="border-b border-slate-200">
-                <h3>
+                <h3 className="font-sans">
                   <button
                     type="button"
                     onClick={() => setOpen(isOpen ? null : i)}

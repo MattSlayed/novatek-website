@@ -15,9 +15,10 @@ interface StatProps {
 }
 
 const sizes = {
-  sm: 'text-3xl',
-  md: 'text-4xl md:text-5xl',
-  lg: 'text-5xl md:text-6xl',
+  sm: 'text-2xl',
+  md: 'text-3xl md:text-4xl',
+  // md is the narrow three-column strip, so it drops below the phone size.
+  lg: 'text-3xl md:text-2xl lg:text-4xl',
 }
 
 /** Stat counter with viewport-triggered count-up. Uses ease.out so digits decelerate decisively. */
@@ -79,7 +80,7 @@ export function Stat({
     >
       <div
         className={cn(
-          'tabular-numerals font-semibold tracking-tight text-cobalt-600',
+          'font-display tabular-numerals tracking-tight text-cobalt-600',
           sizes[size],
         )}
       >

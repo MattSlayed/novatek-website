@@ -47,22 +47,18 @@ export default {
         },
       },
       fontFamily: {
-        sans: [
-          'Inter',
-          'Segoe UI',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'system-ui',
-          'sans-serif',
-        ],
-        mono: ['JetBrains Mono', 'Cascadia Code', 'Consolas', 'monospace'],
+        sans: ['Hanken Grotesk', 'Segoe UI', 'system-ui', 'sans-serif'],
+        display: ['Michroma', 'Segoe UI', 'system-ui', 'sans-serif'],
+        mono: ['Martian Mono', 'Cascadia Code', 'Consolas', 'monospace'],
       },
+      // Michroma runs about 0.64em per character, so the display sizes sit well
+      // below what a normal grotesque would carry (brand guidelines section 3).
       fontSize: {
-        display: ['clamp(2.75rem, 1.6rem + 5.7vw, 5.5rem)', { lineHeight: '1.05', letterSpacing: '-0.025em' }],
-        'h1': ['clamp(2.25rem, 1.5rem + 3.7vw, 4rem)', { lineHeight: '1.08', letterSpacing: '-0.02em' }],
-        'h2': ['clamp(1.75rem, 1.3rem + 2.2vw, 2.75rem)', { lineHeight: '1.15', letterSpacing: '-0.015em' }],
-        'h3': ['clamp(1.375rem, 1.15rem + 1.1vw, 1.875rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-        'h4': ['clamp(1.125rem, 1rem + 0.6vw, 1.375rem)', { lineHeight: '1.3' }],
+        display: ['clamp(1.75rem, 1.35rem + 1.9vw, 3rem)', { lineHeight: '1.18', letterSpacing: '-0.01em' }],
+        'h1': ['clamp(1.625rem, 1.3rem + 1.4vw, 2.5rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'h2': ['clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem)', { lineHeight: '1.25' }],
+        'h3': ['clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem)', { lineHeight: '1.3' }],
+        'h4': ['clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem)', { lineHeight: '1.4' }],
         'body-lg': ['clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem)', { lineHeight: '1.6' }],
         'micro': ['0.75rem', { lineHeight: '1.2', letterSpacing: '0.14em' }],
       },

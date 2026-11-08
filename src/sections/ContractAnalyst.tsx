@@ -79,8 +79,8 @@ export function ContractAnalyst() {
                 <span
                   className={
                     m.emphasis
-                      ? 'tabular-numerals text-4xl md:text-5xl font-semibold tracking-tight text-cobalt-600'
-                      : 'tabular-numerals text-3xl font-semibold tracking-tight text-navy-500'
+                      ? 'font-display tabular-numerals text-3xl md:text-4xl tracking-tight text-cobalt-600'
+                      : 'font-display tabular-numerals text-2xl tracking-tight text-navy-500'
                   }
                 >
                   {m.value}

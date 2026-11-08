@@ -110,9 +110,19 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col-reverse gap-4 md:flex-row md:items-center md:justify-between text-xs text-white/50 font-mono uppercase tracking-[0.14em]">
-          <span>
-            © {year} {company.legalName}. Reg. No. {company.registrationNumber}. All rights reserved.
-          </span>
+          <div className="flex flex-col gap-3">
+            <span>
+              © {year} {company.legalName}. Reg. No. {company.registrationNumber}. All rights reserved.
+            </span>
+            <div className="flex flex-wrap gap-5 text-white/70">
+              <Link to="/terms" className="hover:text-cobalt-400 transition-colors">
+                Terms and Conditions
+              </Link>
+              <Link to="/privacy" className="hover:text-cobalt-400 transition-colors">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
           <div className="flex flex-wrap gap-5">
             <span className="inline-flex items-center gap-2">
               <ShieldCheck className="h-3.5 w-3.5 text-cobalt-400" aria-hidden="true" />

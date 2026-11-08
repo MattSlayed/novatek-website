@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { Phone, MapPin, ArrowUpRight } from 'lucide-react'
 import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
@@ -47,7 +48,7 @@ export function Contact() {
                 <span className="text-micro font-mono uppercase tracking-[0.14em] text-charcoal/60">
                   Email us
                 </span>
-                <span className="inline-flex flex-wrap items-center gap-2 text-h2 font-semibold text-navy-500 tracking-tight transition-colors group-hover:text-cobalt-600 break-all">
+                <span className="inline-flex flex-wrap items-center gap-2 font-display text-h2 text-navy-500 tracking-tight transition-colors group-hover:text-cobalt-600 break-all">
                   {company.email}
                   <ArrowUpRight
                     className="h-6 w-6 shrink-0 text-cobalt-600 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -94,7 +95,11 @@ export function Contact() {
               <p className="text-xs text-slate-500 leading-relaxed">
                 We respond within one working day. Tell us the operation, the constraint and what
                 you need to decide, and we'll come back with a scoped view of what is achievable.
-                POPIA-compliant - this site collects and stores no data.
+                This site has no forms, cookies or analytics. See our{' '}
+                <Link to="/privacy" className="underline hover:text-cobalt-600 transition-colors">
+                  Privacy Policy
+                </Link>
+                .
               </p>
             </div>
           </motion.div>
