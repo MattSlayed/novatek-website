@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { CompanyDetails, LegalPage, LegalSection } from '@/components/LegalPage'
 import { Seo } from '@/components/Seo'
+import { company } from '@/data/site'
 
 export function TermsPage() {
   return (
@@ -16,8 +17,8 @@ export function TermsPage() {
       >
         <LegalSection num="01" title="Who we are">
           <p>
-            This site is run by NOVATEK LLC, a technology company based in Johannesburg, South
-            Africa. In these terms, “we” and “NOVATEK” mean NOVATEK LLC.
+            This site is run by {company.legalName}, a technology company based in Johannesburg,
+            South Africa. In these terms, “we” and “NOVATEK” mean {company.legalName}.
           </p>
           <CompanyDetails />
         </LegalSection>
@@ -84,8 +85,8 @@ export function TermsPage() {
 
         <LegalSection num="09" title="Liability">
           <p>
-            We provide the site as it is. As far as the law allows, NOVATEK LLC is not liable for any
-            loss that comes from using the site or relying on what it says.
+            We provide the site as it is. As far as the law allows, {company.legalName} is not liable for
+            any loss that comes from using the site or relying on what it says.
           </p>
           <p>
             Nothing in these terms limits a right you have under the Consumer Protection Act 68 of

@@ -121,6 +121,9 @@ export function Footer() {
               <Link to="/privacy" className="hover:text-cobalt-400 transition-colors">
                 Privacy Policy
               </Link>
+              <Link to="/paia" className="hover:text-cobalt-400 transition-colors">
+                PAIA Manual
+              </Link>
             </div>
           </div>
           <div className="flex flex-wrap gap-5">

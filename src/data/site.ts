@@ -42,6 +42,8 @@ export const company = {
   name: 'NOVATEK',
   legalName: 'NOVATEK LLC (Pty) Ltd',
   registrationNumber: '2025/796748/07',
+  registeredAddress: '1038 Highlands Drive, Sagewood Ext 10, Midrand, Gauteng, 1685',
+  informationOfficer: 'Matthew Koeberg',
   tagline: 'Intelligent Solutions',
   domain: 'www.novatekllc.co.za',
   url: 'https://www.novatekllc.co.za',

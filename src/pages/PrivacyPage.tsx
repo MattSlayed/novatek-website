@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom'
 import { CompanyDetails, LegalPage, LegalSection, Placeholder } from '@/components/LegalPage'
 import { Seo } from '@/components/Seo'
+import { company } from '@/data/site'
 
 // Section 04 is a factual claim about the build. Recheck it if forms, cookies,
 // analytics or third-party scripts are ever added to the site.
@@ -16,15 +18,13 @@ export function PrivacyPage() {
         intro="This site has no forms, no accounts, no cookies and no analytics. We receive personal information in two ways: when you contact us, and through the technical logs our hosting provider keeps. This policy explains both, as the Protection of Personal Information Act 4 of 2013 (POPIA) requires."
       >
         <LegalSection num="01" title="Who is responsible">
-          <p>NOVATEK LLC is the responsible party for the personal information described here.</p>
+          <p>{company.legalName} is the responsible party for the personal information described here.</p>
           <CompanyDetails>
             <dt className="font-medium text-navy-500">Information Officer</dt>
-            <dd>
-              <Placeholder>Information Officer name</Placeholder>
-            </dd>
+            <dd>{company.informationOfficer}</dd>
             <dt className="font-medium text-navy-500">Information Officer email</dt>
             <dd>
-              <Placeholder>Information Officer email</Placeholder>
+              <a href={`mailto:${company.email}`}>{company.email}</a>
             </dd>
           </CompanyDetails>
         </LegalSection>
@@ -96,8 +96,8 @@ export function PrivacyPage() {
               handles the technical information described above.
             </li>
             <li>
-              <strong className="font-medium text-navy-500">Zoho</strong> provides our email, so it
-              holds the messages you send us.
+              <strong className="font-medium text-navy-500">Google Workspace</strong> provides our
+              email, so Google holds the messages you send us.
             </li>
             <li>
               Professional advisers or authorities, if we need to share information with them or the
@@ -108,11 +108,8 @@ export function PrivacyPage() {
 
         <LegalSection num="07" title="Information leaving South Africa">
           <p>
-            Vercel is a United States company, and Zoho operates data centres in several countries,
-            so this information may be processed outside South Africa.
-          </p>
-          <p>
-            Countries involved: <Placeholder>Vercel and Zoho data regions</Placeholder>
+            Vercel and Google are United States companies that operate in several countries, so this
+            information may be processed outside South Africa, including in the United States.
           </p>
           <p>
             Basis for the transfer under POPIA section 72:{' '}
@@ -123,10 +120,15 @@ export function PrivacyPage() {
         <LegalSection num="08" title="How long we keep it">
           <ul>
             <li>
-              Enquiries that do not lead to work: <Placeholder>enquiry retention period</Placeholder>
+              Enquiries that do not lead to work: 12 months after our last contact with you.
             </li>
             <li>
-              Hosting logs: <Placeholder>hosting log retention period</Placeholder>
+              Hosting logs: about 1 hour in our Vercel account. Vercel may keep some records for
+              longer under{' '}
+              <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+                its own privacy policy
+              </a>
+              .
             </li>
           </ul>
           <p>
@@ -152,8 +154,8 @@ export function PrivacyPage() {
             <li>complain to the Information Regulator.</li>
           </ul>
           <p>
-            To use these rights, contact the Information Officer named above. Our manual under the
-            Promotion of Access to Information Act: <Placeholder>PAIA manual link</Placeholder>
+            To use these rights, contact the Information Officer named above. Our{' '}
+            <Link to="/paia">PAIA manual</Link> explains how to request records.
           </p>
           <p>
             You can reach the Information Regulator at{' '}
