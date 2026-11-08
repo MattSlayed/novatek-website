@@ -39,12 +39,10 @@ export function LegalPage({
 
         <div className="mt-8 border-l-2 border-cobalt-600 bg-cobalt-50 p-5 text-sm leading-relaxed text-navy-500">
           <strong className="font-semibold">Draft for legal review.</strong> A lawyer has not yet
-          reviewed this text. Items in [brackets] are still to be filled in by NOVATEK.
+          reviewed this text.
         </div>
 
-        <p className="mt-6 text-sm text-charcoal/70">
-          Effective date: <Placeholder>effective date</Placeholder>
-        </p>
+        <p className="mt-6 text-sm text-charcoal/70">Effective date: 8 November 2026</p>
         <p className="mt-6 text-body-lg text-charcoal/85">{intro}</p>
 
         <div className="mt-12 flex flex-col gap-10">{children}</div>
@@ -77,13 +75,11 @@ export function CompanyDetails({ children }: { children?: ReactNode }) {
   return (
     <dl className="grid gap-x-6 gap-y-2 sm:grid-cols-[12rem_1fr]">
       <dt className="font-medium text-navy-500">Legal name</dt>
-      <dd>NOVATEK LLC</dd>
+      <dd>{company.legalName}</dd>
       <dt className="font-medium text-navy-500">Registration number</dt>
       <dd>{company.registrationNumber}</dd>
       <dt className="font-medium text-navy-500">Registered address</dt>
-      <dd>
-        <Placeholder>registered address</Placeholder>
-      </dd>
+      <dd>{company.registeredAddress}</dd>
       <dt className="font-medium text-navy-500">Email</dt>
       <dd>
         <a href={`mailto:${company.email}`}>{company.email}</a>

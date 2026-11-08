@@ -8,6 +8,7 @@ import { NovaflowPage } from './pages/NovaflowPage'
 import { PartnersPage } from './pages/PartnersPage'
 import { TermsPage } from './pages/TermsPage'
 import { PrivacyPage } from './pages/PrivacyPage'
+import { PaiaPage } from './pages/PaiaPage'
 import { NotFound } from './pages/NotFound'
 
 function ScrollToTopOnRouteChange() {
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/paia" element={<PaiaPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

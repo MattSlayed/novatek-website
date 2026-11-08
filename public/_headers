@@ -38,3 +38,5 @@
   Cache-Control: public, max-age=300, must-revalidate
 /privacy
   Cache-Control: public, max-age=300, must-revalidate
+/paia
+  Cache-Control: public, max-age=300, must-revalidate
